@@ -1,0 +1,98 @@
+/* CORPO */
+html {
+    height: 100%;
+  }
+  
+  body {
+    background: linear-gradient(to bottom, rgba(10, 29, 62, 1) 30%, rgba(80, 206, 255, 1));
+    /*background-image: url(bluebackgroud.gif);*/
+    background-size: cover;
+    margin-right: 6%;
+    margin-left: 6%;
+  }
+  
+  .bloco1 {
+    margin-top: 180px;
+    text-align: center;
+  }
+  
+  /* FONTES */
+  h1 {
+    color: rgb(193, 224, 253);
+    font-family: "Quicksand";
+    word-wrap: break-word;
+    background-clip: text;
+    line-height: normal;
+    padding-top: 20px;
+    font-weight: bold;
+    margin-bottom: 0%;
+    text-align: left;
+    font-size: 30px;
+    max-width: 45%;
+  }
+  
+  h2 {
+    font-family: "Quicksand", sans-serif;
+    color: rgb(193, 224, 253);
+    font-style: normal;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0%;
+    font-size: 25px;
+  }
+  
+  h3 {
+    font-family: "Quicksand", sans-serif;
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 0%;
+  }
+  
+  h4 {
+    background: var(
+      --gradiente-text,
+      linear-gradient(rgba(12, 32, 66, 1), rgba(39, 169, 219, 1))
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: "Quicksand", sans-serif;
+    font-weight: weight;
+    font-style: normal;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 25px;
+  }
+  
+  p {
+    font-family: "Quicksand", sans-serif;
+    font-weight: weight;
+    font-style: normal;
+    color: white;
+    margin: 0%;
+  }
+  
+  /* CAIXAS */
+  .box {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 25px;
+    padding: 25px;
+  }
+  
+  /* BOTÕES */
+  button {
+    /* CAIXA */
+    background: rgb(13, 36, 70);
+    border-radius: 20px;
+    text-align: center;
+    Padding: 15px 60px;
+    font-size: 16px;
+    /* FONTE */
+    font-family: "Quicksand", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+  }

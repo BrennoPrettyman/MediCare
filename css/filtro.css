@@ -1,0 +1,162 @@
+/* CORPO */
+body {
+    background-color: rgba(222, 242, 249, 1);
+    margin-right: 6%;
+    margin-left: 6%;
+}
+
+.bloco1 {
+    text-align: center;
+    justify-content: space-around;
+    display: inline;
+}
+
+/* NAVBAR */
+.navbar {
+    justify-content: space-around;
+    background: linear-gradient(to bottom right,
+            rgba(12, 32, 66, 1),
+            rgba(26, 106, 148, 1),
+            rgba(39, 169, 219, 1));
+    border-radius: 25px;
+    position: fixed;
+    text-align: center;
+    display: flex;
+    padding: 20px;
+    bottom: 3%;
+    right: 6%;
+    left: 6%;
+}
+
+.icon {
+    text-decoration: none;
+    width: 45%;
+}
+
+/* FONTES */
+h1 {
+    background: var(--gradiente-text,
+            linear-gradient(rgba(12, 32, 66, 1), rgba(39, 169, 219, 1)));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: "Quicksand";
+    word-wrap: break-word;
+    background-clip: text;
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 0%;
+    text-align: left;
+    font-size: 30px;
+    max-width: 45%;
+}
+
+h2 {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(10, 29, 62, 1);
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+h3 {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 0%;
+}
+
+p {
+    font-family: "Quicksand", sans-serif;
+    font-weight: weight;
+    font-style: normal;
+    margin: 0%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* BOTÕES */
+.btn, .btn2 {
+    /* CAIXA */ 
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    margin-bottom: 10px; 
+    border-radius: 20px;
+    padding: 15px 0; 
+    border: 0px;
+    width: 100%; 
+    /* FONTE */
+    font-family: "Quicksand", sans-serif;
+    color: rgba(39, 169, 219, 1);
+    text-decoration: none;
+    text-align: center; 
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.btn3 {
+    /* CAIXA */ 
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-color: #f5f5f5;
+    margin-bottom: 10px; 
+    border-radius: 20px;
+    padding: 15px 0; 
+    border: 0px;
+    width: 100%; 
+    /* FONTE */
+    font-family: "Quicksand", sans-serif;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center; 
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn:active,
+.btn:focus {
+    background-color: rgba(13, 36, 70, 1);
+    color: white;
+}
+
+.btn2:active,
+.btn2:focus {
+    background-color: rgba(13, 36, 70, 1);
+    color: white;
+}
+
+.btn3:active,
+.btn3:focus {
+    background-color: rgba(13, 36, 70, 1);
+    color: white;
+}
+
+#motivo {
+    /* CAIXA */
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    margin-bottom: 10px; 
+    border-radius: 20px;
+    padding: 15px 0; 
+    border: 0px;
+    width: 100%; 
+    /* FONTE */
+    font-family: "Quicksand", sans-serif;
+    color: rgba(39, 169, 219, 1);
+    text-decoration: none;
+    text-align: center; 
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#motivo:active,
+#motivo:focus {
+    background-color: rgba(13, 36, 70, 1);
+    color: white;
+}

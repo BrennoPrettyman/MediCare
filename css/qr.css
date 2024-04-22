@@ -1,0 +1,53 @@
+/* CORPO */
+html{
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to bottom, rgba(10, 29, 62, 1) 30%, rgba(80, 206, 255, 1));
+    background-size: cover;
+    margin-right: 6%;
+    margin-left: 6%;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    margin-top: 40px;
+    padding: 45px;
+}
+
+/* FONTES */
+span {
+    font-family: "Quicksand";
+    text-align: center;
+    margin-bottom: 5%;
+    font-weight: bold;
+    color: white;
+    margin-top: 5%;
+}
+
+h1 {
+    font-family: "Quicksand";
+    text-align: center;
+    font-style: normal;
+    margin-bottom: 0%;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+
+p {
+    font-family: "Quicksand";
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+}
+
+a {
+    justify-content: center;
+    display:flex;
+}

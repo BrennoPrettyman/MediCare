@@ -1,0 +1,126 @@
+/* CORPO */
+body {
+    background-color: rgba(240, 240, 240, 1);
+    padding-bottom: 130px;
+    margin-right: 6%;
+    margin-left: 6%;
+}
+
+.bloco1 {
+    text-align: center;
+}
+
+/* NAVBAR */
+.navbar {
+    justify-content: space-around;
+    background: linear-gradient(to bottom right,
+            rgba(12, 32, 66, 1),
+            rgba(26, 106, 148, 1),
+            rgba(39, 169, 219, 1));
+    border-radius: 25px;
+    position: fixed;
+    text-align: center;
+    display: flex;
+    padding: 20px;
+    bottom: 3%;
+    right: 6%;
+    left: 6%;
+}
+
+.icon {
+    text-decoration: none;
+    width: 45%;
+}
+
+/* FONTES */
+h1 {
+    background: var(--gradiente-text,
+            linear-gradient(rgba(12, 32, 66, 1),
+                rgba(39, 169, 219, 1)));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: "Quicksand";
+    word-wrap: break-word;
+    background-clip: text;
+    font-weight: bold;
+    margin-bottom: 0%;
+    text-align: left;
+    font-size: 30px;
+    max-width: 45%;
+}
+
+h2 {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(10, 29, 62, 1);
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+}
+
+h3 {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(39, 169, 219, 1);
+    font-weight: weight;
+    font-style: normal;
+    text-align: start;
+    line-height: 5px;
+}
+
+h4 {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    margin-bottom: px;
+    text-align: start;
+    line-height: 5%;
+}
+
+p {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    margin: 0%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CAIXA */
+.box {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 25px 25px 25px;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.box2 {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.336);
+    justify-content: space-between;
+    margin: 15px 0px 0px 0px;
+    padding: 15px 25px 15px;
+    border-radius: 25px;
+    align-items: center;
+    display: flex;
+}
+
+/* BOTÕES */
+.btn {
+    font-family: "Quicksand", sans-serif;
+    background: rgb(13, 36, 70);
+    padding: 15px 40% 15px 40%;
+    text-decoration: none;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+  
+#GrayClockIcon {
+    margin: 5px 5px 0px 0px;
+    width: 45px; 
+}

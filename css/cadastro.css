@@ -1,0 +1,165 @@
+/* CORPO */
+body {
+    background-color: rgba(240, 240, 240, 1);
+    text-align: center;
+    margin-right: 6%;
+    margin-left: 6%;
+}
+
+.box2 {
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 6%;
+    margin-left: 6%;
+    display: flex;
+}
+
+/* BOTÕES */
+.meuBotao:hover {
+    box-shadow: 0px 0px 10px 0px #0505058a;
+    background: linear-gradient(to bottom,
+            rgba(10, 29, 62, 1),
+            rgba(80, 206, 255, 1));
+    color: #ffffff;
+}
+
+.meuBotao {
+    /* CAIXA */
+    box-shadow: 0px 0px 10px 0px #05050536;
+    background: rgb(233, 233, 233);
+    justify-content: center;
+    border-radius: 20px;
+    padding: 15px 20%;
+    margin: 20px auto;
+    /* FONTE */
+    font-family: "Quicksand";
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    border: none;
+}
+
+/* CAIXAS */
+.form {
+    flex-flow: column;
+    display: flex;
+}
+
+.formRow{
+    flex-flow: row;
+    display: flex;
+}
+
+/* FONTES */
+h1 {
+    background: linear-gradient(to top,
+            rgba(10, 29, 62, 1),
+            rgba(80, 206, 255, 1));
+    -webkit-background-clip: text;
+    font-family: "Quicksand";
+    color: transparent;
+    text-align: center;
+    font-style: normal;
+    margin-bottom: 0%;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h2 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: weight;
+    font-style: normal;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+h3 {
+    font-family: "Quicksand";
+    margin: 0px 6% 0px 0px;
+    text-align: right;
+    font-size: 17px;
+}
+
+span {
+    font-family: "Quicksand";
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    margin: auto;
+}
+
+p {
+    font-family: "Quicksand";
+    text-align: center;
+    font-size: 17px;
+}
+
+a {
+    color: rgb(13, 44, 97);
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.eyeVisible{
+    background-color: transparent;
+    height: 50px;
+    width: 70px;
+}
+
+.aberto{
+    background-image: url('media/openEye.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: 20px; 
+}
+
+.fechado{
+    background-image: url('media/closeEye.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: 20px; 
+}
+
+/* POPUP */
+.black {
+    background-color: rgba(0, 0, 0, 0.5); 
+    -webkit-backdrop-filter: blur(3px); 
+    backdrop-filter: blur(3px);
+    position: fixed;
+    display:none; 
+    height: 100%;
+    z-index: 999;
+    width: 100%;
+    left: 0;
+    top: 0; 
+}
+
+.pop {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.281);
+    background: rgb(255, 255, 255);
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    position: fixed;
+    padding: 20px;
+    border: 0px;
+    left: 50%;
+    top: 50%;
+    /* FONTE */
+    font-family: "Quicksand", sans-serif;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    z-index: 1000;
+    display:none;
+}
+
+.pop.show,
+.black.show {
+    display: block;
+}

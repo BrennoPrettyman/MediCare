@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/motivo.css">
+    <link rel="stylesheet" href="css/icons.css">
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <title>MediCare - Relatório Medico</title>
+</head>
+
+<body>
+    <h1>MediCare</h1>
+    <P>Relatório Médico | Chamado</P>
+    <h2>Andar 01</h2>
+    <h3>Quarto 05 | Leito 02</h3>
+
+    <div class="bloco">
+        <button class="mtvo" onclick="motivo()">Motivo do Chamado</button>
+    </div>
+    <div class="bloco1">
+        <h4>Outro motivo</h4>
+        <input placeholder="Digite aqui" maxlength="15" id="mtvTXT" type="text" class="text">
+        <h5>15 Caracteres Restantes</h5> 
+        <button class="btn" id="enviarBtn">Enviar</button>
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
+
+    <div id="popup" class="popup">
+        <img src="pics/enviado.png" id="send">
+        <h6>Motivo Registrado</h6>
+    </div>       
+
+    <div class="navbar">
+        <a href="relatorio.html"><img src="pics/seta.png" class="icon" id="HomeIcon"></a>
+        <a href="home.html"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
+        <a href="historico.html"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
+        <a href="perfil.html"><img src="pics/perfil.png" class="icon" id="PeopleIcon"> </a>
+    </div>
+    <script src="js/funcoes.js"></script>
+</body>
+
+</html>
