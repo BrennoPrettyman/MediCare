@@ -1,0 +1,150 @@
+/* CORPO */
+html{
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to bottom, rgba(10, 29, 62, 1) 30%, rgba(80, 206, 255, 1));
+    background-size: cover;
+    text-align: center;
+    margin-right: 6%;
+    margin-left: 6%;
+    height: 100%; 
+}
+
+.Bloco01 {
+    margin-top: 160px;
+}
+
+.Bloco02 {
+    margin-top: 110px;
+}
+
+/* BOTÕES */
+.meuBotao:hover {
+    background: linear-gradient(to bottom, rgba(10, 29, 62, 1), rgba(80, 206, 255, 1));
+    box-shadow: 0px 0px 10px 0px #0505058a;
+    color: #ffffff;
+}
+
+.meuBotao {
+    /* CAIXA */
+    box-shadow: 0px 0px 10px 0px #05050536;
+    background: rgba(255, 255, 255, 0.185);
+    justify-content: center;
+    border-radius: 20px;
+    padding: 15px 20%;
+    margin: 20px auto;
+    /* FONTE */
+    color: rgb(255, 255, 255);
+    font-family: "Quicksand";
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    border: none;
+}
+
+/* CAIXAS */
+
+
+/* FONTES */
+span {
+    font-family: "Quicksand";
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+}
+
+h1 {
+    color: white;
+    font-family: "Quicksand";
+    text-align: center;
+    font-style: normal;
+    margin-top: 30px;
+    margin-bottom: 0%;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h2 {
+    color: rgba(203, 237, 255, 1);
+    font-family: "Quicksand";
+    text-align: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+h3 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: weight;
+    font-style: normal;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+p {
+    font-family: "Quicksand";
+    text-align: center;
+    font-size: 17px;
+    color: white;
+}
+
+a {
+    justify-content: center;
+    text-decoration: none;
+    display:flex;
+}
+
+/* POPUP */
+.black {
+    background-color: rgba(0, 0, 0, 0.5); 
+    -webkit-backdrop-filter: blur(3px); 
+    backdrop-filter: blur(3px);
+    position: fixed;
+    display:none; 
+    height: 100%;
+    z-index: 999;
+    width: 100%;
+    left: 0;
+    top: 0; 
+}
+
+.pop {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.281);
+    background: rgb(255, 255, 255);
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    position: fixed;
+    padding: 20px;
+    border: 0px;
+    left: 50%;
+    top: 50%;
+    /* FONTE */
+    font-family: "Quicksand", sans-serif;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    z-index: 1000;
+    display:none;
+}
+
+.pop.show,
+.black.show {
+    display: block;
+}
+
+.form {
+    flex-flow: column;
+    display: flex;
+}
+
+.formRow{
+    flex-flow: row;
+    display: flex;
+}

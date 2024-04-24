@@ -8,7 +8,7 @@ body {
 
 .bloco1 {
    text-align: start;
-   margin-top: 35px;
+   margin-top: 25px;
    display: flex;
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 #acao {
-    margin-top: 210px;
+    margin-top: 255px;
 }
 
 /* NAVBAR */

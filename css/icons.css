@@ -136,7 +136,6 @@
     width: 35px;
 }
 
-
 #volta {
     margin: 30px 0px 0px 0px;
     align-self: flex-start;
@@ -205,7 +204,7 @@
     border-radius: 100%;
     margin-right: 25px;
     padding: 20px;
-    width: 50px;
+    width: 45px;
 }
 
 #iinfo {
@@ -253,6 +252,6 @@
 }
 
 #enf {
-    width: 80px;
+    width: 70px;
     margin-bottom: 0px;
 }

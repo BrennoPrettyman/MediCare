@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stylerecuperar.css">
+    <link rel="stylesheet" href="css/redefinir.css">
     <link rel="stylesheet" href="css/icons.css">
+    <script src="js/senha.js"></script>
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,10 +25,17 @@
         <div class="container form">
             <h2>Redefina sua senha</h2>
             <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p>
-            <span>Crie uma senha</span>
-            <input id="senha" type="password" class="validate">
-            <span>Repita sua senha</span>
-            <input id="senha" type="password" class="validate">
+            
+            <p>Crie uma senha</p>
+            <div class="formRow">
+                <input id="senha" type="password" class="validate" required>
+                <div class="eyeVisible aberto" id="visibleEye"></div>
+            </div>
+            <p>Repita sua senha</p>
+            <div class="formRow">
+                <input id="senhaConfirm" type="password" class="validate" required>
+                <div class="eyeVisible aberto" id="visibleEyeConfirm"></div>
+            </div>
             
             <div class="button">
                 <button class="meuBotao" id="redefinir">Redefinir Senha</button>
