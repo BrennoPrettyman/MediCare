@@ -103,27 +103,6 @@ a {
     font-weight: bold;
 }
 
-
-.eyeVisible{
-    background-color: transparent;
-    height: 50px;
-    width: 70px;
-}
-
-.aberto{
-    background-image: url('media/openEye.png');
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: 20px; 
-}
-
-.fechado{
-    background-image: url('media/closeEye.png');
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: 20px; 
-}
-
 /* POPUP */
 .black {
     background-color: rgba(0, 0, 0, 0.5); 

@@ -103,24 +103,3 @@ img {
     margin-top: 45px;
     width: 110px;
 }
-
-.eyeVisible{
-    background-color: transparent;
-    width: 12.5%;
-    height: 50px;
-    margin: 0% 0% 0% 1%;
-}
-
-.aberto{
-    background-image: url('media/openEye.png');
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: 20px; 
-}
-
-.fechado{
-    background-image: url('media/closeEye.png');
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: 20px; 
-}

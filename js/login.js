@@ -13,6 +13,6 @@ document.addEventListener("submit", (event) => {
         allowed = true; // Temporário
 
         if (allowed == true){
-            window.location.href = "home.html";
+            window.location.href = "qrcodeex.html";
         }
 });

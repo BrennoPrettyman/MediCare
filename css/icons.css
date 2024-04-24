@@ -106,7 +106,7 @@
     background-position: 20px center;
     background-repeat: no-repeat; 
     background-size: 20px; 
-}
+} 
 
 #senha, #senhaConfirm {
     /* CAIXA */
@@ -120,17 +120,17 @@
     border: 2px;
     width: 100%;
     height: 100%;
-    /* TEXTO */
+    /* FONTE */
     font-family: "Quicksand";
     font-weight: bold;
     color: #000000;
     font-size: 16px;
-    /* ICONS */
+    /* ICON */
     background-image: url('media/password.png');
     background-position: 20px center;
     background-repeat: no-repeat; 
     background-size: 20px; 
-}
+} 
 
 #camera {
     width: 35px;
@@ -217,4 +217,42 @@
 #qrcode {
     width: 220px;
     text-align: center;
+}
+
+.eyeVisible {
+    background-color: transparent;
+    height: 0px;
+}
+
+.aberto {
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-image: url('media/see.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    margin: 0px 10px 0px 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    background-size: 25px; 
+    border-radius: 20px;
+    padding: 25px;
+    border: 0px;
+}
+
+.fechado { 
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-image: url('media/dontsee.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    margin: 0px 10px 0px 10px;
+    background-color: #fff;
+    background-size: 25px; 
+    box-sizing: border-box;
+    border-radius: 19px;
+    padding: 25px;
+    border: 0px;
+}
+
+#enf {
+    width: 80px;
+    margin-bottom: 0px;
 }
