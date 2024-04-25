@@ -5,14 +5,14 @@
             rgba(26, 106, 148, 1),
             rgba(39, 169, 219, 1));
     justify-content: space-evenly;
-    padding: 10px 0px 9px 0px;
+    padding: 10px 2% 9px 2%;
     border-radius: 30px;
     text-align: center;
     position: fixed;
     display: flex;
     bottom: 3%;
-    right: 6%;
-    left: 6%;
+    right: 5%;
+    left: 5%;
 }
 
 .icon {

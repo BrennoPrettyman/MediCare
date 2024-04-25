@@ -159,8 +159,8 @@
     background-position: center;
     margin: 0px 10px 0px 10px;
     background-color: #fff;
-    background-size: 25px; 
     box-sizing: border-box;
+    background-size: 25px; 
     border-radius: 19px;
     padding: 25px;
     border: 0px;
@@ -201,9 +201,9 @@
 
 /* NÃO SEI ONDE TA ESSE */
 #BClockIcon{
-    width: 15%;
     justify-content: flex-end;
-    text-align: end ;   
+    text-align: end; 
+    width: 15%;
 }
 
 /* HISTÓRICO */
@@ -239,12 +239,11 @@
 }
 
 #qrcode {
-    width: 220px;
     text-align: center;
+    width: 220px;
 }
 
-
 #enf {
-    width: 70px;
     margin-bottom: 0px;
+    width: 70px;
 }
