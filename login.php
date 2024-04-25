@@ -9,7 +9,7 @@
 
     <script src="js/coren.js"></script>
     <script src="js/senha.js"></script>
-    <script src="js/login.js"></script>
+    <!--<script src="js/login.js"></script>-->
     <script src="js/seta.js"></script>
 
     <!-- Fontes -->
@@ -31,7 +31,7 @@
     </div>
     <img src="css/media/MediCare.png" alt="">
     <div class="Bloco">
-        <form method="post" class="container form">
+        <form method="post" action="qrcodeex.php" class="container form">
             <p>Coren</p>
             <input id="coren" type="text" class="validate" placeholder="___.___" maxlength="7" required>
             <p>Estado</p>
