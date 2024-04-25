@@ -33,29 +33,7 @@ body {
 }
 
 #acao {
-    margin-top: 255px;
-}
-
-/* NAVBAR */
-.navbar {
-    justify-content: space-around;
-    background: linear-gradient(to bottom right,
-            rgba(12, 32, 66, 1),
-            rgba(26, 106, 148, 1),
-            rgba(39, 169, 219, 1));
-    border-radius: 25px;
-    position: fixed;
-    text-align: center;
-    display: flex;
-    padding: 20px;
-    bottom: 3%;
-    right: 6%;
-    left: 6%;
-}
-
-.icon {
-    text-decoration: none;
-    width: 45%;
+    margin-top: 230px;
 }
 
 /* FONTES */

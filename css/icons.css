@@ -161,6 +161,11 @@
     padding:0%;
 }
 
+#HomeIcon {
+    margin: 0px;
+    padding: 0px;
+}
+
 #aicon {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     background-color: white;
