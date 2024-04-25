@@ -1,3 +1,4 @@
+/* FORMS */
 #nome {
     /* CAIXA */
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
@@ -132,10 +133,45 @@
     background-size: 20px; 
 } 
 
+.eyeVisible {
+    background-color: transparent;
+    height: 0px;
+}
+
+.aberto {
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-image: url('media/see.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    margin: 0px 10px 0px 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    background-size: 25px; 
+    border-radius: 20px;
+    padding: 25px;
+    border: 0px;
+}
+
+.fechado { 
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-image: url('media/dontsee.png');
+    background-repeat: no-repeat; 
+    background-position: center;
+    margin: 0px 10px 0px 10px;
+    background-color: #fff;
+    background-size: 25px; 
+    box-sizing: border-box;
+    border-radius: 19px;
+    padding: 25px;
+    border: 0px;
+}                                           
+
+/* QR CODE */
 #camera {
     width: 35px;
 }
 
+/* LOGIN */
 #volta {
     margin: 30px 0px 0px 0px;
     align-self: flex-start;
@@ -153,19 +189,7 @@
     width: 60px;
 }
 
-#icon {
-    background: rgba(0, 0, 0, 0);
-    border-radius: 0px;
-    border: 0px;
-    margin: 0%;
-    padding:0%;
-}
-
-#HomeIcon {
-    margin: 0px;
-    padding: 0px;
-}
-
+/* PERFIL */
 #aicon {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     background-color: white;
@@ -175,21 +199,17 @@
     width: 30px;
 }
 
+/* NÃO SEI ONDE TA ESSE */
 #BClockIcon{
     width: 15%;
     justify-content: flex-end;
     text-align: end ;   
 }
 
+/* HISTÓRICO */
 #SetaBlueGo {
     margin: 5px 5px 0px 0px;
     width: 40px; 
-}
-
-.seta {
-    position: fixed;
-    width: 55px;
-    bottom: 3%
 }
 
 #filtro {
@@ -223,38 +243,6 @@
     text-align: center;
 }
 
-.eyeVisible {
-    background-color: transparent;
-    height: 0px;
-}
-
-.aberto {
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
-    background-image: url('media/see.png');
-    background-repeat: no-repeat; 
-    background-position: center;
-    margin: 0px 10px 0px 10px;
-    background-color: #fff;
-    box-sizing: border-box;
-    background-size: 25px; 
-    border-radius: 20px;
-    padding: 25px;
-    border: 0px;
-}
-
-.fechado { 
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
-    background-image: url('media/dontsee.png');
-    background-repeat: no-repeat; 
-    background-position: center;
-    margin: 0px 10px 0px 10px;
-    background-color: #fff;
-    background-size: 25px; 
-    box-sizing: border-box;
-    border-radius: 19px;
-    padding: 25px;
-    border: 0px;
-}
 
 #enf {
     width: 70px;

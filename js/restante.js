@@ -1,3 +1,4 @@
+// RESTANTE
 var detectReason = false
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // ENVIAR
     document.getElementById("enviarBtn").addEventListener("click", () => {
         if (detectReason == true || document.getElementById("mtvTXT").value.trim().length > 0){
             document.getElementById("overlay").classList.add("show");

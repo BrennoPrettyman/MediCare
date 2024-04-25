@@ -72,24 +72,23 @@ h4 {
 
 h5 {
     font-family: "Quicksand", sans-serif;
-    font-weight: weight;
-    font-style: normal;
+    font-weight: normal;
     margin-bottom: 10px;
     margin-top: 5px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 h6 {
     font-family: "Quicksand", sans-serif;
-    font-weight: weight;
-    font-style: normal;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
     margin: 0%;
 }
 
 p {
     font-family: "Quicksand", sans-serif;
     font-weight: weight;
-    font-style: normal;
     margin: 0%;
 }
 
@@ -120,20 +119,14 @@ a {
     background: rgb(255, 255, 255);
     transform: translate(-50%, -50%);
     border-radius: 20px;
+    text-align: center;
     position: fixed;
+    z-index: 1000;
     padding: 20px;
+    display:none;
     border: 0px;
     left: 50%;
-    top: 50%;
-    /* FONTE */
-    font-family: "Quicksand", sans-serif;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    z-index: 1000;
-    display:none;
+    top: 50%;   
 }
 
 .popup.show,
