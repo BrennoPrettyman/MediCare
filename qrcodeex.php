@@ -25,8 +25,9 @@
         <button class="meuBotao" onclick="window.location.href='home.html'"> <img src="pics/qrcode.jpg" id="qrcode"> </button>
        
     </div>
-
-    <a href="login.html"><img src="css/media/setabranca.png" class="seta"></a>
+    <div class="container anti-container">
+        <a href="login.html"><img src="css/media/setabranca.png"></a>
+    </div>
 </body>
 
 </html>

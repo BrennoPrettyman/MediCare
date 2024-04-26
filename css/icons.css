@@ -172,6 +172,7 @@
 }
 
 /* LOGIN */
+
 #volta {
     margin: 30px 0px 0px 0px;
     align-self: flex-start;
@@ -187,6 +188,11 @@
 #apop {
     margin: 10px;
     width: 60px;
+}
+
+.logo{
+    margin-top: 30px;
+    width: 110px;
 }
 
 /* PERFIL */
