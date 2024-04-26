@@ -85,6 +85,15 @@ span {
     margin: auto;
 }
 
+snaF {
+    font-family: "Quicksand";
+    font-weight: bold;
+    margin-left: 11px;
+    text-align: left;
+    font-size: 14px;
+    color: red;
+}
+
 p {
     font-family: "Quicksand";
     text-align: center;
