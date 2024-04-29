@@ -27,20 +27,20 @@ document.addEventListener("submit", (event) => {
 
     senhaInput.addEventListener("keyup", () => {
         allowed = true;
-        var coloring = "rgb(78, 204, 78)"
+        var coloring = "rgb(13, 44, 97)"
         var wrong = "red"
 
         var caracterSpan = document.getElementById("char");
         var numeroSpan = document.getElementById("num");
         var especialSpan = document.getElementById("special");
 
-        caracterSpan.textContent = "✔ Caracter";
+        caracterSpan.textContent = "✔ Caracteres";
         caracterSpan.style.color = coloring;
 
         numeroSpan.textContent = "✔ Número";
         numeroSpan.style.color = coloring;
 
-        especialSpan.textContent = "✔ Caracter especial";
+        especialSpan.textContent = "✔ Caracter Especial";
         especialSpan.style.color = coloring;
 
         if (senhaInput.value.length < 7){
@@ -58,7 +58,7 @@ document.addEventListener("submit", (event) => {
         if (!isContainsSymbol.test(senhaInput.value)){
             allowed = false;
             especialSpan.style.color = wrong;
-            especialSpan.textContent = "• Caracter especial";
+            especialSpan.textContent = "• Caracter Especial";
         }
     });
 

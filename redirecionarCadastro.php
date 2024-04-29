@@ -33,9 +33,15 @@
 
     <div class="container form">
         <p>Nome</p>
-        <input id="nome" type="text" name="nm_enfermeiro" class="validate">
+        <?php
+        $name = $_POST['nm_enfermeiro'];
+        echo "<input id='nome' type='text' name='nm_enfermeiro' class='validate' value='$name'>"
+        ?>
         <p>E-Mail</p>
-        <input id="email" type="email" name="email_enfermeiro" class="validate">
+        <?php
+        $email = $_POST['email_enfermeiro'];
+        echo "<input id='email' type='email' name='email_enfermeiro' class='validate' value='$email'>"
+        ?>
         <p>Coren</p>
         <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7">
         <p>Estado</p>
@@ -71,17 +77,23 @@
         </select>
         <p>Crie uma senha</p>
         <div class="formRow">
-            <input id="senha" type="password" name="senha_enfermeiro" class="validate">
+            <?php
+            $senha = $_POST['senha_enfermeiro'];
+            echo "<input id='senha' type='password' name='senha_enfermeiro' class='validate' value='$senha'>"
+            ?>
             <div class="eyeVisible aberto" id="visibleEye"></div>
         </div>
         <snaF id="passwordVerify">
-        <char id="char">• 7 Caracteres</char><br>
-        <num id="num">• Número</num><br>
-        <special id="special">• Caracter especial</special>
+        <char id="char" style="color: rgb(13, 44, 97);">✔ Caracteres</char><br>
+        <num id="num" style="color: rgb(13, 44, 97);">✔ Número</num><br>
+        <special id="special" style="color: rgb(13, 44, 97);">✔ Caracter especial</special>
         </snaF>
         <p>Repita sua senha</p>
         <div class="formRow">
-            <input id="senhaConfirm" type="password" class="validate">
+            <?php
+            $senha = $_POST['senha_enfermeiro'];
+            echo "<input id='senhaConfirm' type='password' name='senha_enfermeiro' class='validate' value='$senha'>"
+            ?>
             <div class="eyeVisible aberto" id="visibleEyeConfirm"></div>
         </div>
         <div class="button">
@@ -105,7 +117,7 @@
         
     </script>
     <?php
-    //include "conexao.php";
+    include "conexao.php";
 
     $name = $_POST['nm_enfermeiro'];
 
@@ -117,7 +129,12 @@
 
     $senha = $_POST['senha_enfermeiro'];
 
-    echo "<script>alert('Nome: $name Email: $email Coren: $coren Sigla Estado: $estado Senha: $senha')</script>";
+    $sql = "INSERT INTO tb_enfermeiro VALUES ('$coren', '$name', '$email', '$estado', '$senha')";
+    //echo "<script>alert('$sql');</script>";
+    /*
+    mysqli_query($conn, $sql);
+    */
+    
     ?>
 </body>
 
