@@ -114,7 +114,6 @@
         setTimeout(function () {
             window.location.href = "login.html";
         }, 2000);
-        
     </script>
     <?php
     include "conexao.php";
@@ -130,10 +129,8 @@
     $senha = $_POST['senha_enfermeiro'];
 
     $sql = "INSERT INTO tb_enfermeiro VALUES ('$coren', '$name', '$email', '$estado', '$senha')";
-    //echo "<script>alert('$sql');</script>";
-    /*
     mysqli_query($conn, $sql);
-    */
+
     
     ?>
 </body>

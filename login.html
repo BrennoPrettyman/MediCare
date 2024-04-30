@@ -33,9 +33,9 @@
     <div class="Bloco">
         <form method="post" action="redirecionarLogin.php" class="container form">
             <p>Coren</p>
-            <input id="coren" type="text" class="validate" placeholder="___.___" maxlength="7" required>
+            <input id="coren" type="text" name="id_coren" class="validate" placeholder="___.___" maxlength="7" required>
             <p>Estado</p>
-            <select id="estado" class="validate" required>
+            <select id="estado" name="sg_estado" class="validate" required>
                 <option value="" selected disabled hidden>Selecione um estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -67,7 +67,7 @@
             </select>
             <p>Insira sua senha</p>
             <div class="formRow">
-                <input id="senha" type="password" class="validate" required>
+                <input id="senha" name="senha" type="password" class="validate" required>
                 <div class="eyeVisible aberto" id="visibleEye"></div>
             </div>
             <snaF id="wrongPassword"></snaF>

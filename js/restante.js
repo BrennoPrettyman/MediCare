@@ -33,9 +33,9 @@ function motivo() {
 
     if (botoesAdicionados.length === 0) {
         var botoesHTML = `
-            <button class="mtvo2 botao-adicional">Banho</button>
             <button class="mtvo2 botao-adicional">Fortes Dores</button>
             <button class="mtvo2 botao-adicional">Higiêne Pessoal</button>
+            <button class="mtvo2 botao-adicional">Mudança de Decúbito</button>
             <button class="mtvo2 botao-adicional">Parada Cardíaca</button>
             <button class="mtvo2 botao-adicional">Queda</button>
             <button class="mtvo2 botao-adicional">Reclamação</button>
