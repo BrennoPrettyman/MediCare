@@ -18,6 +18,43 @@
 </head>
 
 <body>
+
+
+    <?php
+        include "conexao.php";
+    // wtf is happening here?!?
+        echo "<script>";
+        echo "const xhr = new XMLHttpRequest();";
+        echo "xhr.open('POST', perfil.php, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            coren: localStorage.getItem('id_coren'),
+            estado: localStorage.getItem('estado_enfermeiro')
+        }));";
+        echo "</script>";
+
+        $coren = $_POST['coren'];
+        $estado = $_POST['estado'];
+
+
+        echo "<hr>socorro<hr>";
+
+        $sql = "SELECT * from tb_enfermeiro where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';";
+        print_r($sql);
+        echo "<hr>$coren<hr>";
+
+        //coren, sg estado, senha
+        $result = mysqli_query($conn, $sql);
+        echo "<hr>socorro3";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                print_r($row['senha_enfermeiro']);
+            }
+        }
+        echo "<hr>";
+    ?>
+
     <h1>MediCare</h1>
     <P>Perfil</P>
 

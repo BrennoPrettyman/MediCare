@@ -5,6 +5,7 @@ document.addEventListener("submit", (event) => {
 
         let senhaInput = document.getElementById("senha");
         let confirmar = document.getElementById("senhaConfirm");
+        let wrongPassword = document.getElementById("wrongPassword");
 
         if (confirmar.value == senhaInput.value) {
             samePassword = true;
@@ -14,10 +15,12 @@ document.addEventListener("submit", (event) => {
             let shadowColor ="box-shadow: red 0px 0px 6px 0.5px;";
             senhaInput.setAttribute("style", shadowColor);
             confirmar.setAttribute("style", shadowColor);
+            wrongPassword.textContent = "";
         }
 
         if (allowed == false || samePassword == false){
             event.preventDefault();
+            wrongPassword.textContent = "Senha Incorreta";
         }
 });
 
