@@ -14,70 +14,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
+    <script src="js/nomeToUpper.js"></script>
+
     <title>MediCare - Perfil</title>
 </head>
 
 <body>
-
-
-    <?php
+<?php
         include "conexao.php";
-    // wtf is happening here?!?
-        echo "<script>";
-        echo "const xhr = new XMLHttpRequest();";
-        echo "xhr.open('POST', perfil.php, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            coren: localStorage.getItem('id_coren'),
-            estado: localStorage.getItem('estado_enfermeiro')
-        }));";
-        echo "</script>";
 
-        $coren = $_POST['coren'];
-        $estado = $_POST['estado'];
+        session_start(); 
 
+        $coren = $_SESSION['coren_enfermeiro'];
 
-        echo "<hr>socorro<hr>";
-
-        $sql = "SELECT * from tb_enfermeiro where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';";
-        print_r($sql);
-        echo "<hr>$coren<hr>";
-
+        $sql = "SELECT * from tb_enfermeiro where id_coren_enfermeiro = '$coren';";
         //coren, sg estado, senha
         $result = mysqli_query($conn, $sql);
-        echo "<hr>socorro3";
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                print_r($row['senha_enfermeiro']);
-            }
-        }
-        echo "<hr>";
-    ?>
-
-    <h1>MediCare</h1>
+    echo '<h1>MediCare</h1>
     <P>Perfil</P>
 
     <div class="bloco1">
         <img src="pics/perfilblue.png" id="ppic">
-        <h2>Nicolas Butera</h2>
+        <h2 id="nm_enfermeiro">'; // possui um function
+        print_r($row['nm_enfermeiro']); // inserção de dados (Nome)
+    echo '</h2>
     </div>
 
     <div id="infos">
         <div class="bloco2">
             <img src="pics/arroba.png" id="iinfo">
-            <h3>nicolas@enf.gov.br</h3>
+            <h3>';
+            print_r($row["email_enfermeiro"]); // inserção de dados (Email)
+    echo '</h3>
         </div>
         <div class="bloco3">
             <img src="pics/listpeople.png" id="iinfo">
-            <h3>Coren</h3>
+            <h3>';
+            print_r($row["id_coren_enfermeiro"]); // inserção de dados (Coren)
+            echo "-";
+            print_r($row["sg_estado_enfermeiro"]); // inserção de dados (SG Estado)
+    echo '</h3>
         </div>
         <div class="bloco3">
             <img src="pics/predio.png" id="iinfo">
             <h3>Andar 01</h3>
         </div>
-    </div>
-
+    </div>';
+        }
+    }
+?>
     <div id="acao">
         <div class="buttons">
             <a href=""><img src="pics/lapis.png" id="aicon"></a>

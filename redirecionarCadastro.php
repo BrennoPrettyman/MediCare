@@ -46,34 +46,7 @@
         <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7">
         <p>Estado</p>
         <select id="estado" name="sg_estado_enfermeiro" class="validate" >
-            <option value="" selected disabled hidden>Selecione um estado</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
+ 
         </select>
         <p>Crie uma senha</p>
         <div class="formRow">
@@ -108,31 +81,50 @@
             </div>
         </div>
     </div>
-    <script>
+
+<?php
+    include "conexao.php";
+
+    $name = $_POST['nm_enfermeiro'];
+    $email = $_POST['email_enfermeiro'];
+    $coren = $_POST['nr_coren_enfermeiro'];
+    $estado = $_POST['sg_estado_enfermeiro'];
+    $senha = $_POST['senha_enfermeiro'];
+
+    $sqlVerify = "SELECT * from tb_enfermeiro
+    where id_coren_enfermeiro = '$coren';"; //$sql = SELECT from mysql
+
+
+
+    $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+    print_r($result);
+    echo "<hr>";
+    print_r($result->num_rows);
+    echo "<hr>";
+
+    if ($result->num_rows > 0) { // para cada coluna
+        while($row = $result->fetch_assoc()) {
+          if ($coren && $coren == $row["id_coren_enfermeiro"]){
+            echo '<script>
+            history.back();
+            </script>'; // volta para página anterior
+          }
+        }
+    }
+    else{
+        $sql = "INSERT INTO tb_enfermeiro VALUES ('$coren', '$name', '$email', '$estado', '$senha')";
+        mysqli_query($conn, $sql);
+        echo '<script>
         document.getElementById("overlay-cadastro").classList.add("show");
         document.getElementById("popup-cadastro").classList.add("show");
         setTimeout(function () {
             window.location.href = "login.html";
         }, 2000);
-    </script>
-    <?php
-    include "conexao.php";
+        </script>';
+    }
 
-    $name = $_POST['nm_enfermeiro'];
+?>
 
-    $email = $_POST['email_enfermeiro'];
-
-    $coren = $_POST['nr_coren_enfermeiro'];
-
-    $estado = $_POST['sg_estado_enfermeiro'];
-
-    $senha = $_POST['senha_enfermeiro'];
-
-    $sql = "INSERT INTO tb_enfermeiro VALUES ('$coren', '$name', '$email', '$estado', '$senha')";
-    mysqli_query($conn, $sql);
-
-    
-    ?>
 </body>
 
 </html>

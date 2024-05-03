@@ -33,9 +33,9 @@
 
     <form method="post" action="redirecionarCadastro.php" class="container form">
         <p>Nome</p>
-        <input id="nome" type="text" name="nm_enfermeiro" class="validate" required>
+        <input id="nome" type="text" name="nm_enfermeiro" class="validate" maxlength="45" required>
         <p>E-Mail</p>
-        <input id="email" type="email" name="email_enfermeiro" class="validate" required>
+        <input id="email" type="email" name="email_enfermeiro" class="validate" maxlength="45" required>
         <p>Coren</p>
         <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7" required>
         <p>Estado</p>
@@ -71,7 +71,7 @@
         </select>
         <p>Crie uma senha</p>
         <div class="formRow">
-            <input id="senha" type="password" name="senha_enfermeiro" class="validate" required>
+            <input id="senha" type="password" name="senha_enfermeiro" maxlength="45" class="validate" required>
             <div class="eyeVisible aberto" id="visibleEye"></div>
         </div>
         <snaF id="passwordVerify">
