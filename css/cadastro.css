@@ -90,22 +90,13 @@ span {
     margin: auto;
 }
 
-snaF {
+snaN {
     font-family: "Quicksand";
     font-weight: bold;
     margin-left: 11px;
     text-align: left;
     font-size: 14px;
-    color: red;
-}
-
-snaV {
-    font-family: "Quicksand";
-    color: rgb(13, 44, 97);
-    font-weight: bold;
-    margin-left: 11px;
-    text-align: left;
-    font-size: 14px;
+    color: rgba(13, 44, 97, 0.712);
 }
 
 p {

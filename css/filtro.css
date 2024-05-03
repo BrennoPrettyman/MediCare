@@ -5,7 +5,7 @@ body {
     margin-left: 6%;
 }
 
-.bloco1z {
+.bloco1 {
     text-align: center;
     justify-content: space-around;
     display: inline;
@@ -115,47 +115,23 @@ a {
     color: white;
 }
 
-#motivo {
-    /* CAIXA */
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
-    background-color: #fff;
-    margin-bottom: 10px; 
-    border-radius: 20px;
-    padding: 15px 0; 
-    border: 0px;
-    width: 100%; 
-    /* FONTE */
-    font-family: "Quicksand", sans-serif;
-    color: rgba(39, 169, 219, 1);
-    text-decoration: none;
-    text-align: center; 
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#motivo:active,
-#motivo:focus {
+.btn3:active,
+.btn3:focus {
     background-color: rgba(13, 36, 70, 1);
     color: white;
 }
 
 .info {
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.281);
-    background:  rgba(13, 36, 70, 1);
-    margin-bottom: 10px;
-    border-radius: 20px;
-    padding: 15px;
-    border: 0px;
-    /* FONTE */
     font-family: "Quicksand", sans-serif;
-    color: rgb(255, 255, 255);
     text-decoration: none;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
+    padding: 20px;
     display:none;
 }
 
 .info.show{
     display: block;
 }
+

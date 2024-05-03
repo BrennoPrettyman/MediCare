@@ -20,7 +20,7 @@ document.addEventListener("submit", (event) => {
 
         if (allowed == false || samePassword == false){
             event.preventDefault();
-            wrongPassword.textContent = "Senha Incorreta";
+            wrongPassword.textContent = "As senhas não são iguais";
         }
 });
 
@@ -40,28 +40,28 @@ document.addEventListener("submit", (event) => {
         caracterSpan.textContent = "✔ Caracteres";
         caracterSpan.style.color = coloring;
 
-        numeroSpan.textContent = "✔ Número";
+        numeroSpan.textContent = " ﾠ✔ Número";
         numeroSpan.style.color = coloring;
 
-        especialSpan.textContent = "✔ Caracter Especial";
+        especialSpan.textContent = "ﾠ✔ Caracter Especial";
         especialSpan.style.color = coloring;
 
         if (senhaInput.value.length < 7){
             allowed = false;
             caracterSpan.style.color = wrong;
-            caracterSpan.textContent = "• "+(7-senhaInput.value.length)+" Caracter";
+            caracterSpan.textContent = "✖ "+(7-senhaInput.value.length)+" Caracteres";
         }
         const isContainsNumber = /^(?=.*[0-9]).*$/;
         if (!isContainsNumber.test(senhaInput.value)){
             allowed = false;
             numeroSpan.style.color = wrong;
-            numeroSpan.textContent = "• Número";
+            numeroSpan.textContent = "ﾠ✖ Número";
         }
         const isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
         if (!isContainsSymbol.test(senhaInput.value)){
             allowed = false;
             especialSpan.style.color = wrong;
-            especialSpan.textContent = "• Caracter Especial";
+            especialSpan.textContent = "ﾠ✖ Caracter Especial";
         }
     });
 

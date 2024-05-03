@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/redefinir.css">
     <link rel="stylesheet" href="css/icons.css">
     <script src="js/senha.js"></script>
+   
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,10 +28,17 @@
             <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p>
             
             <p>Crie uma senha</p>
+            
             <div class="formRow">
                 <input id="senha" type="password" class="validate" required>
                 <div class="eyeVisible aberto" id="visibleEye"></div>
             </div>
+            <snaN id="passwordVerify">
+                <char id="char">• 7 Caracteres</char>
+                <num id="num">ﾠ• Número</num>
+                <special id="special">ﾠ• Caracter Especial</special>
+                </snaN>
+
             <p>Repita sua senha</p>
             <div class="formRow">
                 <input id="senhaConfirm" type="password" class="validate" required>
