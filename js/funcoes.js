@@ -17,22 +17,15 @@ function quartos() {
     }
 }
 
-function chamadoA() {
-    var botoesContainer = document.querySelector('.bloco1');
-    var botoesAdicionados = document.querySelectorAll('.botao-adicional');
-
-    if (botoesAdicionados.length === 0) {
-        var botoesHTML = `
-            <button class="btn3 botao-adicional">Filtra os atendimentos em ordem decrescente</button>
-        `;
-        botoesContainer.insertAdjacentHTML('beforeend', botoesHTML);
+// BOTÃO CHAMADOS ANTECEDENTES
+document.getElementById("cmdA").addEventListener("click", function () {
+    var info = document.getElementById("info");
+    if (info.classList.contains("show")) {
+        info.classList.remove("show");
     } else {
-        botoesAdicionados.forEach(function (botao) {
-            botao.remove();
-        });
+        info.classList.add("show");
     }
-}
-
+});
 
 // TELA RELATORIO - POPUP
 document.getElementById("enviarBtn").addEventListener("click", function () {

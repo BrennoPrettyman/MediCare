@@ -1,10 +1,9 @@
 // RESTANTE
-var detectReason = false
-
+var detectReason = false;
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("mtvTXT").addEventListener("keyup", () => {
         if (document.getElementById("mtvTXT").value.trim().length > 0){
-            document.getElementById("restante").textContent = 15-document.getElementById("mtvTXT").value.length+" Caracteres Restantes"
+            document.getElementById("restante").textContent = 15-document.getElementById("mtvTXT").value.length+" Caracteres Restantes";
         }
         else{
             document.getElementById("mtvTXT").value = "";
@@ -12,22 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ENVIAR
-    document.getElementById("enviarBtn").addEventListener("click", () => {
-        if (detectReason == true || document.getElementById("mtvTXT").value.trim().length > 0){
-            document.getElementById("overlay").classList.add("show");
-            document.getElementById("popup").classList.add("show");
-            alert(document.getElementById("mtvTXT").value+" (Salvo!)");
-            setTimeout(function () {
-                window.location.href = "relatorio.html";
-            }, 2000);
-        }
-    })
-});
-
-
 // TELA RELATORIO - BOTÃO MOTIVO
-function motivo() {
+document.getElementById("mtvo").addEventListener("click", () => {
     var botoesContainer = document.querySelector('.bloco');
     var botoesAdicionados = document.querySelectorAll('.botao-adicional');
 
@@ -59,4 +44,6 @@ function motivo() {
             detectReason = true;
         });
     });
-}
+});
+});
+
