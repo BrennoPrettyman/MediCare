@@ -95,12 +95,7 @@
     where id_coren_enfermeiro = '$coren';"; //$sql = SELECT from mysql
 
 
-
     $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-    print_r($result);
-    echo "<hr>";
-    print_r($result->num_rows);
-    echo "<hr>";
 
     if ($result->num_rows > 0) { // para cada coluna
         while($row = $result->fetch_assoc()) {
@@ -122,7 +117,6 @@
         }, 2000);
         </script>';
     }
-
 ?>
 
 </body>

@@ -1,32 +1,13 @@
 let allowed = false;
 let samePassword = false;
 
-document.addEventListener("submit", (event) => {
+let shadowColor ="box-shadow: red 0px 0px 6px 0.5px;";
+let noShadow ="transparent 0px 0px 0px 0px;";
 
-        let senhaInput = document.getElementById("senha");
-        let confirmar = document.getElementById("senhaConfirm");
-        let wrongPassword = document.getElementById("wrongPassword");
-
-        if (confirmar.value == senhaInput.value) {
-            samePassword = true;
-        }
-        else{
-            samePassword = false;
-            let shadowColor ="box-shadow: red 0px 0px 6px 0.5px;";
-            senhaInput.setAttribute("style", shadowColor);
-            confirmar.setAttribute("style", shadowColor);
-            wrongPassword.textContent = "";
-        }
-
-        if (allowed == false || samePassword == false){
-            event.preventDefault();
-            wrongPassword.textContent = "As senhas não são iguais";
-        }
-});
-
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     let senhaInput = document.getElementById("senha");
     let confirmar = document.getElementById("senhaConfirm");
+    let wrongPassword = document.getElementById("wrongPassword");
 
     senhaInput.addEventListener("keyup", () => {
         allowed = true;
@@ -65,7 +46,6 @@ document.addEventListener("submit", (event) => {
         }
     });
 
-    let noShadow ="transparent 0px 0px 0px 0px;";
     senhaInput.addEventListener("focus", () => {
         senhaInput.setAttribute("style", noShadow);
     });
@@ -78,4 +58,29 @@ document.addEventListener("submit", (event) => {
         var x = e.target.value.replace(/\D/g, '').match(/(\d{2})(\d{5})(\d{4})/);
         e.target.value = '(' + x[1] + ') ' + x[2] + '-' + x[3];
       });*/
-})
+    
+
+    /////////////////////////////////////////////////// SUBmit TIME
+
+    document.addEventListener("submit", (event) => {
+        if (confirmar.value == senhaInput.value) {
+            samePassword = true;
+            senhaInput.setAttribute("style", noShadow);
+            confirmar.setAttribute("style", noShadow);
+            wrongPassword.textContent = "";
+        }
+        else{
+            samePassword = false;
+            senhaInput.setAttribute("style", shadowColor);
+            confirmar.setAttribute("style", shadowColor);
+            wrongPassword.textContent = "As senhas não são iguais";
+        }
+
+        if (allowed == false || samePassword == false){
+            event.preventDefault();
+        }
+    });
+    
+});
+
+

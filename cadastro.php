@@ -96,6 +96,47 @@
                 <h2>Um link de confirmação foi enviado para seu email</h2>
             </div>
         </div>
+        <?php
+        include "conexao.php";
+
+        $sqlVerify = "SELECT id_coren_enfermeiro from tb_enfermeiro;"; //$sql = SELECT id from tb_enfermeiro
+        $id_Found = [];
+
+        $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+        print_r($result);
+        if ($result->num_rows > 0) { // para cada coluna
+            while($row = $result->fetch_assoc()) {
+              if ($row["id_coren_enfermeiro"]){
+                array_push($id_Found,$row["id_coren_enfermeiro"]);
+              }
+            }
+        }
+        print_r($id_Found);
+        echo '<script>';
+
+        echo "let tb_coren = ". $id_Found[0] ."; alert(tb_coren);";
+
+
+        echo 'let coren = document.getElementById("coren");
+            alert("a");
+
+            coren.addEventListener("keyup", () => {
+                alert("a");
+                if (coren.value.length == 7){
+                    for (let i = 0; i < tb_coren.length;i++){ 
+                        alert(i);
+                        if (tb_coren[i].value == coren.value){
+                            coren.setAttribute("style", shadowColor);
+                        }
+                    }
+                }
+            });
+            coren.addEventListener("focus", () => {
+                coren.setAttribute("style", noShadow);
+            });
+        </script>'; // sla
+
+    ?>
 </body>
 
 </html>

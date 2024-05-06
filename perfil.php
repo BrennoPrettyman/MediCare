@@ -21,48 +21,48 @@
 
 <body>
 <?php
-        include "conexao.php";
+    include "conexao.php";
 
-        session_start(); 
+    session_start(); 
 
-        $coren = $_SESSION['coren_enfermeiro'];
+    $coren = $_SESSION['coren_enfermeiro'];
 
-        $sql = "SELECT * from tb_enfermeiro where id_coren_enfermeiro = '$coren';";
-        //coren, sg estado, senha
-        $result = mysqli_query($conn, $sql);
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-    echo '<h1>MediCare</h1>
-    <P>Perfil</P>
-
-    <div class="bloco1">
-        <img src="pics/perfilblue.png" id="ppic">
-        <h2 id="nm_enfermeiro">'; // possui um function
-        print_r($row['nm_enfermeiro']); // inserção de dados (Nome)
-    echo '</h2>
-    </div>
-
-    <div id="infos">
-        <div class="bloco2">
-            <img src="pics/arroba.png" id="iinfo">
-            <h3>';
-            print_r($row["email_enfermeiro"]); // inserção de dados (Email)
-    echo '</h3>
+    $sql = "SELECT * from tb_enfermeiro where id_coren_enfermeiro = '$coren';";
+    //coren, sg estado, senha
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+        echo '<h1>MediCare</h1>
+        <P>Perfil</P>
+            
+        <div class="bloco1">
+            <img src="pics/perfilblue.png" id="ppic">
+            <h2 id="nm_enfermeiro">'; // possui um function
+            print_r($row['nm_enfermeiro']); // inserção de dados (Nome)
+        echo '</h2>
         </div>
-        <div class="bloco3">
-            <img src="pics/listpeople.png" id="iinfo">
-            <h3>';
-            print_r($row["id_coren_enfermeiro"]); // inserção de dados (Coren)
-            echo "-";
-            print_r($row["sg_estado_enfermeiro"]); // inserção de dados (SG Estado)
-    echo '</h3>
-        </div>
-        <div class="bloco3">
-            <img src="pics/predio.png" id="iinfo">
-            <h3>Andar 01</h3>
-        </div>
-    </div>';
+            
+        <div id="infos">
+            <div class="bloco2">
+                <img src="pics/arroba.png" id="iinfo">
+                <h3>';
+                print_r($row["email_enfermeiro"]); // inserção de dados (Email)
+        echo '</h3>
+            </div>
+            <div class="bloco3">
+                <img src="pics/listpeople.png" id="iinfo">
+                <h3>';
+                print_r($row["id_coren_enfermeiro"]); // inserção de dados (Coren)
+                echo "-";
+                print_r($row["sg_estado_enfermeiro"]); // inserção de dados (SG Estado)
+        echo '</h3>
+            </div>
+            <div class="bloco3">
+                <img src="pics/predio.png" id="iinfo">
+                <h3>Andar 01</h3>
+            </div>
+        </div>';
         }
     }
 ?>
