@@ -76,8 +76,8 @@
         </div>
         <snaN id="passwordVerify">
         <char id="char">• 7 Caracteres</char>
-        <num id="num">ﾠ• Número</num>
-        <special id="special">ﾠ• Caracter Especial</special>
+        <num id="num">• Número</num>
+        <special id="special">• Caracter Especial</special>
         </snaN>
         <p>Repita sua senha</p>
         <div class="formRow">

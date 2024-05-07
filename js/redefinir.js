@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         caracterSpan.textContent = "✔ Caracteres";
         caracterSpan.style.color = coloring;
 
-        numeroSpan.textContent = " ﾠ✔ Número";
+        numeroSpan.textContent = " ✔ Número";
         numeroSpan.style.color = coloring;
 
-        especialSpan.textContent = "ﾠ✔ Caracter Especial";
+        especialSpan.textContent = "✔ Caracter Especial";
         especialSpan.style.color = coloring;
 
         if (senhaInput.value.length < 7){
@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isContainsNumber.test(senhaInput.value)){
             allowed = false;
             numeroSpan.style.color = wrong;
-            numeroSpan.textContent = "ﾠ✖ Número";
+            numeroSpan.textContent = "✖ Número";
         }
         const isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
         if (!isContainsSymbol.test(senhaInput.value)){
             allowed = false;
             especialSpan.style.color = wrong;
-            especialSpan.textContent = "ﾠ✖ Caracter Especial";
+            especialSpan.textContent = "✖ Caracter Especial";
         }
     });
 
