@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
     <h1>MediCare</h1>
 
     <div class="Bloco01">
@@ -40,7 +41,7 @@
         </form>
 
     </div>
-    <a href="login.php"><img src="css/media/setabranca.png" class="seta"></a>
+    <a href="login.php" class="there"><img src="css/media/setabranca.png"></a>
 </body>
 
 </html>

@@ -84,7 +84,7 @@
         <a href="homeC.html"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
         <a href="relatorio.html"><img src="pics/relatorios.png" class="icon" id="PaperIcon"></a>
         <a href="historico.html"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
-        <a href="perfil.html"><img src="pics/INperfil.png" class="icon" id="PeopleIcon"> </a>
+        <a href="perfil.php"><img src="pics/INperfil.png" class="icon" id="PeopleIcon"> </a>
     </div>
 
 </body>
