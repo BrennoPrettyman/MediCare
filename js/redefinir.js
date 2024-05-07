@@ -1,14 +1,29 @@
-document.getElementById("redefinir").addEventListener("click", function () {
-    document.getElementById("overlay-redefinir").classList.add("show");
-    document.getElementById("popup-redefinir").classList.add("show");
-    setTimeout(function () {
-        window.location.href = "login.html";
-    }, 2000);
-});
+let allowed = false;
+let noShadow ="transparent 0px 0px 0px 0px;";
 
 document.addEventListener("DOMContentLoaded", () => {
     let senhaInput = document.getElementById("senha");
     let confirmar = document.getElementById("senhaConfirm");
+    let wrongPassword = document.getElementById("wrongPassword");
+
+    document.addEventListener("submit", (event) => {
+        if (allowed == false){
+            event.preventDefault();
+        }
+        if (confirmar.value == senhaInput.value) {
+            senhaInput.setAttribute("style", noShadow);
+            confirmar.setAttribute("style", noShadow);
+            wrongPassword.textContent = "";
+        }
+        else{
+            event.preventDefault();
+            senhaInput.setAttribute("style", shadowColor);
+            confirmar.setAttribute("style", shadowColor);
+            wrongPassword.textContent = "As senhas não são iguais";
+        }
+
+        
+    });
 
     senhaInput.addEventListener("keyup", () => {
         allowed = true;
@@ -47,11 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    let noShadow ="transparent 0px 0px 0px 0px;";
     senhaInput.addEventListener("focus", () => {
         senhaInput.setAttribute("style", noShadow);
     });
 
     confirmar.addEventListener("focus", () => {
         confirmar.setAttribute("style", noShadow);
-    })})
+    })
+
+
+});

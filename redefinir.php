@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/redefinir.css">
     <link rel="stylesheet" href="css/icons.css">
     <script src="js/senha.js"></script>
+    <script src="js/redefinir.js"></script>
    
 
     <!-- Fontes -->
@@ -23,14 +24,14 @@
     <h1>MediCare</h1>
 
     <div class="Bloco02">
-        <div class="container form">
+        <form method="post" action="senhaAlterada.php" class="container form">
             <h2>Redefina sua senha</h2>
             <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p>
             
             <p>Crie uma senha</p>
             
             <div class="formRow">
-                <input id="senha" type="password" class="validate" required>
+                <input id="senha" type="password" class="validate" name="passnha" required>
                 <div class="eyeVisible aberto" id="visibleEye"></div>
             </div>
             <snaN id="passwordVerify">
@@ -44,9 +45,10 @@
                 <input id="senhaConfirm" type="password" class="validate" required>
                 <div class="eyeVisible aberto" id="visibleEyeConfirm"></div>
             </div>
+            <snaF id="wrongPassword"></snaF>
             
             <div class="button">
-                <button class="meuBotao" id="redefinir">Redefinir Senha</button>
+                <input type="submit" class="meuBotao" id="redefinir" value="Redefinir Senha">
                 
                 <div id="overlay-redefinir" class="black"></div>
             
@@ -55,10 +57,15 @@
                     <h3>Senha redefinida com sucesso</h3>
                 </div> 
             </div>
-        </div>
+        </form>
     </div>
-    <a href="recuperar.html"><img src="css/media/setabranca.png" class="seta"></a>
-    <script src="js/redefinir.js"></script>
+    <a href="recuperar.php"><img src="css/media/setabranca.png" class="seta"></a>
+    <?php
+        $email = $_POST['email'];
+
+        session_start(); // inicia o 'localstorage'
+        $_SESSION['email_enfermeiro'] = $email; // cria localstorage com nome 'coren_enfemeiro' e insere valor
+    ?>
 </body>
 
 </html>

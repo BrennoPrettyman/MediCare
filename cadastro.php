@@ -38,6 +38,7 @@
         <input id="email" type="email" name="email_enfermeiro" class="validate" maxlength="45" required>
         <p>Coren</p>
         <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7" required>
+        <snaF id="corenVerify"></snaF>
         <p>Estado</p>
         <select id="estado" name="sg_estado_enfermeiro" class="validate" required>
             <option value="" selected disabled hidden>Selecione um estado</option>
@@ -87,7 +88,7 @@
         <snaF id="wrongPassword"></snaF>
         <div class="button">
             <input type="submit" class="meuBotao" id="cdsrt" value="Cadastre-se">
-            <p>Já possui um cadastro? <a href="login.html">Entre!</a></p>
+            <p>Já possui um cadastro? <a href="login.php">Entre!</a></p>
 
             <div id="overlay-cadastro" class="black"></div>
 
@@ -96,46 +97,37 @@
                 <h2>Um link de confirmação foi enviado para seu email</h2>
             </div>
         </div>
-        <?php
-        include "conexao.php";
-
-        $sqlVerify = "SELECT id_coren_enfermeiro from tb_enfermeiro;"; //$sql = SELECT id from tb_enfermeiro
-        $id_Found = [];
-
-        $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-        print_r($result);
-        if ($result->num_rows > 0) { // para cada coluna
-            while($row = $result->fetch_assoc()) {
-              if ($row["id_coren_enfermeiro"]){
-                array_push($id_Found,$row["id_coren_enfermeiro"]);
-              }
-            }
+    <?php
+    include "conexao.php";
+    $sqlVerify = "SELECT id_coren_enfermeiro from tb_enfermeiro;"; //$sql = SELECT id from tb_enfermeiro
+    $id_Found = [];
+    $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+    if ($result->num_rows > 0) { // para cada coluna
+        while($row = $result->fetch_assoc()) {
+          if ($row["id_coren_enfermeiro"]){
+            array_push($id_Found,$row["id_coren_enfermeiro"]);
+          }
         }
-        print_r($id_Found);
-        echo '<script>';
-
-        echo "let tb_coren = ". $id_Found[0] ."; alert(tb_coren);";
-
-
-        echo 'let coren = document.getElementById("coren");
-            alert("a");
-
-            coren.addEventListener("keyup", () => {
-                alert("a");
-                if (coren.value.length == 7){
-                    for (let i = 0; i < tb_coren.length;i++){ 
-                        alert(i);
-                        if (tb_coren[i].value == coren.value){
-                            coren.setAttribute("style", shadowColor);
-                        }
+    }
+    echo '<script>'; // começa o script js
+    echo "let tb_coren = ". json_encode($id_Found) .";"; // transforma o array php para js
+    echo 'let coren = document.getElementById("coren");
+        var verify = function() {
+            if (coren.value.length == 7){
+                for (let i = 0; i < tb_coren.length;i++){ // verifica todos os valores da tabela
+                    if (tb_coren[i] == coren.value){ // compara com os registros e o valor colocado
+                        coren.setAttribute("style", shadowColor);
+                        document.getElementById("corenVerify").textContent = "Coren já cadastrado";
                     }
                 }
-            });
-            coren.addEventListener("focus", () => {
+            }
+            else{ // se caso o usuário utilizar o backspace
                 coren.setAttribute("style", noShadow);
-            });
-        </script>'; // sla
-
+                document.getElementById("corenVerify").textContent = "";
+            }
+        };
+        coren.addEventListener("keyup", verify);
+    </script>'; // finaliza o script js
     ?>
 </body>
 

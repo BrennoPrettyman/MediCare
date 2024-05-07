@@ -113,7 +113,7 @@
         document.getElementById("overlay-cadastro").classList.add("show");
         document.getElementById("popup-cadastro").classList.add("show");
         setTimeout(function () {
-            window.location.href = "login.html";
+            window.location.href = "login.php";
         }, 2000);
         </script>';
     }

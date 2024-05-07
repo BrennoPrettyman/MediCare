@@ -1,8 +1,8 @@
-document.getElementById("recuperar").addEventListener("click", function () {
+document.addEventListener("submit", function () {
     document.getElementById("overlay-recuperar").classList.add("show");
     document.getElementById("popup-recuperar").classList.add("show");
     setTimeout(function () {
-        window.location.href = "redefinir.html";
+        window.location.href = "redefinir.php";
     }, 2000);
 });
 
