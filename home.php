@@ -13,10 +13,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
+    <script src="js/atender.js"></script>
     <title>MediCare - Home</title>
 </head>
 
 <body>
+    <?php
+    include "conexao.php";
+
+    $sqlVerify = "SELECT * from tb_quarto;"; //$sql = SELECT from mysql
+
+    $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+
+    if ($result->num_rows <= 0) { // para cada coluna
+        $sql = "INSERT INTO tb_quarto VALUES (3, 3, '2', 'Santana'), (5, 5, '6', 'Santana')";
+        mysqli_query($conn, $sql);
+    }
+    ?>
     <h1>MediCare</h1>
     <P>Início</P>
 
@@ -29,9 +42,19 @@
         </div>
 
         <div class="box2">
-            <h4>Quarto 01</h4>
-            <h5>Leito 10</h5>
-            <button class="btn" id="atender1">Atender</button>
+            <?php
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        if ($row['cd_quarto'] == 3){
+                            echo "<h4>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h4>";
+                            echo "<h5>Leito 10</h5>";
+                            echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender()'>Atender</button>";
+                        }
+                    }
+                }
+
+            ?>
         </div>
 
         <h2>Chamados Atendidos</h2>
