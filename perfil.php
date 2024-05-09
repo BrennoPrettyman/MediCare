@@ -68,8 +68,8 @@
 ?>
     <div id="acao">
         <div class="buttons">
-            <a href=""><img src="pics/lapis.png" id="aicon"></a>
-            <h4>Editar Perfil</h4>
+            <a href="ajustes.html"><img src="pics/ajst.png" id="aicon"></a>
+            <h4>Ajustes</h4>
         </div>
         <div class="buttons">
             <a href="https://nibutera.github.io/MediCareQuemSomos"><img src="pics/quem somos.png" id="aicon"></a>
