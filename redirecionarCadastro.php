@@ -56,11 +56,11 @@
             ?>
             <div class="eyeVisible aberto" id="visibleEye"></div>
         </div>
-        <snaF id="passwordVerify">
-        <char id="char" style="color: rgb(13, 44, 97);">✔ Caracteres</char><br>
-        <num id="num" style="color: rgb(13, 44, 97);">✔ Número</num><br>
+        <snaN id="passwordVerify">
+        <char id="char" style="color: rgb(13, 44, 97);">✔ Caracteres</char>
+        <num id="num" style="color: rgb(13, 44, 97);">✔ Número</num>
         <special id="special" style="color: rgb(13, 44, 97);">✔ Caracter especial</special>
-        </snaF>
+        </snaN>
         <p>Repita sua senha</p>
         <div class="formRow">
             <?php

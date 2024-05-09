@@ -18,18 +18,6 @@
 </head>
 
 <body>
-    <?php
-    include "conexao.php";
-
-    $sqlVerify = "SELECT * from tb_quarto;"; //$sql = SELECT from mysql
-
-    $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-
-    if ($result->num_rows <= 0) { // para cada coluna
-        $sql = "INSERT INTO tb_quarto VALUES (3, 3, '2', 'Santana'), (5, 5, '6', 'Santana')";
-        mysqli_query($conn, $sql);
-    }
-    ?>
     <h1>MediCare</h1>
     <P>Início</P>
 
@@ -43,17 +31,22 @@
 
         <div class="box2">
             <?php
+                include "conexao.php";
+
+                $sqlVerify = "SELECT * from tb_quarto;"; //$sql = SELECT from mysql
+            
+                $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                         if ($row['cd_quarto'] == 3){
                             echo "<h4>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h4>";
                             echo "<h5>Leito 10</h5>";
-                            echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender()'>Atender</button>";
+                            echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender(".$row['nr_quarto'].",10,1)'>Atender</button>";
                         }
                     }
                 }
-
             ?>
         </div>
 

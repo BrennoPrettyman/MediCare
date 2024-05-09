@@ -25,6 +25,15 @@
 
     $result = mysqli_query($conn, $sql); // utiliza no banco de dados
 
+    $sqlQuarto = "SELECT * from tb_quarto;"; //$sql = SELECT from mysql
+    $resultQuarto = mysqli_query($conn, $sqlQuarto); // verifica no banco de dados
+
+    $sqlLeito = "SELECT * from tb_leito;"; //$sql = SELECT from mysql
+    $resultLeito = mysqli_query($conn, $sqlLeito); // verifica no banco de dados
+
+    $sqlESP = "SELECT * from tb_esp_atividade;"; //$sql = SELECT from mysql
+    $resultESP = mysqli_query($conn, $sqlESP); // verifica no banco de dados
+
     echo "<script>"; // necesário pois utiliza JS no HTML
     if ($result->num_rows > 0) { // para cada coluna
         // output data of each row
@@ -32,6 +41,18 @@
           if ($senha && $senha == $row["senha_enfermeiro"]
           && $estado && $estado == $row["sg_estado_enfermeiro"]
           && $coren && $coren == $row["id_coren_enfermeiro"]){
+            if ($resultQuarto->num_rows <= 0) {
+                $sql1 = "INSERT INTO tb_quarto VALUES (null, 3, '2', 'Santana'), (null, 5, '6', 'Santana'), (null, 7, '4', 'Santana')";
+                mysqli_query($conn, $sql1);
+            }
+            if ($resultLeito->num_rows <= 0) {
+              $sql2 = "INSERT INTO tb_leito VALUES (null, 1), (null, 2), (null, 1)";
+              mysqli_query($conn, $sql2);
+            }
+            if ($resultESP->num_rows <= 0) {
+              $sql3 = "INSERT INTO tb_esp_atividade VALUES (null, true, 2), (null, false, 1), (null, false, 2)";
+              mysqli_query($conn, $sql3);
+            }
             echo "window.location.href = 'qrcodeex.html';";
           }
         }

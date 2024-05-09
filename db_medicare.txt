@@ -11,7 +11,7 @@ primary key (id_coren_enfermeiro)
 );
 
 create table tb_quarto(
-cd_quarto int not null,
+cd_quarto int not null auto_increment,
 nr_quarto int not null,
 id_ala int not null,
 nm_predio varchar (45) not null,
@@ -19,14 +19,14 @@ primary key (cd_quarto)
 );
 
 create table tb_leito(
-id_leito int not null,
+id_leito int not null auto_increment,
 fk_cd_quarto_quarto int,
 foreign key (fk_cd_quarto_quarto) references tb_quarto (cd_quarto),
 primary key (id_leito)
 );
 
 create table tb_esp_atividade(
-cd_esp_atividade int not null,
+cd_esp_atividade int not null auto_increment,
 st_esp_atividade bit (1),
 fk_id_leito_leito int,
 foreign key (fk_id_leito_leito) references tb_leito (id_leito),
@@ -34,7 +34,7 @@ primary key (cd_esp_atividade)
 );
 
 create table tb_chamado(
-cd_chamado int not null,
+cd_chamado int not null auto_increment,
 ds_motivo varchar (20) not null,
 dt_inicio_chamado date not null,
 hr_inicio_chamado time not null,
