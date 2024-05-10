@@ -5,8 +5,9 @@ body {
     margin-left: 6%;
 }
 
-.bloco1{
+.bloco0{
    text-align: center;
+   justify-content: space-evenly;
 }
 
 /* FONTES */
