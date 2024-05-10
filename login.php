@@ -110,13 +110,15 @@
         let noShadow ="transparent 0px 0px 0px 0px;";
 
         let allowed = false;
+        let senhaVerified = false;
+
 
         var verify = function() {
             allowed = false;
 
             let corenVerified = false;
             let estadoVerified = false;
-            let senhaVerified = false;
+            senhaVerified = false;
 
             // se caso o usuário utilizar o backspace
             if (coren.value.length > 0){
@@ -154,10 +156,6 @@
                     estado.setAttribute("style", shadowColor);
                     document.getElementById("estadoVerify").textContent = "Estado Errado";
                 }
-                if (senhaVerified == false){
-                    senha.setAttribute("style", shadowColor);
-                    document.getElementById("wrongPassword").textContent = "Senha Errada";
-                }
                 if (corenVerified == true && estadoVerified == true && senhaVerified == true){
                     allowed = true;
                 }
@@ -170,6 +168,21 @@
         document.addEventListener("submit", (event) => {
             if (allowed == false){
                 event.preventDefault();
+                let firstRequired = true;
+                if (coren.value.length < 7){
+                    coren.setAttribute("style", shadowColor);
+                    document.getElementById("corenVerify").textContent = "Coren não cadastrado";
+                    firstRequired = false;
+                }
+                else if (estado.options[estado.selectedIndex].value.length == 0){
+                    estado.setAttribute("style", shadowColor);
+                    document.getElementById("estadoVerify").textContent = "Estado Errado";
+                    firstRequired = false;
+                };
+                if (senhaVerified == false && coren.value.length == 7 && estado.options[estado.selectedIndex].value.length == 2 && firstRequired == true){
+                    senha.setAttribute("style", shadowColor);
+                    document.getElementById("wrongPassword").textContent = "Senha Errada";
+                }
             }
             });
     </script>'; // finaliza o script js

@@ -38,11 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
             numeroSpan.style.color = wrong;
             numeroSpan.textContent = "✖ Número";
         }
-        const isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
-        if (!isContainsSymbol.test(senhaInput.value)){
-            allowed = false;
-            especialSpan.style.color = wrong;
-            especialSpan.textContent = "✖ Caracter Especial";
+        const isContainsSymbol = /^(?=.*[~`!@#$%^*--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+        const notAllowed = /^(?=.*[)(]).*$/;
+        if (!isContainsSymbol.test(senhaInput.value) || notAllowed.test(senhaInput.value) == true){
+                allowed = false;
+                especialSpan.style.color = wrong;
+                especialSpan.textContent = "✖ Caracter Especial";
         }
     });
 
