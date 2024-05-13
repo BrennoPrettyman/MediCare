@@ -28,37 +28,6 @@
             <img src="pics/relogio.png" class="ClockIcon">
             <h3>Aguardando o chamado do paciente</h3>
         </div>
-
-        <div class="box2">
-            <?php
-                include "conexao.php";
-
-                $sqlVerify = "SELECT * from tb_quarto;"; //$sql = SELECT from mysql
-            
-                $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        if ($row['cd_quarto'] == 3){
-                            echo "<h4>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h4>";
-                            echo "<h5>Leito 10</h5>";
-                            echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender(".$row['nr_quarto'].",10,1)'>Atender</button>";
-                        }
-                    }
-                }
-            ?>
-        </div>
-
-        <h2>Chamados Atendidos</h2>
-        
-        <div class="box3">
-            <div class="content">
-                <h4>Quarto 05</h4>
-                <h5>Leito 04</h5>
-            </div>
-            <a href="historico.html"><img src="pics/historygray.png" id="GrayClockIcon"></a>
-        </div>
         
         <div class="navbar">
             <a href="homeC.php"><img src="pics/INhome.png" class="icon" id="HomeIcon"></a>
