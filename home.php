@@ -61,9 +61,9 @@
         </div>
         
         <div class="navbar">
-            <a href="homeC.html"><img src="pics/INhome.png" class="icon" id="HomeIcon"></a>
+            <a href="homeC.php"><img src="pics/INhome.png" class="icon" id="HomeIcon"></a>
             <a href="relatoriovazio.html"><img src="pics/relatorios.png" class="icon" id="PaperIcon"></a>
-            <a href="historico.html"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
+            <a href="historico.php"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
             <a href="perfil.php"><img src="pics/perfil.png" class="icon" id="PeopleIcon"> </a>
         </div>
 </body>

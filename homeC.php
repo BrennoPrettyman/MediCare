@@ -28,9 +28,24 @@
         <h2>Andar 01</h2>
 
         <div class="box">
-            <h3>Quarto 01</h3>
-            <h4>Leito 10</h4>
-            <button class="btn" id="atender1">Atender</button>
+            <?php
+                include "conexao.php";
+
+                $sqlVerify = "SELECT * from tb_quarto;"; //$sql = SELECT from mysql
+            
+                $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        if ($row['cd_quarto'] == 3){
+                            echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
+                            echo "<h4>Leito 10</h4>";
+                            echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender(".$row['nr_quarto'].",10,1)'>Atender</button>";
+                        }
+                    }
+                }
+            ?>
         </div>
 
         <h2>Chamados Atendidos</h2>
@@ -59,7 +74,7 @@
     <div class="navbar">
         <a href="home.php"><img src="pics/INhome.png" class="icon" id="HomeIcon"></a>
         <a href="relatorio.html"><img src="pics/relatorios.png" class="icon" id="PaperIcon"></a>
-        <a href="historico.html"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
+        <a href="historico.php"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
         <a href="perfil.php"><img src="pics/perfil.png" class="icon" id="PeopleIcon"> </a>
     </div>
 </body>
