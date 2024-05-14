@@ -83,7 +83,7 @@
         $timeFinal = $_SESSION['hora_fim'];
         $coren = $_SESSION['coren_enfermeiro'];
 
-        $sql = "INSERT INTO tb_chamado VALUES (null, '$motivo', '$dataBegin', '$timeBegin', '$timeFinal', $coren, 1)";
+        $sql = "INSERT INTO tb_chamado VALUES (null, '$motivo', '$dataBegin', '$timeBegin', '$timeFinal', $coren, 2)";
         mysqli_query($conn, $sql);
 
         echo "<script>";

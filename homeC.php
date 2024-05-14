@@ -27,7 +27,6 @@
     <div class="bloco1">
         <h2>Andar 01</h2>
 
-        <div class="box">
             <?php
                 include "conexao.php";
 
@@ -38,15 +37,23 @@
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        if ($row['cd_quarto'] == 3){
-                            echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
-                            echo "<h4>Leito 10</h4>";
-                            echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender(".$row['nr_quarto'].",10,1)'>Atender</button>";
+                        if ($row['cd_quarto']){
+                            $sqlVerifyLeito = "SELECT * from tb_leito where fk_cd_quarto_quarto = '".$row['cd_quarto']."';"; //$sql = SELECT from mysql
+                            $resultLeito = mysqli_query($conn, $sqlVerifyLeito); // verifica no banco de dados
+                            while($row2 = $resultLeito->fetch_assoc()) {
+                                if ($row2['fk_cd_quarto_quarto']){
+                                    echo "<div class='box'>";
+                                    echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
+                                    echo "<h4>Leito ".str_pad($row2['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
+                                    echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender(".$row['nr_quarto'].",10,1)'>Atender</button>";
+                                    echo "</div>";
+                                }
+                            }
+                            
                         }
                     }
                 }
             ?>
-        </div>
 
         <h2>Chamados Atendidos</h2>
             <div class="box2">
