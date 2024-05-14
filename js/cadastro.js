@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
             numeroSpan.style.color = wrong;
             numeroSpan.textContent = "✖ Número";
         }
-        const isContainsSymbol = /^(?=.*[~`!@#$%^*--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
-        const notAllowed = /^(?=.*[)(]).*$/;
+        const isContainsSymbol = /^(?=.*[~`!@#$%^*--+={}\[\]|\\:<>,.?/_₹]).*$/;
+        const notAllowed = /^(?=.*[=)("';]).*$/;
         if (!isContainsSymbol.test(senhaInput.value) || notAllowed.test(senhaInput.value) == true){
                 allowed = false;
                 especialSpan.style.color = wrong;

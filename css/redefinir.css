@@ -108,6 +108,15 @@ snaN {
     color: rgba(255, 255, 255, 0.767);
 }
 
+snaF {
+    font-family: "Quicksand";
+    font-weight: bold;
+    margin-left: 11px;
+    text-align: left;
+    font-size: 14px;
+    color: red;
+}
+
 /* POPUP */
 .black {
     background-color: rgba(0, 0, 0, 0.5); 

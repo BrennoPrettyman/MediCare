@@ -165,6 +165,15 @@
         estado.addEventListener("change", verify);
         senha.addEventListener("keyup", verify);
 
+        senha.addEventListener("keyup", () => {
+            allowed = true;
+            const isContainsSymbol = /^(?=.*[~`!@#$%^*--+={}\[\]|\\:<>,.?/_₹]).*$/;
+            const notAllowed = /^(?=.*[=)("\';]).*$/;
+            if (!isContainsSymbol.test(senha.value) || notAllowed.test(senha.value) == true){
+                    allowed = false;
+            }
+        })
+
         document.addEventListener("submit", (event) => {
             if (allowed == false){
                 event.preventDefault();

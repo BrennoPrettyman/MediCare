@@ -1,4 +1,5 @@
 let allowed = false;
+let shadowColor ="box-shadow: red 0px 0px 6px 5px;";
 let noShadow ="transparent 0px 0px 0px 0px;";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             wrongPassword.textContent = "As senhas não são iguais";
         }
 
+        
         
     });
 
@@ -54,11 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
             numeroSpan.style.color = wrong;
             numeroSpan.textContent = "✖ Número";
         }
-        const isContainsSymbol = /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
-        if (!isContainsSymbol.test(senhaInput.value)){
-            allowed = false;
-            especialSpan.style.color = wrong;
-            especialSpan.textContent = "✖ Caracter Especial";
+        const isContainsSymbol = /^(?=.*[~`!@#$%^*--+={}\[\]|\\:<>,.?/_₹]).*$/;
+        const notAllowed = /^(?=.*[=)("';]).*$/;
+        if (!isContainsSymbol.test(senhaInput.value) || notAllowed.test(senhaInput.value) == true){
+                allowed = false;
+                especialSpan.style.color = wrong;
+                especialSpan.textContent = "✖ Caracter Especial";
         }
     });
 

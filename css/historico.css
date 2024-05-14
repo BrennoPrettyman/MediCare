@@ -17,6 +17,13 @@ body {
     display: flex;
 }
 
+.bloco {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 35px 25px 1px 25px;
+    background-color: white;
+    border-radius: 25px;
+}
+
 .content {
     flex-direction: column;
 }
@@ -64,6 +71,16 @@ h4 {
     font-weight: weight;
     text-align: start;
     line-height: 5%;
+}
+
+h5 {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(39, 169, 219, 1);
+    font-weight: weight;
+    font-style: normal;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 30px;
 }
 
 p {

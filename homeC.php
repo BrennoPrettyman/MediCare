@@ -41,7 +41,7 @@
                             $sqlVerifyLeito = "SELECT * from tb_leito where fk_cd_quarto_quarto = '".$row['cd_quarto']."';"; //$sql = SELECT from mysql
                             $resultLeito = mysqli_query($conn, $sqlVerifyLeito); // verifica no banco de dados
                             while($row2 = $resultLeito->fetch_assoc()) {
-                                if ($row2['fk_cd_quarto_quarto']){
+                                if ($row2['fk_cd_quarto_quarto'] && $row2['id_leito'] == 1){
                                     echo "<div class='box'>";
                                     echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
                                     echo "<h4>Leito ".str_pad($row2['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
@@ -80,7 +80,6 @@
 
     <div class="navbar">
         <a href="home.php"><img src="pics/INhome.png" class="icon" id="HomeIcon"></a>
-        <a href="relatorio.html"><img src="pics/relatorios.png" class="icon" id="PaperIcon"></a>
         <a href="historico.php"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
         <a href="perfil.php"><img src="pics/perfil.png" class="icon" id="PeopleIcon"> </a>
     </div>

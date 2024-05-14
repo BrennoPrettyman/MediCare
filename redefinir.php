@@ -10,7 +10,6 @@
     <script src="js/senha.js"></script>
     <script src="js/redefinir.js"></script>
    
-
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +21,48 @@
 
 <body>
     <h1>MediCare</h1>
+    <?php
+        $email = $_POST['email'];
 
-    <div class="Bloco02">
+        session_start(); // inicia o 'localstorage'
+        $_SESSION['email_enfermeiro'] = $email; // cria localstorage com nome 'coren_enfemeiro' e insere valor
+        echo '<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("overlay-recuperar").classList.add("show");
+            document.getElementById("popup-recuperar").classList.add("show");
+            document.getElementById("block2").setAttribute("hidden","true");
+            setTimeout(function () {
+                document.getElementById("overlay-redefinir").classList.remove("show");
+                document.getElementById("popup-redefinir").classList.remove("show");
+                document.getElementById("block1").setAttribute("hidden","true");
+                document.getElementById("block2").attributes.removeNamedItem("hidden");
+            }, 2000);
+        });
+        </script>';
+    ?>
+    <div class="Bloco01" id="block1">
+        <h2>Recuperação</h2>
+        <p>Insira o e-mail cadastrado no MediCare, enviaremos um link para que você possa redefinir sua senha</p>
+
+        <form method="post" action="redefinir.php" class="container form">
+            <span>E-mail</span>
+            <input id="email" type="email" class="validate" name="email" required>
+
+            <div class="button">
+                <input type="submit" class="meuBotao" id="recuperar" value="Enviar Link">
+
+                <div id="overlay-recuperar" class="black"></div>
+
+                <div id="popup-recuperar" class="pop">
+                    <img src="css/media/arroba.png" id="apop">
+                    <h3>Um link de recuperação foi enviado para seu email</h3>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="Bloco02" id="block2">
         <form method="post" action="senhaAlterada.php" class="container form">
             <h2>Redefina sua senha</h2>
             <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p>
@@ -38,14 +77,16 @@
                 <char id="char">• 7 Caracteres</char>
                 <num id="num">ﾠ• Número</num>
                 <special id="special">ﾠ• Caracter Especial</special>
-                </snaN>
+            </snaN>
 
+        
             <p>Repita sua senha</p>
             <div class="formRow">
                 <input id="senhaConfirm" type="password" class="validate" required>
                 <div class="eyeVisible aberto" id="visibleEyeConfirm"></div>
             </div>
             <snaF id="wrongPassword"></snaF>
+        
             
             <div class="button">
                 <input type="submit" class="meuBotao" id="redefinir" value="Redefinir Senha">
@@ -60,12 +101,6 @@
         </form>
     </div>
     <a href="recuperar.php"><img src="css/media/setabranca.png" class="seta"></a>
-    <?php
-        $email = $_POST['email'];
-
-        session_start(); // inicia o 'localstorage'
-        $_SESSION['email_enfermeiro'] = $email; // cria localstorage com nome 'coren_enfemeiro' e insere valor
-    ?>
 </body>
 
 </html>

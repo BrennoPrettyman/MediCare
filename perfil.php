@@ -82,7 +82,6 @@
     </div>
     <div class="navbar">
         <a href="homeC.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
-        <a href="relatorio.html"><img src="pics/relatorios.png" class="icon" id="PaperIcon"></a>
         <a href="historico.php"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
         <a href="perfil.php"><img src="pics/INperfil.png" class="icon" id="PeopleIcon"> </a>
     </div>

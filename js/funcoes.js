@@ -28,12 +28,5 @@ document.getElementById("cmdA").addEventListener("click", function () {
 });
 
 // TELA RELATORIO - POPUP
-document.getElementById("enviarBtn").addEventListener("click", function () {
-    document.getElementById("overlay").classList.add("show");
-    document.getElementById("popup").classList.add("show");
-    setTimeout(function () {
-        window.location.href = "relatorio.html";
-    }, 2000);
-});
 
 

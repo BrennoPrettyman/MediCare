@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
-        <script src="js/recuperar.js"></script>
 
     <title>MediCare - Recuperação</title>
 </head>
@@ -41,7 +40,7 @@
         </form>
 
     </div>
-    <a href="login.php" class="there"><img src="css/media/setabranca.png"></a>
+    <a href="login.php"><img src="css/media/setabranca.png" class="seta"></a>
 </body>
 
 </html>

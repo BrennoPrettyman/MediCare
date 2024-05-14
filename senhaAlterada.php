@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="pt-BR<!DOCTYPE html>
 <html lang=" pt-BR">
 
 <head>
@@ -31,7 +30,7 @@
             <p>Crie uma senha</p>
             
             <div class="formRow">
-                <?php
+                <?php        
                 $password = $_POST['passnha'];
 
                 echo "<input id='senha' type='password' class='validate' required value='$password'>";

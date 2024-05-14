@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
+    <script src="js/historicoSelect.js"></script>
+
     <title>MediCare - Histórico</title>
 </head>
 
@@ -32,7 +34,7 @@
             <?php
                 include "conexao.php";
 
-                $sqlVerify = "SELECT cd_chamado, fk_cd_esp_atividade from tb_chamado;"; //$sql = SELECT from mysql
+                $sqlVerify = "SELECT * from tb_chamado;"; //$sql = SELECT from mysql
             
                 $chamdoFound = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
 
@@ -68,7 +70,14 @@
                                                 echo "<h3>Quarto ".str_pad($row4['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
                                                 echo "<h4>Leito ".str_pad($row3['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
                                                 echo "</div>";
-                                                echo "<button style='background-color:transparent;border:none' onclick='(alert(".$row['cd_chamado']."))'><img src='pics/SetaBlueGo.png' id='SetaBlueGo'></button>";                        
+                                                
+                                                $nrQuarto = $row4["nr_quarto"];
+                                                $idLeito = $row3["id_leito"];
+                                                $dtInicio = $row["dt_inicio_chamado"];
+                                                $hrInicio = $row["hr_inicio_chamado"];
+                                                $hrFim = $row["hr_fim_chamado"];
+                                                $dsMotivo = $row["ds_motivo"];
+                                                echo "<button style='background-color:transparent;border:none' onclick='opnix(1,\"$nrQuarto\",\"$idLeito\",\"$dtInicio\",\"$hrInicio\",\"$hrFim\",\"$dsMotivo\");'><img src='pics/SetaBlueGo.png' id='SetaBlueGo'></button>";                        
                                                 echo "</div>";
                                             }
                                         }
@@ -80,20 +89,21 @@
                         }
                     }
                 }
-            ?>
-        </div>
+                else{
+                    echo '
+                    <div class="bloco">
+                    <img src="css/media/enf.png" id="enf">
+                    <h5>Histórico Vazio</h5>
+                    </div>
+                    
+                    ';
+                }
 
-        <div class="box">
-            <div class="content">
-                <h3>Quarto 01</h3>
-                <h4>Leito 10</h4>
-            </div>
-            <a href="historicoinfo.html"><img src="pics/SetaBlueGo.png" id="SetaBlueGo"></a>
+            ?>
         </div>
 
         <div class="navbar">
             <a href="home.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
-            <a href="relatorio.html"><img src="pics/relatorios.png" class="icon" id="PaperIcon"></a>
             <a href="historico.php"><img src="pics/INhistory.png" class="icon" id="ClockIcon"></a>
             <a href="perfil.php"><img src="pics/perfil.png" class="icon" id="PeopleIcon"> </a>
         </div>
