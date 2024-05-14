@@ -83,9 +83,8 @@ a {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     background-color: white;
     border-radius: 25px;
-    margin-bottom: 10px;
-    padding: 20px;
-    
+    margin-bottom: 15px;
+    padding: 20px 20px 25px 20px;
 }
 
 .box2 {

@@ -195,9 +195,9 @@
 }
 
 .seta {
-    position: fixed;
+    position: absolute;
     width: 55px;
-    bottom: 3%
+    bottom: 3%;
 }
 
 /* PERFIL */
@@ -270,10 +270,4 @@
     margin-bottom: 0px;
     margin-top: 3px;
     width: 25px;
-}
-
-.seta {
-    position: fixed;
-    width: 55px;
-    bottom: 3%
 }

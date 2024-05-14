@@ -47,8 +47,7 @@ p {
     color: black;
 }
 
-/* Anti-Container */
-
-.anti-container{
-    background-color: transparent;
+a {
+    justify-content: center;
+    display:flex;
 }

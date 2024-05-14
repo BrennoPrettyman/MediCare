@@ -55,29 +55,6 @@
                 }
             ?>
 
-        <h2>Chamados Atendidos</h2>
-            <div class="box2">
-                <div class="content">
-                    <h3>Quarto 05</h3>
-                    <h4>Leito 04</h4>
-                </div>
-                <a href="historico.html"><img src="pics/historygray.png" id="GrayClockIcon"></a>
-            </div>
-            <div class="box2">
-                <div class="content">
-                   <h3>Quarto 10</h3>
-                    <h4>Leito 12</h4>
-                </div>
-                <a href="historico.html"><img src="pics/historygray.png" id="GrayClockIcon"></a>
-            </div> 
-            <div class="box2">
-                <div class="content">
-                    <h3>Quarto 05</h3>
-                    <h4>Leito 10</h4>
-                </div>
-                <a href="historico.html"><img src="pics/historygray.png" id="GrayClockIcon"></a>
-            </div>
-
     <div class="navbar">
         <a href="home.php"><img src="pics/INhome.png" class="icon" id="HomeIcon"></a>
         <a href="historico.php"><img src="pics/history.png" class="icon" id="ClockIcon"></a>
