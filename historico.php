@@ -103,7 +103,7 @@
         </div>
 
         <div class="navbar">
-            <a href="home.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
+            <a href="homeC.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
             <a href="historico.php"><img src="pics/INhistory.png" class="icon" id="ClockIcon"></a>
             <a href="perfil.php"><img src="pics/perfil.png" class="icon" id="PeopleIcon"> </a>
         </div>

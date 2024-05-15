@@ -111,14 +111,15 @@
 
         let allowed = false;
         let senhaVerified = false;
+        let estadoVerified = false;
 
 
         var verify = function() {
             allowed = false;
 
             let corenVerified = false;
-            let estadoVerified = false;
             senhaVerified = false;
+            estadoVerified = false;
 
             // se caso o usuário utilizar o backspace
             if (coren.value.length > 0){
@@ -152,10 +153,6 @@
                     coren.setAttribute("style", shadowColor);
                     document.getElementById("corenVerify").textContent = "Coren não cadastrado";
                 }
-                if (estadoVerified == false){
-                    estado.setAttribute("style", shadowColor);
-                    document.getElementById("estadoVerify").textContent = "Estado Errado";
-                }
                 if (corenVerified == true && estadoVerified == true && senhaVerified == true){
                     allowed = true;
                 }
@@ -174,6 +171,7 @@
             }
         })
 
+
         document.addEventListener("submit", (event) => {
             if (allowed == false){
                 event.preventDefault();
@@ -183,14 +181,13 @@
                     document.getElementById("corenVerify").textContent = "Coren não cadastrado";
                     firstRequired = false;
                 }
-                else if (estado.options[estado.selectedIndex].value.length == 0){
+                else if (estadoVerified == false && coren.value.length == 7){
                     estado.setAttribute("style", shadowColor);
-                    document.getElementById("estadoVerify").textContent = "Estado Errado";
-                    firstRequired = false;
-                };
-                if (senhaVerified == false && coren.value.length == 7 && estado.options[estado.selectedIndex].value.length == 2 && firstRequired == true){
+                    document.getElementById("estadoVerify").textContent = "Estado não cadastrado";
+                }
+                else if (senhaVerified == false && coren.value.length == 7 && estado.options[estado.selectedIndex].value.length == 2 && firstRequired == true){
                     senha.setAttribute("style", shadowColor);
-                    document.getElementById("wrongPassword").textContent = "Senha Errada";
+                    document.getElementById("wrongPassword").textContent = "Senha Incorreta";
                 }
             }
             });
