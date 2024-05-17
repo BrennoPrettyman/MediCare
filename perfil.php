@@ -15,6 +15,7 @@
         rel="stylesheet">
 
     <script src="js/nomeToUpper.js"></script>
+    <script src="js/navBar.js"></script>
 
     <title>MediCare - Perfil</title>
 </head>

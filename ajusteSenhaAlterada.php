@@ -65,27 +65,25 @@
             </div>
         </div>
     </div>
-    <a href="recuperar.html"><img src="css/media/setabranca.png" class="seta"></a>
+    <a href="ajustes.html"><img src="css/media/setabranca.png" class="seta"></a>
     <?php
     include "conexao.php";
 
     session_start(); 
-    $coren = $_SESSION['coren_redefinir'];
-    $estado = $_SESSION['estado_redefinir'];
+    $coren = $_SESSION['coren_enfermeiro'];
 
     $novaSenha = $_POST['passnha'];
 
     $sqlVerify = "SELECT * from tb_enfermeiro
-    where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';"; //$sql = SELECT from mysql
+    where id_coren_enfermeiro = '$coren';"; //$sql = SELECT from mysql
 
 
     $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
 
     if ($result->num_rows > 0) { // para cada coluna
         while($row = $result->fetch_assoc()) {
-          if ($coren && $coren == $row["id_coren_enfermeiro"]
-          && $estado && $estado == $row["sg_estado_enfermeiro"]){
-            $sql = "UPDATE tb_enfermeiro SET senha_enfermeiro = '". $novaSenha ."' where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';";
+          if ($coren && $coren == $row["id_coren_enfermeiro"]){
+            $sql = "UPDATE tb_enfermeiro SET senha_enfermeiro = '". $novaSenha ."' where id_coren_enfermeiro = '$coren';";
             mysqli_query($conn, $sql);
           }
         }
@@ -95,7 +93,7 @@
         document.getElementById("overlay-redefinir").classList.add("show");
         document.getElementById("popup-redefinir").classList.add("show");
         setTimeout(function () {
-            window.location.href = "login.php";
+            window.location.href = "ajustes.html";
         }, 2000);
         </script>';
 

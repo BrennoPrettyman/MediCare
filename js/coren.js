@@ -1,18 +1,43 @@
 var focused = false;
+
 document.addEventListener("DOMContentLoaded",() => {
-    document.getElementById("coren").addEventListener("keyup", () => {
-        var txt = document.getElementById("coren").value;
+
+    var tagCoren = document.getElementById("coren");
+
+    function dotInsert(){
+        var txt = tagCoren.value;
         var numeric = txt.replace(/[^0-9]+/g, '');
         var corenLength = numeric.length;
 
         var partOne = numeric.slice(0, 3) + ".";
         if (corenLength < 4) { 
-            document.getElementById("coren").value = numeric;
+            tagCoren.value = numeric;
         } else if (corenLength >= 4 && corenLength < 7) {
             var formatCoren = partOne + numeric.slice(3);
-            document.getElementById("coren").value = formatCoren;
+            tagCoren.value = formatCoren;
         }
-    });
+    }
+
+    function fullInsert(){
+        var txt = tagCoren.value;
+        if (txt.length < 7){
+            tagCoren.value = txt.padStart(6, "0");
+            dotInsert();
+            if (tagCoren.value.length == 6){
+                tagCoren.value = txt.padStart(7, "0");
+            }
+        }
+        if (tagCoren.value == "000.000"){
+            tagCoren.value = "";
+        }
+    }
+
+    tagCoren.addEventListener("keyup", dotInsert);
+    tagCoren.addEventListener("keydown", dotInsert);
+    tagCoren.addEventListener("keypress", dotInsert);
+    tagCoren.addEventListener("change", dotInsert);
+
+    tagCoren.addEventListener("focusout", fullInsert);
 });
 
 /*

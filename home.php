@@ -14,6 +14,8 @@
         rel="stylesheet">
 
     <script src="js/atender.js"></script>
+    <script src="js/navBar.js"></script>
+    
     <title>MediCare - Home</title>
 </head>
 
