@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
-
-    <title>MediCare - Validação da Identidade</title>
+    
+    <title>MediCare - Alteração Email</title>
 </head>
 
 <body>
@@ -23,9 +23,9 @@
         <h2>Redefina seu E-mail</h2>
         <p>Insira o novo endereço de email desejado para redefinição. Em seguida, enviaremos um link de confirmação.</p>
 
-        <div class="container form">
+        <form method="POST" action="ajusteEmailAlterado.php" class="container form">
             <span>E-mail</span>
-            <input id="email" type="text" class="validate">
+            <input id="email" name="email" type="email" class="validate" required>
 
             <div class="button">
                 <button class="meuBotao" id="recuperar">Enviar Link</button>
@@ -37,10 +37,9 @@
                     <h3>Um link de confirmação foi enviado para seu novo email</h3>
                 </div>
             </div>
-        </div>
+    </form>
 
     </div>
-    <a href="RDE-1.html"><img src="css/media/setabranca.png" class="seta"></a>
-    <script src="js/recuperar.js"></script>
+    <a href="ajustes.html"><img src="css/media/setabranca.png" class="seta"></a>
 </body>
 </html>

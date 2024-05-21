@@ -23,7 +23,7 @@
 
     <div class="Bloco01">
         <h2>Recuperação</h2>
-        <p>Insira o e-mail cadastrado no MediCare, enviaremos um link para que você possa redefinir sua senha</p>
+        <p>Insira o coren cadastrado no MediCare, enviaremos um link via email para que você possa redefinir sua senha</p>
 
         <form method="post" action="redefinir.php" class="container form">
             <p>Coren</p>

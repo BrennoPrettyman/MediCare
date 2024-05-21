@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
-    <title>MediCare - Recuperação</title>
+    <title>MediCare - Redefinir Senha</title>
 </head>
 
 <body>
