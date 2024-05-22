@@ -70,6 +70,12 @@
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
         </select>
+        <p>Cargo</p>
+        <select id="cargo" name="sg_estado_enfermeiro" class="validate" required>
+            <option value="" selected disabled hidden>Selecione um cargo</option>
+            <option value="TEnf">Técnico de Enfermagem</option>
+            <option value="CEnf">Coordenação de Enfermagem</option>
+        </select>
         <p>Crie uma senha</p>
         <div class="formRow">
             <input id="senha" type="password" name="senha_enfermeiro" maxlength="45" class="validate" required>
