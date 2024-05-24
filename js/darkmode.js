@@ -10,3 +10,17 @@ function switchMode() {
         icon.src = 'css/media/lua.png';
     }
 }
+
+
+// function switchMode() {
+//     const themeLink = document.getElementById('theme-link');
+//     const icon = document.getElementById('MIcon');
+    
+//     if (themeLink.getAttribute('href') === 'style.css') {
+//         themeLink.setAttribute('href', 'night-style.css');
+//         icon.src = 'css/media/lua.png';
+//     } else {
+//         themeLink.setAttribute('href', 'style.css');
+//         icon.src = 'css/media/sol.png';
+//     }
+// }
