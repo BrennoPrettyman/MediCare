@@ -9,7 +9,10 @@ body {
     text-align: center;
     margin-right: 6%;
     margin-left: 6%;
-    height: 100%; 
+}
+
+body.night-mode {
+    background: linear-gradient(to bottom, rgba(173, 216, 230, 1) 30%, rgba(240, 248, 255, 1));
 }
 
 .Bloco01 {

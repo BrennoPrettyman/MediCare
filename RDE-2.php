@@ -17,7 +17,10 @@
 </head>
 
 <body>
-    <h1>MediCare</h1>
+<div class="mode">
+        <h1>MediCare</h1>
+        <img src="css/media/sol.png" id="MIcon">
+    </div>
 
     <div class="Bloco01">
         <h2>Redefina seu E-mail</h2>
