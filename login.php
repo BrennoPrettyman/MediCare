@@ -31,6 +31,12 @@
     <img src="css/media/MediCare.png" alt="" class="logo">
     <div class="Bloco">
         <form method="post" action="redirecionarLogin.php" class="container form">
+        <p>Cargo</p>
+        <select id="cargo" name="sg_estado_enfermeiro" class="validate" required>
+            <option value="" selected disabled hidden>Selecione um cargo</option>
+            <option value="TEnf">Técnico de Enfermagem</option>
+            <option value="CEnf">Coordenação de Enfermagem</option>
+        </select>
             <p>Coren</p>
             <input id="coren" type="text" name="id_coren" class="validate" placeholder="___.___" maxlength="7" required>
             <snaF id="corenVerify"></snaF>

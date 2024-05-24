@@ -20,7 +20,10 @@
 </head>
 
 <body>
-    <h1>MediCare</h1>
+<div class="mode">
+        <h1>MediCare</h1>
+        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
+    </div>
 
     <div class="Bloco02">
         <div class="container form">

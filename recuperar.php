@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/recuperar.css">
     <link rel="stylesheet" href="css/icons.css">
+    <script src="js/darkmode.js"></script>
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +20,9 @@
 </head>
 
 <body>
-    <div class="mode">
+ <div class="mode">
         <h1>MediCare</h1>
-        <img src="css/media/sol.png" id="MIcon">
+        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
     </div>
 
     <div class="Bloco01">

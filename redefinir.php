@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/icons.css">
     <script src="js/senha.js"></script>
     <script src="js/redefinir.js"></script>
+    <script src="js/darkmode.js"></script>
    
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +21,9 @@
 </head>
 
 <body>
-    ss<div class="mode">
+<div class="mode">
         <h1>MediCare</h1>
-        <img src="css/media/sol.png" id="MIcon">
+        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
     </div>
 
     <?php
