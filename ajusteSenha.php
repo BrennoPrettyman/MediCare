@@ -20,7 +20,11 @@
 </head>
 
 <body>
-    <h1>MediCare</h1>
+<div class="mode">
+        <h1>MediCare</h1>
+        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
+    </div>
+
     <div class="Bloco02" id="block2">
         <form method="post" action="ajusteSenhaAlterada.php" class="container form">
             <h2>Redefina sua senha</h2>

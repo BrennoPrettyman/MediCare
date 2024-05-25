@@ -36,6 +36,12 @@
         <input id="nome" type="text" name="nm_enfermeiro" class="validate" maxlength="45" required>
         <p>E-Mail</p>
         <input id="email" type="email" name="email_enfermeiro" class="validate" maxlength="45" required>
+        <p>Cargo</p>
+        <select id="cargo" name="sg_cargo" class="validate" required>
+            <option value="" selected disabled hidden>Selecione um cargo</option>
+            <option value="TEnf">Técnico de Enfermagem</option>
+            <option value="CEnf">Coordenação de Enfermagem</option>
+        </select>
         <p>Coren</p>
         <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7" required>
         <snaF id="corenVerify"></snaF>
@@ -69,12 +75,6 @@
             <option value="SP">São Paulo</option>
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
-        </select>
-        <p>Cargo</p>
-        <select id="cargo" name="sg_estado_enfermeiro" class="validate" required>
-            <option value="" selected disabled hidden>Selecione um cargo</option>
-            <option value="TEnf">Técnico de Enfermagem</option>
-            <option value="CEnf">Coordenação de Enfermagem</option>
         </select>
         <p>Crie uma senha</p>
         <div class="formRow">

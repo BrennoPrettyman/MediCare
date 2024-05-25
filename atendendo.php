@@ -38,7 +38,7 @@
     ?>
     <div class="bloco1">
         <div class="box">
-            <h4>Você está em um atendimento agora</h4>
+            <h4>Você está prestando um atendimento agora</h4>
             <button class="btn" id="finalizar1">Finalizar Atendimentos</button>
         </div>
     </div>

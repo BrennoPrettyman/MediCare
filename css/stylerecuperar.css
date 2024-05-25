@@ -68,6 +68,18 @@ body.night-mode {
     display: flex;
 }
 
+.mode {
+    justify-content: space-around;
+    align-items: center; 
+    margin-left: 25%;
+    display: flex;
+}
+
+#MIcon {
+    margin-top: 30px;
+    width: 35px;
+}
+
 /* FONTES */
 span {
     font-family: "Quicksand";

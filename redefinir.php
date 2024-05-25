@@ -24,7 +24,7 @@
 <div class="mode">
         <h1>MediCare</h1>
         <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
-    </div>
+</div>
 
     <?php
         $coren = $_POST['nr_coren_enfermeiro'];

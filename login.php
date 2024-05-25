@@ -32,7 +32,7 @@
     <div class="Bloco">
         <form method="post" action="redirecionarLogin.php" class="container form">
         <p>Cargo</p>
-        <select id="cargo" name="sg_estado_enfermeiro" class="validate" required>
+        <select id="cargo" name="sg_cargo" class="validate" required>
             <option value="" selected disabled hidden>Selecione um cargo</option>
             <option value="TEnf">Técnico de Enfermagem</option>
             <option value="CEnf">Coordenação de Enfermagem</option>

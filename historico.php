@@ -68,8 +68,7 @@
                                                 //print_r($row4['cd_quarto']);
                                                 echo "<div class='box'>";
                                                 echo "<div class='content'>";
-                                                echo "<h3>Quarto ".str_pad($row4['nr_quarto'],2,"0",STR_PAD_LEFT)." - ".substr($row['dt_inicio_chamado'],8)."/".substr($row['dt_inicio_chamado'],5,2)."/".substr($row['dt_inicio_chamado'],0,4)."</h3>";
-                                                echo "<h4>Horário: ".$row['hr_inicio_chamado']." - ".$row['hr_fim_chamado']."</h4>";
+                                                echo "<h3>Quarto ".str_pad($row4['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
                                                 echo "<h4>Leito ".str_pad($row3['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
                                                 echo "</div>";
                                                 

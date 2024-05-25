@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/filtro.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/navbar.css">
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+
+    <script src="js/navBar.js"></script>
+
+    <title>MediCare - Filtro</title>
+</head>
+
+<body>
+    <h1>MediCare</h1>
+    <P>Histórico | Filtro</P>
+
+    <h2>Filtrar Por:</h2>
+    <button class="btn" id="cmdA">Chamados Antecedentes     <div id="info" class="info">
+        Filtra pelos seus atendimentos antigos, mostrando-os primeiro no histórico
+        </div></button>
+
+    <div class="bloco1">
+        <button class="btn" onclick="quartos()">Quartos</button>
+    </div>
+
+    <div class="navbar">
+        <a href="historico.php"><img src="pics/seta.png" class="icon" id="HomeIcon"></a>
+        <a href="home.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
+        <a href="perfil.php"><img src="pics/perfil.png" class="icon" id="PeopleIcon"> </a>
+    </div>
+
+    <script src="js/funcoes.js"></script>
+</body>
+
+</html>
