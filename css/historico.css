@@ -10,6 +10,13 @@ body {
     text-align: center;
 }
 
+.flexList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .box2 {
     justify-content: space-between;
     padding: 0px 6px 0px 0px;
@@ -102,6 +109,7 @@ a {
     background-color: white;
     padding: 15px 25px 15px;
     margin: 15px 0px 0px 0px;
+    width: 90%;
     border-radius: 25px;
     align-items: center;
     display: flex;

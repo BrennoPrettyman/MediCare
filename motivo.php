@@ -33,6 +33,7 @@
             <h4>Outro motivo</h4>
             <input placeholder="Digite aqui" maxlength="15" id="mtvTXT" type="text" class="text" required>
             <input type="text" id="valorMotivo" name="valorMotivo" hidden>
+            <input type="number" id="esp" name="esp" hidden>
             <h5 id="restante">15 Caracteres Restantes</h5>
             <input class="btn" id="enviarBtn" type="submit" value="Enviar">
         </div>

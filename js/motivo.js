@@ -1,6 +1,8 @@
 // RESTANTE
 var detectReason = false;
 document.addEventListener("DOMContentLoaded", () => {
+    var esp = localStorage.getItem("espAtividade");
+    document.getElementById("esp").value = esp;
     function motivando(txt){
         document.getElementById("valorMotivo").value = txt;
     }

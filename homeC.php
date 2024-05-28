@@ -31,7 +31,11 @@
             <?php
                 include "conexao.php";
 
-                $sqlVerify = "SELECT * from tb_quarto;"; //$sql = SELECT from mysql
+                $sqlVerify = "SELECT * from tb_quarto as q,
+                tb_leito as l,
+                tb_esp_atividade as e
+                where l.fk_cd_quarto_quarto = q.cd_quarto
+                and l.id_leito = e.fk_id_leito_leito;"; //$sql = SELECT from mysql
             
                 $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
 
@@ -39,18 +43,11 @@
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                         if ($row['cd_quarto']){
-                            $sqlVerifyLeito = "SELECT * from tb_leito where fk_cd_quarto_quarto = '".$row['cd_quarto']."';"; //$sql = SELECT from mysql
-                            $resultLeito = mysqli_query($conn, $sqlVerifyLeito); // verifica no banco de dados
-                            while($row2 = $resultLeito->fetch_assoc()) {
-                                if ($row2['fk_cd_quarto_quarto'] && $row2['id_leito'] == 1){
-                                    echo "<div class='box'>";
-                                    echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
-                                    echo "<h4>Leito ".str_pad($row2['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
-                                    echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender(".$row['nr_quarto'].",10,1)'>Atender</button>";
-                                    echo "</div>";
-                                }
-                            }
-                            
+                            echo "<div class='box'>";
+                            echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
+                            echo "<h4>Leito ".str_pad($row['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
+                            echo "<button class='btn' id='atender".$row['cd_quarto']."' onclick='atender(".$row['nr_quarto'].",".$row['id_leito'].",1,".$row['cd_esp_atividade'].")'>Atender</button>";
+                            echo "</div>";
                         }
                     }
                 }

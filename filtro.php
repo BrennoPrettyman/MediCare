@@ -66,6 +66,7 @@
             echo '
             <script>
             // TELA FILTROS - BOTÃO QUARTOS
+            localStorage.setItem("quartoSelecionado",0);
             function quartos() {
                 var botoesContainer = document.querySelector(".bloco1");
                 var botoesAdicionados = document.querySelectorAll(".botao-adicional");

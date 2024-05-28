@@ -28,12 +28,13 @@
         </div>
         <a href="filtro.php"><img src="pics/filtrerblue.png" id="filtro"></a>
     </div>
-
-    <div class="bloco1" id="blocked">
-        <h2>Andar 01</h2>
-
+    <h2>Andar 01</h2>
+    <div class="bloco1 flexList" id="blocked">
             <?php
             include "conexao.php";
+
+            $ordem = 0;
+
             $sqlVerify = "SELECT * from tb_chamado as c,
             tb_esp_atividade as e,
             tb_leito as l,
@@ -45,7 +46,8 @@
             $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
             if ($sqlResult->num_rows > 0) {
                 while($row = $sqlResult->fetch_assoc()) {
-                    echo "<div class='box btn".$row['nr_quarto']."'>";
+                    $ordem--;
+                    echo "<div class='box btn' id='".$row['nr_quarto']."' style='order:-".$row['cd_chamado']."'>";
                     echo "<div class='content'>";
                     echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
                     echo "<h4>Leito ".str_pad($row['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
@@ -63,7 +65,7 @@
             }
                 else{
                     echo '
-                    <div class="bloco">
+                    <div class="bloco" style="width:85%;">
                     <img src="css/media/enf.png" id="enf">
                     <h5>Histórico Vazio</h5>
                     </div>
@@ -77,9 +79,9 @@
                 document.addEventListener("DOMContentLoaded", ()=>{
                     var quarto = localStorage.getItem("quartoSelecionado");
                     if (quarto && quarto > 0){
-                        var botoesAdicionados = document.querySelectorAll(".btn"+quarto);
+                        var botoesAdicionados = document.querySelectorAll(".btn");
                         botoesAdicionados.forEach(function (botao) {
-                            if (botao.textContent != "Andar 01" && botao.classList.contains(".btn"+quarto) == false){
+                            if (botao.id != quarto){
                                 botao.remove();
                             }
                         });

@@ -30,6 +30,7 @@
             <div class="mtvo" id="mtvo">Motivo do Chamado</div>
             <?php
             $motivo = $_POST['valorMotivo'];
+            $espAtividade = $_POST['esp'];
             $hasMotivo = false;
             $tbMotivos = ["Fortes Dores","Higiêne Pessoal","Mudança de Decúbito","Parada Cardíaca","Queda","Reclamação"];
 
@@ -82,11 +83,13 @@
         $timeBegin = $_SESSION['hora_iniciado'];
         $timeFinal = $_SESSION['hora_fim'];
         $coren = $_SESSION['coren_enfermeiro'];
-        $sql = "INSERT INTO tb_chamado VALUES (null, '$motivo', '$dataBegin', '$timeBegin', '$timeFinal', '$coren', 2)";
+        $sql = "INSERT INTO tb_chamado VALUES (null, '$motivo', '$dataBegin', '$timeBegin', '$timeFinal', '$coren', $espAtividade)";
         mysqli_query($conn, $sql);
 
         echo "<script>";
-        echo 'document.getElementById("overlay").classList.add("show");
+        echo '
+        localStorage.setItem("quartoSelecionado",0);
+        document.getElementById("overlay").classList.add("show");
         document.getElementById("popup").classList.add("show");
         setTimeout(function () {
             window.location.href = "home.php";
