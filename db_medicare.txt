@@ -23,7 +23,7 @@ create table tb_pesquisa(
 fk_id_coren_enfermeiro char(7),
 fk_id_coren_coordenador char(7),
 foreign key (fk_id_coren_enfermeiro) references tb_enfermeiro (id_coren_enfermeiro),
-foreign key (fk_id_coren_coordenador) references tb_coordenador (id_coren_coordenador),
+foreign key (fk_id_coren_coordenador) references tb_coordenador (id_coren_coordenador)
 );
 
 create table tb_quarto(

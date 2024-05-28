@@ -26,70 +26,41 @@
             <h1>MediCare</h1>
             <p>Histórico</p>
         </div>
-        <a href="filtro.html"><img src="pics/filtrerblue.png" id="filtro"></a>
+        <a href="filtro.php"><img src="pics/filtrerblue.png" id="filtro"></a>
     </div>
 
-    <div class="bloco1">
+    <div class="bloco1" id="blocked">
         <h2>Andar 01</h2>
 
             <?php
-                include "conexao.php";
-
-                $sqlVerify = "SELECT * from tb_chamado;"; //$sql = SELECT from mysql
-            
-                $chamdoFound = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-
-                if ($chamdoFound->num_rows > 0) {
-                    while($row = $chamdoFound->fetch_assoc()) {
-                        //echo "Chave Estrangeira:";
-                        //print_r($row['fk_cd_esp_atividade']);
-
-                        $sqlVerifyESP = "SELECT * from tb_esp_atividade where cd_esp_atividade = '".$row['fk_cd_esp_atividade']."' "; //$sql = SELECT from mysql
-                        $espFound = mysqli_query($conn, $sqlVerifyESP); // verifica no banco de dados
-                        if ($espFound->num_rows > 0) {
-                            while($row2 = $espFound->fetch_assoc()) {
-                                //echo " | Código ESP Atividade:";
-                                //print_r($row2['cd_esp_atividade']);
-
-                                $sqlVerifyLeito = "SELECT * from tb_leito where id_leito = '".$row2['fk_id_leito_leito']."' "; //$sql = SELECT from mysql
-                                $leitoFound = mysqli_query($conn, $sqlVerifyLeito); // verifica no banco de dados
-
-                                if ($leitoFound->num_rows > 0) {
-                                    while($row3 = $leitoFound->fetch_assoc()) {
-                                        //echo " | Id Leito:";
-                                        //print_r($row3['id_leito']);
-
-                                        $sqlVerifyQuarto = "SELECT * from tb_quarto where cd_quarto = '".$row3['fk_cd_quarto_quarto']."' "; //$sql = SELECT from mysql
-                                        $quartoFound = mysqli_query($conn, $sqlVerifyQuarto); // verifica no banco de dados
-
-                                        if ($quartoFound->num_rows > 0) {
-                                            while($row4 = $quartoFound->fetch_assoc()) {
-                                                //echo " | Código Quarto:";
-                                                //print_r($row4['cd_quarto']);
-                                                echo "<div class='box'>";
-                                                echo "<div class='content'>";
-                                                echo "<h3>Quarto ".str_pad($row4['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
-                                                echo "<h4>Leito ".str_pad($row3['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
-                                                echo "</div>";
-                                                
-                                                $nrQuarto = $row4["nr_quarto"];
-                                                $idLeito = $row3["id_leito"];
-                                                $dtInicio = $row["dt_inicio_chamado"];
-                                                $hrInicio = $row["hr_inicio_chamado"];
-                                                $hrFim = $row["hr_fim_chamado"];
-                                                $dsMotivo = $row["ds_motivo"];
-                                                echo "<button style='background-color:transparent;border:none' onclick='opnix(1,\"$nrQuarto\",\"$idLeito\",\"$dtInicio\",\"$hrInicio\",\"$hrFim\",\"$dsMotivo\");'><img src='pics/SetaBlueGo.png' id='SetaBlueGo'></button>";                        
-                                                echo "</div>";
-                                            }
-                                        }
-                                        
-                                    }
-                                }
-                                
-                            }
-                        }
-                    }
+            include "conexao.php";
+            $sqlVerify = "SELECT * from tb_chamado as c,
+            tb_esp_atividade as e,
+            tb_leito as l,
+            tb_quarto as q 
+            where e.cd_esp_atividade = c.fk_cd_esp_atividade
+            and l.id_leito = e.fk_id_leito_leito
+            and q.cd_quarto = l.fk_cd_quarto_quarto;"; //$sql = SELECT from mysql
+        
+            $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+            if ($sqlResult->num_rows > 0) {
+                while($row = $sqlResult->fetch_assoc()) {
+                    echo "<div class='box btn".$row['nr_quarto']."'>";
+                    echo "<div class='content'>";
+                    echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
+                    echo "<h4>Leito ".str_pad($row['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
+                    echo "</div>";
+                    
+                    $nrQuarto = $row["nr_quarto"];
+                    $idLeito = $row["id_leito"];
+                    $dtInicio = $row["dt_inicio_chamado"];
+                    $hrInicio = $row["hr_inicio_chamado"];
+                    $hrFim = $row["hr_fim_chamado"];
+                    $dsMotivo = $row["ds_motivo"];
+                    echo "<button style='background-color:transparent;border:none' onclick='opnix(1,\"$nrQuarto\",\"$idLeito\",\"$dtInicio\",\"$hrInicio\",\"$hrFim\",\"$dsMotivo\");'><img src='pics/SetaBlueGo.png' id='SetaBlueGo'></button>";                        
+                    echo "</div>";
                 }
+            }
                 else{
                     echo '
                     <div class="bloco">
@@ -102,7 +73,19 @@
 
             ?>
         </div>
-
+        <script>
+                document.addEventListener("DOMContentLoaded", ()=>{
+                    var quarto = localStorage.getItem("quartoSelecionado");
+                    if (quarto && quarto > 0){
+                        var botoesAdicionados = document.querySelectorAll(".btn"+quarto);
+                        botoesAdicionados.forEach(function (botao) {
+                            if (botao.textContent != "Andar 01" && botao.classList.contains(".btn"+quarto) == false){
+                                botao.remove();
+                            }
+                        });
+                    }
+                });
+        </script>
         <div class="navbar">
             <a href="homeC.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
             <a href="historico.php"><img src="pics/INhistory.png" class="icon" id="ClockIcon"></a>

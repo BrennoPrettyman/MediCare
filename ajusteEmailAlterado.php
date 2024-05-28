@@ -27,7 +27,7 @@
 
     <div class="Bloco01">
         <h2>Redefina seu E-mail</h2>
-        <p>Insira o novo endereço de email desejado para redefinição. Em seguida, enviaremos um link de confirmação.</p>
+        <p>Insira o novo endereço de e-mail desejado para redefinição. Em seguida, enviaremos um link de confirmação.</p>
 
         <div class="container form">
         <span>E-mail</span>

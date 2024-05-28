@@ -28,7 +28,7 @@
     <div class="Bloco02" id="block2">
         <form method="post" action="ajusteSenhaAlterada.php" class="container form">
             <h2>Redefina sua senha</h2>
-            <!-- <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p> -->
+            <p>Crie uma nova senha forte de no minímo sete caracteres, contendo números, letras e um caracter especial</p>
             
             <p>Crie uma senha</p>
             

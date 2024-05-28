@@ -27,44 +27,12 @@
 
     <div class="Bloco01">
         <h2>Recuperação</h2>
-        <p>Insira o coren cadastrado no MediCare, enviaremos um link via email para que você possa redefinir sua senha</p>
+        <p>Insira o e-mail cadastrado no MediCare, enviaremos um link via e-mail para que você possa redefinir sua senha</p>
 
         <form method="post" action="redefinir.php" class="container form">
-            <p>Coren</p>
-            <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7" required>
-            <snaF id="corenVerify"></snaF>
-            <p>Estado</p>
-            <select id="estado" name="sg_estado_enfermeiro" class="validate" required>
-                <option value="" selected disabled hidden>Selecione um estado</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
-    
+            <p>E-mail</p>
+            <input id="email" type="email" name="email_enfermeiro" class="validate" maxlength="45" required>
+            
             <div class="button">
                 <input type="submit" class="meuBotao" id="recuperar" value="Enviar Link">
 
