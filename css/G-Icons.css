@@ -1,0 +1,61 @@
+/* INFO ENF*/
+#book {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+#ColorInfo {
+    margin-right: 5px;
+    width: 40px;
+}
+
+#F-Icon {
+    margin-right: 10px;
+    width: 40px;
+}
+
+#I-Info {
+    margin: 0px 23px 0px 17px;  
+    width: 25px;
+}
+
+#InfoH {
+    margin: 0px 25px 0px 20px;  
+    width: 25px;
+}
+
+#leito {
+    margin: 0px 10px 0px 17px;  
+    width: 25px;
+}
+
+.infos {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+}
+
+.infos2 {
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    display: flex;
+    width: 100%;
+}
+
+.info-item {
+    align-items: center;
+    display: flex;
+}
+
+#grafico {
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+}
+
+/* QUARTOS BOX */
+#SetaBlueGo {
+    margin-right: 5px;
+    width: 40px; 
+}

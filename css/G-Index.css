@@ -1,0 +1,150 @@
+/* CORPO */
+body {
+    background-color: rgba(240, 240, 240, 1);
+    margin-bottom: 130px;
+    margin-top: 20px;
+    margin-right: 7%;
+    margin-left: 7%;
+}
+
+/* FONTES */
+h1 {
+    background: var(--gradiente-text,
+            linear-gradient(rgb(17, 57, 126),
+                rgba(39, 169, 219, 1)));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: "Quicksand";
+    background-clip: text;
+    word-wrap: normal;
+    font-weight: bold;
+    margin-bottom: 0%;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 30px;
+}
+
+h2 {
+    font-family: "Quicksand", sans-serif;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+h3 {
+    font-family: "Quicksand", sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    margin-bottom: 5px;
+    font-size: 15px;
+    margin-top: 0px;
+}
+
+h4 {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(36, 96, 135, 1);
+    margin-bottom: 2px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 0px;
+}
+
+h5 {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(36, 96, 135, 1);
+    margin-right: 10px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    margin-left: auto;
+    font-size: 16px;
+    margin-top: 0px;
+    text-align: end;
+}
+
+p {
+    font-family: "Quicksand", sans-serif;
+    font-weight: normal;
+    font-size: 17px;
+    margin-top: 0px;
+}
+
+/* CAIXA */
+.Box-E1, .Box-E2 {
+    background: var(--gradiente-text, linear-gradient(rgba(36, 96, 135, 1), rgba(14, 40, 75, 1)));
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    padding: 10px;
+    flex: 0 0 auto;
+}
+
+/* Específico para Box-E2 */
+.Box-E2 {
+    background: var(--gradiente-text, linear-gradient(rgb(167, 24, 24), rgb(75, 14, 14)));
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    gap: 10px; 
+    width: 100%; 
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 1024px) {
+    .Box-E1, .Box-E2 {
+        flex: 0 0 90%; 
+        max-width: 90%; 
+    }
+}
+
+/* Ajustes para telas maiores */
+@media (min-width: 1025px) {
+    .Box-E1, .Box-E2 {
+        flex: 0 0 47.8%; 
+        max-width: 47.8%;
+    }
+        
+    .container {
+        -ms-overflow-style: none;
+        scrollbar-width: none; 
+        overflow-x: auto; 
+    }
+
+    .container::-webkit-scrollbar {
+        display: none; 
+    }
+}
+
+.box2 {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(216, 234, 248, 1);
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.grafico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piechart {
+    margin: 10px 0px 10px 0px;
+    height: 220px;
+    border-radius: 50%;
+}
+
+/* ALLIGN */
+.book {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#InfoLeito {
+    padding: 5px 0px 0px 18px;
+}

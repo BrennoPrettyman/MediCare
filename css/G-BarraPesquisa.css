@@ -1,0 +1,44 @@
+/* BARRA PESQUISA*/
+.search {
+    display: flex;
+    align-items: center;
+}
+
+#coren {
+    /* CAIXA */
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    margin: 15px 10px 0px 0px; 
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 16px;
+    padding-left: 55px;
+    border: 0px;
+    flex: 1; 
+    /* TEXTO */
+    font-family: "Quicksand";
+    font-weight: bold;
+    color: #000000;
+    font-size: 16px;
+    /* ICONS */
+    background-image: url('media/lupa.png');
+    background-position: 20px center;
+    background-repeat: no-repeat; 
+    background-size: 20px; 
+}
+
+#estado {
+    /* CAIXA */
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    margin: 15px 0px 0px 0px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 15px;
+    border: 0px;
+    /* TEXTO */
+    font-family: "Quicksand";
+    font-weight: bold;
+    color: #777777;
+    font-size: 16px;
+}

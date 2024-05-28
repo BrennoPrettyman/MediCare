@@ -1,0 +1,122 @@
+/* CORPO */
+body {
+    background-color: rgba(240, 240, 240, 1);
+    padding-bottom: 130px;
+    margin-top: 20px;
+    margin-right: 7%;
+    margin-left: 7%;
+}
+
+.content {
+    flex-direction: column;
+}
+
+/* FONTES */
+h1 {
+    background: var(--gradiente-text,
+            linear-gradient(rgb(17, 57, 126),
+                rgba(39, 169, 219, 1)));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: "Quicksand";
+    word-wrap: normal;
+    background-clip: text;
+    font-weight: bold;
+    margin-bottom: 0%;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 30px;
+}
+
+h2 {
+    font-family: "Quicksand", sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-top: 0px;
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+
+h3 {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(36, 96, 135, 1);
+    font-weight: bold;
+    text-align: start;
+    line-height: 5px;
+    margin-bottom: 0px;
+}
+
+h4 {
+    font-family: "Quicksand", sans-serif;
+    text-align: start;
+    line-height: 5%;
+    font-weight: normal;
+}
+
+h5 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: normal;
+    margin-bottom: 5px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+p {
+    font-family: "Quicksand", sans-serif;
+    font-weight: normal;
+    font-size: 17px;
+    margin: 0%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CAIXA */
+.box {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    background-color: white;
+    margin: 10px 0px 0px 0px;
+    padding: 10px 20px 10px;
+    border-radius: 25px;
+    align-items: center;
+    display: flex;
+}
+
+.box2 {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 10px 0px 0px 0px;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.book {
+    display: flex;
+    align-items: center;
+}
+
+.hst {
+    /* CAIXA */ 
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 20px 0; 
+    border: 0px;
+    width: 100%; 
+    /* FONTE */
+    font-family: "Quicksand", sans-serif;
+    color: rgba(10, 29, 62, 1);
+    text-align: start;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 24px;
+    /* ICON */
+    background-image: url('media/relogioH.png');
+    background-position: 15px center;
+    background-repeat: no-repeat; 
+    background-size: 50px; 
+    padding-left: 80px;
+}
+
