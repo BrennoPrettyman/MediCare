@@ -113,15 +113,30 @@
     $coren = $_POST['nr_coren_enfermeiro'];
     $estado = $_POST['sg_estado_enfermeiro'];
     $senha = $_POST['senha_enfermeiro'];
+    $tbSelecionada = "";
+    $valorSelecionado = "";
 
-    print_r ($cargo);
     if ($cargo == "TEnf"){
-        $sqlVerify = "SELECT * from tb_enfermeiro
+        $tbSelecionada = "tb_enfermeiro";
+        $valorSelecionado = "id_coren_enfermeiro";
+    }
+    elseif ($cargo == "CEnf"){
+        $tbSelecionada = "tb_coordenador";
+        $valorSelecionado = "id_coren_coordenador";  
+    }
+
+    if ($tbSelecionada != "" && $valorSelecionado != ""){
+        $sqlVerify = "SELECT id_coren_enfermeiro from tb_enfermeiro
         where id_coren_enfermeiro = '$coren';"; //$sql = SELECT from mysql
     
         $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+
+        $sqlVerify2 = "SELECT id_coren_coordenador from tb_coordenador
+        where id_coren_coordenador = '$coren';"; //$sql = SELECT from mysql
     
-        if ($result->num_rows > 0) { // para cada coluna
+        $result2 = mysqli_query($conn, $sqlVerify2); // verifica no banco de dados
+     
+        if ($result->num_rows > 0 || $result2->num_rows2) { // para cada coluna
             while($row = $result->fetch_assoc()) {
               if ($coren && $coren == $row["id_coren_enfermeiro"]){
                 echo '<script>
@@ -129,44 +144,22 @@
                 </script>'; // volta para página anterior
               }
             }
+            while($row2 = $result2->fetch_assoc()) {
+                if ($coren && $coren == $row2["id_coren_coordenador"]){
+                  echo '<script>
+                  history.back();
+                  </script>'; // volta para página anterior
+                }
+            }
         }
         else{
-            $sql = "INSERT INTO tb_enfermeiro VALUES ('$coren', '$name', '$email', '$estado', '$senha')";
-            session_start(); // inicia o 'localstorage'
-            $_SESSION['coordenador_coren'] = $coren; // cria localstorage com nome 'coren_enfemeiro' e insere valor
+            $sql = "INSERT INTO $tbSelecionada VALUES ('$coren', '$name', '$email', '$estado', '$senha')";
             mysqli_query($conn, $sql);
             echo '<script>
             document.getElementById("overlay-cadastro").classList.add("show");
             document.getElementById("popup-cadastro").classList.add("show");
             setTimeout(function () {
                 window.location.href = "login.php";
-            }, 2000);
-            </script>';
-        }
-    }
-    else if ($cargo == "CEnf"){
-        $sqlVerify = "SELECT * from tb_coordenador
-        where id_coren_coordenador = '$coren';"; //$sql = SELECT from mysql
-    
-        $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-    
-        if ($result->num_rows > 0) { // para cada coluna
-            while($row = $result->fetch_assoc()) {
-              if ($coren && $coren == $row["id_coren_coordenador"]){
-                echo '<script>
-                history.back();
-                </script>'; // volta para página anterior
-              }
-            }
-        }
-        else{
-            $sql = "INSERT INTO tb_coordenador VALUES ('$coren', '$name', '$email', '$estado', '$senha')";
-            mysqli_query($conn, $sql);
-            echo '<script>
-            document.getElementById("overlay-cadastro").classList.add("show");
-            document.getElementById("popup-cadastro").classList.add("show");
-            setTimeout(function () {
-                window.location.href = "Gestao.html";
             }, 2000);
             </script>';
         }

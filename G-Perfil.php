@@ -30,8 +30,13 @@
 <?php
     include "conexao.php";
 
-    session_start(); 
-    $coren = $_SESSION['coordenador_coren'];
+    session_start();
+    if (count($_SESSION) > 0 && in_array($_SESSION["id_coren_coordenador"], $_SESSION)){
+        $coren = $_SESSION["id_coren_coordenador"];
+    }
+    else{
+        echo "<script>window.location.href = 'index.html';</script>";
+    }
 
     $sql = "SELECT * from tb_coordenador where id_coren_coordenador = '$coren';";
     //coren, sg estado, senha
@@ -85,7 +90,7 @@
         </div>
     </div>
     <div class="navbar">
-        <a href="Gestao.html"><img src="pics/casaA.png" id="Voltar"></a>
+        <a href="Gestao.php"><img src="pics/casaA.png" id="Voltar"></a>
         <div class="BoxSelec">
             <img src="pics/perfilB.png" id="F-Icon">
             <a> <h8>Perfil</h8></a>

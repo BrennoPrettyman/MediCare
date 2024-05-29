@@ -25,8 +25,12 @@
     include "conexao.php";
 
     session_start(); 
-
-    $coren = $_SESSION['coren_enfermeiro'];
+    if (count($_SESSION) > 0 && in_array($_SESSION["id_coren_enfermeiro"], $_SESSION)){
+        $coren = $_SESSION["id_coren_enfermeiro"];
+    }
+    else{
+        echo "<script>window.location.href = 'index.html';</script>";
+    }
 
     $sql = "SELECT * from tb_enfermeiro where id_coren_enfermeiro = '$coren';";
     //coren, sg estado, senha

@@ -185,5 +185,5 @@
                 <h8>Início</h8>
             </a>
         </div>
-        <a href="G-Perfil.html"><img src="pics/perfilA.png" id="Voltar"></a>
+        <a href="G-Perfil.php"><img src="pics/perfilA.png" id="Voltar"></a>
     </div>

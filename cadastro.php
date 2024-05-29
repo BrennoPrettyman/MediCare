@@ -133,23 +133,17 @@
         var verify = function() {
             coren.setAttribute("style", noShadow);
             document.getElementById("corenVerify").textContent = "";
-            if (cargo.value == "TEnf"){
-                if (coren.value.length == 7){
-                    for (let i = 0; i < tb_coren.length;i++){ // verifica todos os valores da tabela
-                        if (tb_coren[i] == coren.value){ // compara com os registros e o valor colocado
-                            coren.setAttribute("style", shadowColor);
-                            document.getElementById("corenVerify").textContent = "Coren já cadastrado";
-                        }
+            if (coren.value.length == 7){
+                for (let i = 0; i < tb_coren.length;i++){ // verifica todos os valores da tabela
+                    if (tb_coren[i] == coren.value){ // compara com os registros e o valor colocado
+                        coren.setAttribute("style", shadowColor);
+                        document.getElementById("corenVerify").textContent = "Coren já cadastrado";
                     }
                 }
-            }
-            else if (cargo.value == "CEnf"){
-                if (coren.value.length == 7){
-                    for (let i = 0; i < tb_gestao.length;i++){ // verifica todos os valores da tabela
-                        if (tb_gestao[i] == coren.value){ // compara com os registros e o valor colocado
-                            coren.setAttribute("style", shadowColor);
-                            document.getElementById("corenVerify").textContent = "Coren já cadastrado";
-                        }
+                for (let i = 0; i < tb_gestao.length;i++){ // verifica todos os valores da tabela
+                    if (tb_gestao[i] == coren.value){ // compara com os registros e o valor colocado
+                        coren.setAttribute("style", shadowColor);
+                        document.getElementById("corenVerify").textContent = "Coren já cadastrado";
                     }
                 }
             }
