@@ -106,30 +106,24 @@
     <?php
     include "conexao.php";
     $sqlVerify = "SELECT id_coren_enfermeiro from tb_enfermeiro;"; //$sql = SELECT id from tb_enfermeiro
+    $sqlVerify2 = "SELECT id_coren_coordenador from tb_coordenador;"; //$sql = SELECT id from tb_coordenador
     $id_Found = [];
     $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-    if ($result->num_rows > 0) { // para cada coluna
-        while($row = $result->fetch_assoc()) {
-          if ($row["id_coren_enfermeiro"]){
-            array_push($id_Found,$row["id_coren_enfermeiro"]);
-          }
-        }
-    }
-    $sqlVerify2 = "SELECT id_coren_coordenador from tb_coordenador;"; //$sql = SELECT id from tb_enfermeiro
-    $id_Found2 = [];
     $result2 = mysqli_query($conn, $sqlVerify2); // verifica no banco de dados
-    if ($result2->num_rows > 0) { // para cada coluna
-        while($row2 = $result->fetch_assoc()) {
-          if ($row2["id_coren_coordenador"]){
-            array_push($id_Found2,$row2["id_coren_coordenador"]);
-          }
+
+    if ($result->num_rows > 0 || $result2->num_rows > 0) { // para cada coluna
+
+        while($row = $result->fetch_assoc()) {
+            array_push($id_Found,$row["id_coren_enfermeiro"]);
+        }
+        while($row2 = $result2->fetch_assoc()) {
+            print_r($row2["id_coren_coordenador"]);
+            array_push($id_Found,$row2["id_coren_coordenador"]);
         }
     }
     echo '<script>'; // começa o script js
     echo 'let tb_coren = '. json_encode($id_Found) .';
-        let tb_gestao = '. json_encode($id_Found2) .';
         let coren = document.getElementById("coren");
-        let cargo = document.getElementById("cargo");
         var verify = function() {
             coren.setAttribute("style", noShadow);
             document.getElementById("corenVerify").textContent = "";
@@ -140,16 +134,10 @@
                         document.getElementById("corenVerify").textContent = "Coren já cadastrado";
                     }
                 }
-                for (let i = 0; i < tb_gestao.length;i++){ // verifica todos os valores da tabela
-                    if (tb_gestao[i] == coren.value){ // compara com os registros e o valor colocado
-                        coren.setAttribute("style", shadowColor);
-                        document.getElementById("corenVerify").textContent = "Coren já cadastrado";
-                    }
-                }
             }
         };
         coren.addEventListener("keyup", verify);
-        cargo.addEventListener("change", verify);
+        coren.addEventListener("change", verify);
     </script>'; // finaliza o script js
     ?>
 </body>

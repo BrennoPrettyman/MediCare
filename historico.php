@@ -33,8 +33,6 @@
             <?php
             include "conexao.php";
 
-            $ordem = 0;
-
             $sqlVerify = "SELECT * from tb_chamado as c,
             tb_esp_atividade as e,
             tb_leito as l,
@@ -46,7 +44,6 @@
             $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
             if ($sqlResult->num_rows > 0) {
                 while($row = $sqlResult->fetch_assoc()) {
-                    $ordem--;
                     echo "<div class='box btn' id='".$row['nr_quarto']."' style='order:-".$row['cd_chamado']."'>";
                     echo "<div class='content'>";
                     echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";

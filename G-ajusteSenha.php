@@ -19,13 +19,9 @@
 </head>
 
 <body>
-<div class="mode">
-        <h1>MediCare</h1>
-        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
-    </div>
-
+    <h1>MediCare</h1>
     <div class="Bloco02" id="block2">
-        <form method="post" action="ajusteSenhaAlterada.php" class="container form">
+        <form method="post" action="G-ajusteSenhaAlterada.php" class="container form">
             <h2>Redefina sua senha</h2>
             <p>Crie uma nova senha forte de no minímo sete caracteres, contendo números, letras e um caracter especial</p>
             
@@ -62,7 +58,7 @@
             </div>
         </form>
     </div>
-    <a href="ajustes.html"><img src="css/media/setabranca.png" class="seta"></a>
+    <a href="G-ajustes.html"><img src="css/media/setabranca.png" class="seta"></a>
 </body>
 
 </html>

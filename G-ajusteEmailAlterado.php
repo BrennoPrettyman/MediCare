@@ -20,10 +20,7 @@
 </head>
 
 <body>
-<div class="mode">
-        <h1>MediCare</h1>
-        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
-    </div>
+    <h1>MediCare</h1>
 
     <div class="Bloco01">
         <h2>Redefina seu E-mail</h2>
@@ -46,25 +43,25 @@
         </div>
 
     </div>
-    <a href="ajustes.html"><img src="css/media/setabranca.png" class="seta"></a>
+    <a href="G-ajustes.html"><img src="css/media/setabranca.png" class="seta"></a>
     <?php
     include "conexao.php";
 
     session_start(); 
-    $coren = $_SESSION['id_coren_enfermeiro'];
+    $coren = $_SESSION['id_coren_coordenador'];
 
     $novoEmail = $_POST['email'];
 
-    $sqlVerify = "SELECT * from tb_enfermeiro
-    where id_coren_enfermeiro = '$coren';"; //$sql = SELECT from mysql
+    $sqlVerify = "SELECT * from tb_coordenador
+    where id_coren_coordenador = '$coren';"; //$sql = SELECT from mysql
 
 
     $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
 
     if ($result->num_rows > 0) { // para cada coluna
         while($row = $result->fetch_assoc()) {
-          if ($coren && $coren == $row["id_coren_enfermeiro"]){
-            $sql = "UPDATE tb_enfermeiro SET email_enfermeiro = '". $novoEmail ."' where id_coren_enfermeiro = '$coren';";
+          if ($coren && $coren == $row["id_coren_coordenador"]){
+            $sql = "UPDATE tb_coordenador SET email_coordenador = '". $novoEmail ."' where id_coren_coordenador = '$coren';";
             mysqli_query($conn, $sql);
           }
         }
@@ -74,7 +71,7 @@
         document.getElementById("overlay-ajustar").classList.add("show");
         document.getElementById("popup-ajustar").classList.add("show");
         setTimeout(function () {
-            window.location.href = "ajustes.html";
+            window.location.href = "G-ajustes.html";
         }, 2000);
         </script>';
 

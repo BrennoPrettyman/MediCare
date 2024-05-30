@@ -85,12 +85,15 @@
     <?php
     include "conexao.php";
     $sqlVerify = "SELECT id_coren_enfermeiro, sg_estado_enfermeiro, senha_enfermeiro from tb_enfermeiro;"; //$sql = SELECT id from tb_enfermeiro
+    $sqlVerify2 = "SELECT id_coren_coordenador, sg_estado_coordenador, senha_coordenador from tb_coordenador;"; //$sql = SELECT id from tb_coordenador
     $id_Found = [];
     $sg_found = [];
     $senha_Found = [];
 
     $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-    if ($result->num_rows > 0) { // para cada coluna
+    $result2 = mysqli_query($conn, $sqlVerify2); // verifica no banco de dados
+
+    if ($result->num_rows > 0 || $result2->num_rows > 0) { // para cada coluna
         while($row = $result->fetch_assoc()) {
           if ($row["id_coren_enfermeiro"]){
             array_push($id_Found,$row["id_coren_enfermeiro"]);
@@ -102,8 +105,18 @@
             array_push($senha_Found,$row["senha_enfermeiro"]);
           }
         }
+        while($row2 = $result2->fetch_assoc()) {
+            if ($row2["id_coren_coordenador"]){
+              array_push($id_Found,$row2["id_coren_coordenador"]);
+            }
+            if ($row2["sg_estado_coordenador"]){
+              array_push($sg_found,$row2["sg_estado_coordenador"]);
+            }
+            if ($row2["senha_coordenador"]){
+              array_push($senha_Found,$row2["senha_coordenador"]);
+            }
+          }
     }
-
     echo '<script>'; // começa o script js
     echo "let tb_coren = ". json_encode($id_Found) .";"; // transforma o array php para js
     echo "let tb_estado = ". json_encode($sg_found) .";"; 

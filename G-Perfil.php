@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/G-BarraPesquisa.css">
-    <link rel="stylesheet" href="css/G-Pesquisa.css">
+
     <link rel="stylesheet" href="css/G-Navbar.css">
     <link rel="stylesheet" href="css/G-Icons.css">
     <link rel="stylesheet" href="css/perfil.css">
@@ -77,7 +76,7 @@
 ?>
     <div id="acao">
         <div class="buttons">
-            <a href="ajustes.html"><img src="pics/ajst.png" id="aicon"></a>
+            <a href="G-ajustes.html"><img src="pics/ajst.png" id="aicon"></a>
             <h4>Ajustes</h4>
         </div>
         <div class="buttons">
@@ -95,7 +94,7 @@
             <img src="pics/perfilB.png" id="F-Icon">
             <a> <h8>Perfil</h8></a>
         </div>
-        <a href="G-Pesquisa.html"><img src="pics/lupaNavA.png" id="Voltar"></a>
+        <a href="G-Pesquisa.php"><img src="pics/lupaNavA.png" id="Voltar"></a>
     </div>
 
 </body>

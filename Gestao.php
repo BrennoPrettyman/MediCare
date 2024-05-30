@@ -178,7 +178,7 @@
     
 
     <div class="navbar">
-        <a href="G-Pesquisa.html"><img src="pics/lupaNavA.png" id="Voltar"></a>
+        <a href="G-Pesquisa.php"><img src="pics/lupaNavA.png" id="Voltar"></a>
         <div class="BoxSelec">
             <img src="pics/casaB.png" id="F-Icon">
             <a>
