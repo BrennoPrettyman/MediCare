@@ -16,6 +16,7 @@
         rel="stylesheet">
 
     <script src="js/coren.js"></script>
+    <script src="js/pesquisaQuarto.js"></script>
     <title>MediCare - Gestão</title>
 </head>
 
@@ -65,113 +66,109 @@
     <?php
     include "conexao.php";
 
-    $sqlVerify = "SELECT * from tb_chamado as c,
-    tb_esp_atividade as e,
-    tb_leito as l,
-    tb_quarto as q,
-    tb_enfermeiro as en
-    where e.cd_esp_atividade = c.fk_cd_esp_atividade
-    and l.id_leito = e.fk_id_leito_leito
-    and q.cd_quarto = l.fk_cd_quarto_quarto
-    and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro;"; //$sql = SELECT from mysql
+    $sqlVerify = "SELECT * from tb_enfermeiro;"; //$sql = SELECT from mysql
 
     $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
     if ($sqlResult->num_rows > 0) {
         while($row = $sqlResult->fetch_assoc()) {
-            echo '<div class="box2" id="'.$row["nr_quarto"].'" style="order:-'.$row["cd_chamado"].'">
-                <div class="book">
-                    <img src="pics/livroA.png" id="book" width="50px">
-                    <h2>Informações</h2>
+                echo '<div class="box2" id="'.$row["id_coren_enfermeiro"].'" style="order:-'.$row["id_coren_enfermeiro"].'">
+                    <div class="book">
+                        <img src="pics/livroA.png" id="book" width="50px">
+                        <h2>Informações</h2>
+                    </div>
+                    <div class="infos">
+                        <div class="info-item">
+                            <img src="css/media/people.png" id="I-Info">
+                            <h5>'.$row["nm_enfermeiro"].'</h5>
+                        </div>
+                        <div class="info-item">
+                            <img src="css/media/arroba.png" id="I-Info">
+                            <h5>'.$row["email_enfermeiro"].'</h5>
+                        </div>
+                        <div class="info-item">
+                            <img src="css/media/listpeople.png" id="I-Info">
+                            <h5>'.$row["id_coren_enfermeiro"].'-'.$row["sg_estado_enfermeiro"].'</h5>
+                        </div>
+                        <div class="info-item">
+                            <img src="css/media/predio.png" id="I-Info">
+                            <h5>Andar 01</h5>
+                        </div>
+                    </div>
                 </div>
-                <div class="infos">
-                    <div class="info-item">
-                        <img src="css/media/people.png" id="I-Info">
-                        <h5>'.$row["nm_enfermeiro"].'</h5>
-                    </div>
-                    <div class="info-item">
-                        <img src="css/media/arroba.png" id="I-Info">
-                        <h5>'.$row["email_enfermeiro"].'</h5>
-                    </div>
-                    <div class="info-item">
-                        <img src="css/media/listpeople.png" id="I-Info">
-                        <h5>'.$row["id_coren_enfermeiro"].'-'.$row["sg_estado_enfermeiro"].'</h5>
-                    </div>
-                    <div class="info-item">
-                        <img src="css/media/predio.png" id="I-Info">
-                        <h5>Andar 01</h5>
-                    </div>
-                </div>
-            </div>
-            ';
+                ';
+            }
         }
-    }
-    ?>
+        ?>
     
     <div class="bloco1">
         <button class="hst" onclick="historico()">Histórico</button>
-        <?php
-            include "conexao.php";
-            $sqlVerify = "SELECT * from tb_chamado as c,
-            tb_esp_atividade as e,
-            tb_leito as l,
-            tb_quarto as q,
-            tb_enfermeiro as en
-            where e.cd_esp_atividade = c.fk_cd_esp_atividade
-            and l.id_leito = e.fk_id_leito_leito
-            and q.cd_quarto = l.fk_cd_quarto_quarto
-            and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro;"; //$sql = SELECT from mysql
-            
-            $nr_quartos = [];
-            $btnHTML = '';
-            $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-            if ($sqlResult->num_rows > 0) {
-                while($row = $sqlResult->fetch_assoc()) {
+
+    </div>
+    <?php
+        include "conexao.php";
+        $sqlVerify = "SELECT * from tb_chamado as c,
+        tb_esp_atividade as e,
+        tb_leito as l,
+        tb_quarto as q,
+        tb_enfermeiro as en
+        where e.cd_esp_atividade = c.fk_cd_esp_atividade
+        and l.id_leito = e.fk_id_leito_leito
+        and q.cd_quarto = l.fk_cd_quarto_quarto
+        and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro;"; //$sql = SELECT from mysql
+        
+        $nr_quartos = [];
+        $btnHTML = '';
+        $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+        if ($sqlResult->num_rows > 0) {
+            while($row = $sqlResult->fetch_assoc()) {
+                $existe = false;
+                for ($i=0; $i < count($nr_quartos); $i++) { 
+                    if ($nr_quartos[$i] == $row["nr_quarto"]){
+                        $existe = true;
+                    }
+                }
+                if ($existe == false){
                     array_push($nr_quartos,$row["nr_quarto"]);
                     $nmEnfermeiro = $row["nm_enfermeiro"];
                     $idCoren = $row["id_coren_enfermeiro"];
                     $sgEstado = $row["sg_estado_enfermeiro"];
                     $nrQuarto = $row["nr_quarto"];
-
-                    $btnHTML = '<div class="box botao-adicional" id="'.$row["nr_quarto"].'" onclick="selecionado(id)">
+                    $btnHTML = '<div class="box botao-adicional" id="'.$row["nr_quarto"].'">
                     <div class="content">
                         <h3>Quarto '.str_pad($row["nr_quarto"],2,"0",STR_PAD_LEFT).'</h3>
                         <h4>Informações</h4>
                     </div>
-                    <div onclick="gatinho(1,\"'.$nmEnfermeiro.'\",\"'.$idCoren.'\",\"'.$sgEstado.'\",\"'.$nrQuarto.'\");"><img src="pics/SetaBlueGo.png" id="SetaBlueGo"></div>
+                    <img src="pics/SetaBlueGo.png" id="SetaBlueGo" onclick="gatinho(1,\''.$nmEnfermeiro.'\',\''.$idCoren.'\',\''.$sgEstado.'\',\''.$nrQuarto.'\');">
                     </div>'.$btnHTML;
-               }
-            }
-            if (count($nr_quartos) < 1){
-                $btnHTML = '<button class="btn3 botao-adicional">Não há quartos</button>';
-            }
-            echo '
-            <script>
-            // TELA FILTROS - BOTÃO QUARTOS
-            localStorage.setItem("quartoSelecionado",0);
-            function historico() {
-                var botoesContainer = document.querySelector(".bloco1");
-                var botoesAdicionados = document.querySelectorAll(".botao-adicional");
-            
-                if (botoesAdicionados.length === 0) {
-                        var botoesHTML = `
-                        '.$btnHTML.'
-                    `;
-                    botoesContainer.insertAdjacentHTML("beforeend", botoesHTML);
                 }
-                else {
-                    botoesAdicionados.forEach(function (botao) {
-                        botao.remove();
-                    });
-                }
+           }
+        }
+        if (count($nr_quartos) < 1){
+            $btnHTML = '<button class="btn3 botao-adicional">Não há quartos</button>';
+        }
+        echo '
+        <script>
+        // TELA FILTROS - BOTÃO QUARTOS
+        localStorage.setItem("quartoSelecionado",0);
+        function historico() {
+            var botoesContainer = document.querySelector(".bloco1");
+            var botoesAdicionados = document.querySelectorAll(".botao-adicional");
+        
+            if (botoesAdicionados.length === 0) {
+                    var botoesHTML = `
+                    '.$btnHTML.'
+                `;
+                botoesContainer.insertAdjacentHTML("beforeend", botoesHTML);
             }
-            function selecionado(id){
-                localStorage.setItem("quartoSelecionado",id);
+            else {
+                botoesAdicionados.forEach(function (botao) {
+                    botao.remove();
+                });
             }
-            </script>
-            ';
-        ?>
-    </div>
-
+        }
+        </script>
+        ';
+    ?>
     <div class="navbar">
         <a href="Gestao.php"><img src="pics/casaA.png" id="Voltar"></a>
         <div class="BoxSelec">

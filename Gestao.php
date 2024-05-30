@@ -38,9 +38,25 @@
            
         <div class="grafico">
             <canvas id="myChart" style="width:50%;height:100px;background-color: transparent;padding: 25px 0px 25px 0px;"></canvas>
-            <script>
-                var xValues = ["Mudança de Decúbito", "Higiêne Pessoal", "Fortes Dores", "Reclamação","Queda", "Parada Cardiáca"];
-                var yValues = [20, 20, 20, 20, 10, 10];
+            <?php
+            include "conexao.php";
+            $motivos = ["Mudança de Decúbito", "Higiêne Pessoal", "Fortes Dores", "Reclamação","Queda", "Parada Cardiáca"];
+            $quantidade = [0,0,0,0,0,0];
+            for ($i=0; $i < count($motivos); $i++) { 
+                $sqlVerify = "SELECT count(cd_chamado) from tb_chamado where ds_motivo = '".$motivos[$i]."';"; //$sql = SELECT from mysql
+                $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+    
+                if ($sqlResult->num_rows > 0) {
+                    while($row = $sqlResult->fetch_assoc()) {
+                        print_r($row);
+                    }
+                }
+            }
+
+
+            echo '<script>
+                var xValues = ["'.$motivos[0].'", "'.$motivos[1].'", "'.$motivos[2].'", "'.$motivos[3].'","'.$motivos[4].'", "'.$motivos[5].'"];
+                var yValues = '.$quantidade.';
                 var barColors = [
                   "#0e284b",
                   "#0085db",
@@ -49,7 +65,6 @@
                   "#136da8",
                   "#064eae"
                 ];
-                
                 new Chart("myChart", {
                   type: "pie",
                   data: {
@@ -71,7 +86,8 @@
                         }
                     }
                 });
-            </script>
+            </script>';
+            ?>
         </div>
 
         <div class="box2">

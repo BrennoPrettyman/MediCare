@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    /*
-    localStorage.setItem("nrAndarHistorico",andar);
-    localStorage.setItem("nrQuartoHistorico",nrQuarto);
-    localStorage.setItem("nrLeitoHistorico",nrLeito);
-    localStorage.setItem("diaHistorico",dia);
-    localStorage.setItem("hrInicioHistorico",horarioInicio);
-    localStorage.setItem("hrFimHistorico",HorarioFim);
-    localStorage.setItem("dsMotivoHistorico",dsMotivo);
-    */
     var andar = document.getElementById("andar");
     andar.textContent = "Andar "+localStorage.getItem("nrAndarHistorico").padStart(2,"0");
     
