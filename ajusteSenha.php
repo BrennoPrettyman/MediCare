@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR<!DOCTYPE html>
+<html lang=" pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/redefinir.css">
+    <link rel="stylesheet" href="css/Modo/redefinir.css" id="dark-css">
     <link rel="stylesheet" href="css/icons.css">
+    <script src="js/Modo.js"></script>
     <script src="js/senha.js"></script>
     <script src="js/redefinir.js"></script>
    
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
-    <title>MediCare - Redefinir Senha</title>
+    <title>MediCare - Alterar Senha</title>
 </head>
 
 <body>
@@ -23,11 +26,13 @@
         <h1>MediCare</h1>
         <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
     </div>
+    
+    <link rel="stylesheet" href="css/Modo/M-redefinir.css" id="light-css" disabled>
 
     <div class="Bloco02" id="block2">
         <form method="post" action="ajusteSenhaAlterada.php" class="container form">
             <h2>Redefina sua senha</h2>
-            <p>Crie uma nova senha forte de no minímo sete caracteres, contendo números, letras e um caracter especial</p>
+            <!-- <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p> -->
             
             <p>Crie uma senha</p>
             

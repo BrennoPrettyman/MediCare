@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/redefinir.css">
+    <link rel="stylesheet" href="css/Modo/redefinir.css" id="dark-css">
     <link rel="stylesheet" href="css/icons.css">
+    <script src="js/Modo.js"></script>
     <script src="js/senha.js"></script>
     <script src="js/redefinir.js"></script>
    
@@ -23,12 +24,14 @@
 <div class="mode">
         <h1>MediCare</h1>
         <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
-</div>
+    </div>
+    
+    <link rel="stylesheet" href="css/Modo/M-redefinir.css" id="light-css" disabled>
 
     <div class="Bloco02">
         <div class="container form">
             <h2>Redefina sua senha</h2>
-            <p>Crie uma nova senha forte de no minímo sete caracteres, contendo números, letras e um caracter especial</p>
+            <!-- <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p> -->
             
             <p>Crie uma senha</p>
             
@@ -73,20 +76,22 @@
     include "conexao.php";
 
     session_start(); 
-    $email = $_SESSION['email_redefinir'];
+    $coren = $_SESSION['coren_redefinir'];
+    $estado = $_SESSION['estado_redefinir'];
 
     $novaSenha = $_POST['passnha'];
 
     $sqlVerify = "SELECT * from tb_enfermeiro
-    where email_enfermeiro = '$email';"; //$sql = SELECT from mysql
+    where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';"; //$sql = SELECT from mysql
 
 
     $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
 
     if ($result->num_rows > 0) { // para cada coluna
         while($row = $result->fetch_assoc()) {
-          if ($email && $email == $row["email_enfermeiro"]){
-            $sql = "UPDATE tb_enfermeiro SET senha_enfermeiro = '". $novaSenha ."' where emaiL_enfermeiro = '$email';";
+          if ($coren && $coren == $row["id_coren_enfermeiro"]
+          && $estado && $estado == $row["sg_estado_enfermeiro"]){
+            $sql = "UPDATE tb_enfermeiro SET senha_enfermeiro = '". $novaSenha ."' where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';";
             mysqli_query($conn, $sql);
           }
         }

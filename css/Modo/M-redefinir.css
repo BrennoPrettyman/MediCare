@@ -1,18 +1,19 @@
 /* CORPO */
-html, body{
-    background: linear-gradient(to bottom, rgba(10, 29, 62, 1) 30%, rgba(80, 206, 255, 1));
-    background-attachment: fixed;
+html{
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(to bottom,rgb(203, 240, 255),rgb(103, 207, 255));
     background-size: cover;
-    margin: 0% 3% 0% 3%;
-    height: auto
+    text-align: center;
+    margin-right: 6%;
+    margin-left: 6%;
+    height: 100%; 
 }
 
 .Bloco01 {
     margin-top: 160px;
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;*/
 }
 
 .Bloco02 {
@@ -35,7 +36,7 @@ html, body{
     padding: 15px 20%;
     margin: 20px auto;
     /* FONTE */
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-family: "Quicksand";
     font-weight: bold;
     font-size: 16px;
@@ -44,25 +45,7 @@ html, body{
 }
 
 /* CAIXAS */
-#form:hover {
-    box-shadow: 0px 0px 10px 0px  rgba(80, 206, 255, 1);
-}
 
-#form {
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
-    margin: 0px 10px 10px 10px;
-    background-color: #fff;
-    box-sizing: border-box;
-    border-radius: 20px;
-    padding: 16px;
-    color: #000;
-    border: 0px;
-}
-
-.form {
-    flex-flow: column;
-    display: flex;
-}
 
 /* FONTES */
 span {
@@ -75,7 +58,7 @@ span {
 }
 
 h1 {
-    color: white;
+    color: rgb(22, 58, 82);
     font-family: "Quicksand";
     text-align: center;
     font-style: normal;
@@ -86,7 +69,7 @@ h1 {
 }
 
 h2 {
-    color: rgba(203, 237, 255, 1);
+    color: rgb(22, 58, 82);
     font-family: "Quicksand";
     text-align: center;
     font-style: normal;
@@ -107,13 +90,31 @@ p {
     font-family: "Quicksand";
     text-align: center;
     font-size: 17px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 a {
     justify-content: center;
     text-decoration: none;
     display:flex;
+}
+
+snaN {
+    font-family: "Quicksand";
+    font-weight: bold;
+    margin-left: 11px;
+    text-align: left;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.767);
+}
+
+snaF {
+    font-family: "Quicksand";
+    font-weight: bold;
+    margin-left: 11px;
+    text-align: left;
+    font-size: 14px;
+    color: red;
 }
 
 /* POPUP */
@@ -156,22 +157,13 @@ a {
     display: block;
 }
 
-/* ICONES */
-.there {
-    position: fixed;
-    bottom: 25px;
-    margin: 0% 32.5% 0% 32.5%;
-    width: 5px;
-}
-
-.mode {
-    justify-content: space-around;
-    align-items: center; 
-    margin-left: 25%;
+.form {
+    flex-flow: column;
     display: flex;
 }
 
-#MIcon {
-    margin-top: 30px;
-    width: 35px;
+.formRow{
+    flex-flow: row;
+    display: flex;
 }
+

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/redefinir.css">
+    <link rel="stylesheet" href="css/Modo/redefinir.css" id="dark-css">
     <link rel="stylesheet" href="css/icons.css">
+    <script src="js/Modo.js"></script>
     <script src="js/senha.js"></script>
     <script src="js/redefinir.js"></script>
    
@@ -24,10 +25,12 @@
         <h1>MediCare</h1>
         <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
     </div>
+    
+    <link rel="stylesheet" href="css/Modo/M-redefinir.css" id="light-css" disabled>
 
     <div class="Bloco01">
         <h2>Redefina seu E-mail</h2>
-        <p>Insira o novo endereço de e-mail desejado para redefinição. Em seguida, enviaremos um link de confirmação.</p>
+        <p>Insira o novo endereço de email desejado para redefinição. Em seguida, enviaremos um link de confirmação.</p>
 
         <div class="container form">
         <span>E-mail</span>
@@ -51,7 +54,7 @@
     include "conexao.php";
 
     session_start(); 
-    $coren = $_SESSION['id_coren_enfermeiro'];
+    $coren = $_SESSION['coren_enfermeiro'];
 
     $novoEmail = $_POST['email'];
 
