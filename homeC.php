@@ -17,7 +17,7 @@
     <!-- JAVASCRIPT -->
     <script src="js/atender.js"></script>
     <script src="js/navBar.js"></script>
-
+    <script src="js/updateHomeC.js"></script>
     <title>MediCare - Home</title>
 </head>
 

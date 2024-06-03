@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Modo/redefinir.css" id="dark-css">
     <link rel="stylesheet" href="css/icons.css">
-    <script src="js/Modo.js"></script>
-    <script src="js/senha.js"></script>
-    <script src="js/redefinir.js"></script>
-   
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
+    <script src="js/Modo.js"></script>
+    <script src="js/senha.js"></script>
+    <script src="js/redefinir.js"></script>
     <title>MediCare - Alterar Senha</title>
 </head>
 
 <body>
-<div class="mode">
+    <div class="mode">
         <h1>MediCare</h1>
         <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
     </div>
