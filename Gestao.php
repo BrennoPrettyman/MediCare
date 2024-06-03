@@ -103,7 +103,7 @@
             echo '
             <div class="box2">
                 <div class="book">
-                    <img src="pics/livroA.png" id="ColorInfo" style="box-shadow: '.$colors[$i].' 0px 0px 6px 1px inset;border-radius:20px">
+                    <label id="ColorInfo" class="colorCircle" style="box-shadow: '.$colors[$i].' 0px 0px 6px 20px inset;">.</label><br>
                     <h4>'.$motivos[$i].'</h4>
                     <h5>'.$porcento.'%</h5>
                 </div>

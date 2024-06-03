@@ -117,7 +117,6 @@
             array_push($id_Found,$row["id_coren_enfermeiro"]);
         }
         while($row2 = $result2->fetch_assoc()) {
-            print_r($row2["id_coren_coordenador"]);
             array_push($id_Found,$row2["id_coren_coordenador"]);
         }
     }

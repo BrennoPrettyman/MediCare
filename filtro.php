@@ -35,8 +35,17 @@
         <button class='btn' onclick="quartos()">Quartos</button>
         <?php
             include "conexao.php";
+
+            session_start(); 
+            if (count($_SESSION) > 0 && in_array($_SESSION["id_coren_enfermeiro"], $_SESSION)){
+                $coren = $_SESSION["id_coren_enfermeiro"];
+            }
+            else{
+                echo "<script>window.location.href = 'index.html';</script>";
+            }
+
             $sqlVerify = "SELECT * from tb_chamado as c,
-                tb_esp_atividade as e,
+            tb_esp_atividade as e,
             tb_leito as l,
             tb_quarto as q 
             where e.cd_esp_atividade = c.fk_cd_esp_atividade
@@ -54,7 +63,7 @@
                             $existe = true;
                         }
                     }
-                    if ($existe == false){
+                    if ($existe == false && $coren == $row["fk_id_coren_enfermeiro"]){
                         array_push($nr_quartos,$row["nr_quarto"]);
                         $btnHTML = '<button id="'.$row["nr_quarto"].'" class="btn3 botao-adicional" onclick="selecionado(id)">Quarto '.str_pad($row["nr_quarto"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;        
                     }

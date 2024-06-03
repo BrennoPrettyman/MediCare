@@ -18,6 +18,7 @@
     <script src="js/navBar.js"></script>
 
     <title>MediCare - Histórico</title>
+    <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
 </head>
 
 <body>
@@ -33,13 +34,24 @@
             <?php
             include "conexao.php";
 
+            session_start(); 
+            if (count($_SESSION) > 0 && in_array($_SESSION["id_coren_enfermeiro"], $_SESSION)){
+                $coren = $_SESSION["id_coren_enfermeiro"];
+            }
+            else{
+                echo "<script>window.location.href = 'index.html';</script>";
+            }
+
             $sqlVerify = "SELECT * from tb_chamado as c,
+            tb_enfermeiro as en,
             tb_esp_atividade as e,
             tb_leito as l,
             tb_quarto as q 
             where e.cd_esp_atividade = c.fk_cd_esp_atividade
             and l.id_leito = e.fk_id_leito_leito
-            and q.cd_quarto = l.fk_cd_quarto_quarto;"; //$sql = SELECT from mysql
+            and q.cd_quarto = l.fk_cd_quarto_quarto
+            and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro
+            and c.fk_id_coren_enfermeiro = $coren;"; //$sql = SELECT from mysql
         
             $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
             if ($sqlResult->num_rows > 0) {
@@ -78,7 +90,7 @@
                     if (quarto && quarto > 0){
                         var botoesAdicionados = document.querySelectorAll(".btn");
                         botoesAdicionados.forEach(function (botao) {
-                            if (botao.id != quarto){
+                            if (botao.id != quarto && quarto != 0){
                                 botao.remove();
                             }
                         });

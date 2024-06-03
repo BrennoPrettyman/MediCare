@@ -148,3 +148,11 @@ p {
 #InfoLeito {
     padding: 5px 0px 0px 18px;
 }
+
+.colorCircle{
+    border-radius:20px;
+    height:30px;
+    width: 25px;
+    color:transparent;
+    padding: 5px 1.25px 5px 1.25px;
+}
