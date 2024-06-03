@@ -71,7 +71,7 @@
     $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
     if ($sqlResult->num_rows > 0) {
         while($row = $sqlResult->fetch_assoc()) {
-                echo '<div class="box2" id="'.$row["id_coren_enfermeiro"].'" style="order:-'.$row["id_coren_enfermeiro"].'">
+                echo '<div class="box2" id="'.$row["id_coren_enfermeiro"].'" style="order:-'.$row["id_coren_enfermeiro"].'" hidden>
                     <div class="book">
                         <img src="pics/livroA.png" id="book" width="50px">
                         <h2>Informações</h2>
@@ -99,11 +99,9 @@
             }
         }
         ?>
-    
-    <div class="bloco1">
-        <button class="hst" onclick="historico()">Histórico</button>
+    <button class="hst" id="hst" onclick="historico()" hidden>Histórico</button>
 
-    </div>
+
     <?php
         include "conexao.php";
         $sqlVerify = "SELECT * from tb_chamado as c,
@@ -116,56 +114,80 @@
         and q.cd_quarto = l.fk_cd_quarto_quarto
         and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro;"; //$sql = SELECT from mysql
         
+        echo '<div class="bloco1" id="block1" hidden>';
+
         $nr_quartos = [];
         $btnHTML = '';
         $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
         if ($sqlResult->num_rows > 0) {
             while($row = $sqlResult->fetch_assoc()) {
-                $existe = false;
-                for ($i=0; $i < count($nr_quartos); $i++) { 
-                    if ($nr_quartos[$i] == $row["nr_quarto"]){
-                        $existe = true;
-                    }
-                }
-                if ($existe == false){
-                    array_push($nr_quartos,$row["nr_quarto"]);
-                    $nmEnfermeiro = $row["nm_enfermeiro"];
-                    $idCoren = $row["id_coren_enfermeiro"];
-                    $sgEstado = $row["sg_estado_enfermeiro"];
-                    $nrQuarto = $row["nr_quarto"];
-                    $btnHTML = '<div class="box botao-adicional" id="'.$row["nr_quarto"].'">
-                    <div class="content">
-                        <h3>Quarto '.str_pad($row["nr_quarto"],2,"0",STR_PAD_LEFT).'</h3>
-                        <h4>Informações</h4>
-                    </div>
-                    <img src="pics/SetaBlueGo.png" id="SetaBlueGo" onclick="gatinho(1,\''.$nmEnfermeiro.'\',\''.$idCoren.'\',\''.$sgEstado.'\',\''.$nrQuarto.'\');">
-                    </div>'.$btnHTML;
-                }
+                array_push($nr_quartos,$row["nr_quarto"]);
+                $nmEnfermeiro = $row["nm_enfermeiro"];
+                $idCoren = $row["id_coren_enfermeiro"];
+                $sgEstado = $row["sg_estado_enfermeiro"];
+                $nrQuarto = $row["nr_quarto"];
+                echo '<div class="box botao-adicional" id="'.$row["id_coren_enfermeiro"].'" hidden>
+                <div class="content">
+                    <h3>Quarto '.str_pad($row["nr_quarto"],2,"0",STR_PAD_LEFT).'</h3>
+                    <h4>Informações</h4>
+                </div>
+                <img src="pics/SetaBlueGo.png" id="SetaBlueGo" onclick="gatinho(1,\''.$nmEnfermeiro.'\',\''.$idCoren.'\',\''.$sgEstado.'\',\''.$nrQuarto.'\');">
+                </div>';
            }
         }
         if (count($nr_quartos) < 1){
-            $btnHTML = '<button class="btn3 botao-adicional">Não há quartos</button>';
+            echo '<button class="btn3 botao-adicional">Não há quartos</button>';
         }
+        echo '</div>';
+
         echo '
         <script>
-        // TELA FILTROS - BOTÃO QUARTOS
         localStorage.setItem("quartoSelecionado",0);
+        var block1 = document.getElementById("block1");
         function historico() {
             var botoesContainer = document.querySelector(".bloco1");
             var botoesAdicionados = document.querySelectorAll(".botao-adicional");
         
-            if (botoesAdicionados.length === 0) {
-                    var botoesHTML = `
-                    '.$btnHTML.'
-                `;
-                botoesContainer.insertAdjacentHTML("beforeend", botoesHTML);
+            if (botoesAdicionados.length == 0) {
+                alert("socorro")
+                botoesAdicionados.forEach(function (roomy) {
+                    roomy.setAttribute("hidden","");
+                    if (corenInput.value == roomy.id){
+                        roomy.removeAttribute("hidden");
+                        block1.removeAttribute("hidden"); // achou quartos
+                    }
+                });
             }
             else {
                 botoesAdicionados.forEach(function (botao) {
-                    botao.remove();
+                    boxing.setAttribute("hidden","");
                 });
             }
+            
         }
+        var corenInput = document.getElementById("coren");
+        var historyFound = document.getElementById("hst");
+
+        corenInput.addEventListener("keyup",() => {
+            historyFound.setAttribute("hidden","");
+            var corenFounds = document.querySelectorAll(".box2"); // primeiras caixas (enfermeiro)
+            corenFounds.forEach(function (boxing) {
+                boxing.setAttribute("hidden","");
+                if (corenInput.value == boxing.id){
+                    boxing.removeAttribute("hidden");
+                    historyFound.removeAttribute("hidden"); // achoou historico
+                }
+            });
+            block1.setAttribute("hidden","");
+            var roomFounds = document.querySelectorAll(".block1"); // segunda caixas (quartos)
+            roomFounds.forEach(function (roomy) {
+                roomy.setAttribute("hidden","");
+                if (corenInput.value == roomy.id){
+                    roomy.removeAttribute("hidden");
+                    block1.removeAttribute("hidden"); // achou quartos
+                }
+            });
+        });
         </script>
         ';
     ?>

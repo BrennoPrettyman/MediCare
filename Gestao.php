@@ -41,30 +41,28 @@
             <?php
             include "conexao.php";
             $motivos = ["Mudança de Decúbito", "Higiêne Pessoal", "Fortes Dores", "Reclamação","Queda", "Parada Cardiáca"];
-            $quantidade = [0,0,0,0,0,0];
+            $quantidade = [];
+            $colors = ["#0e284b","#0085db","#50ceff","#004776","#136da8","#064eae"];
             for ($i=0; $i < count($motivos); $i++) { 
                 $sqlVerify = "SELECT count(cd_chamado) from tb_chamado where ds_motivo = '".$motivos[$i]."';"; //$sql = SELECT from mysql
                 $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
     
                 if ($sqlResult->num_rows > 0) {
                     while($row = $sqlResult->fetch_assoc()) {
-                        print_r($row);
+                        if ($row["count(cd_chamado)"]){
+                            array_push($quantidade,$row["count(cd_chamado)"]);
+                        }
+                        else{
+                            array_push($quantidade,0);
+                        }
                     }
                 }
             }
-
-
             echo '<script>
                 var xValues = ["'.$motivos[0].'", "'.$motivos[1].'", "'.$motivos[2].'", "'.$motivos[3].'","'.$motivos[4].'", "'.$motivos[5].'"];
-                var yValues = '.$quantidade.';
-                var barColors = [
-                  "#0e284b",
-                  "#0085db",
-                  "#50ceff",
-                  "#004776",
-                  "#136da8",
-                  "#064eae"
-                ];
+                var yValues =  ['.$quantidade[0].','.$quantidade[1].','.$quantidade[2].','.$quantidade[3].','.$quantidade[4].','.$quantidade[5].'];
+                var barColors = ["'.$colors[0].'","'.$colors[1].'","'.$colors[2].'","'.$colors[3].'","'.$colors[4].'","'.$colors[5].'"];
+
                 new Chart("myChart", {
                   type: "pie",
                   data: {
@@ -89,51 +87,32 @@
             </script>';
             ?>
         </div>
-
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo" >
-                <h4>Mudança de Decúbito</h4>
-                <h5>45%</h5>
+        
+        <?php
+        $total = 0;
+        for ($i2=0; $i2 < count($quantidade); $i2++) { 
+            $total += $quantidade[$i2];
+        }
+        for ($i=0; $i < count($motivos); $i++) {
+            if ($total > 0){
+                $porcento = round(($quantidade[$i]/$total)*100);
+            }
+            else{
+                $porcento = "...";
+            }
+            echo '
+            <div class="box2">
+                <div class="book">
+                    <img src="pics/livroA.png" id="ColorInfo" style="box-shadow: '.$colors[$i].' 0px 0px 6px 1px inset;border-radius:20px">
+                    <h4>'.$motivos[$i].'</h4>
+                    <h5>'.$porcento.'%</h5>
+                </div>
             </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo" >
-                <h4>Higiêne Pessoal</h4>
-                <h5>45%</h5>
-            </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Fortes Dores</h4>
-                <h5>45%</h5>
-            </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Reclamação</h4> 
-                <h5>45%</h5>
-            </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Queda</h4>
-                <h5>45%</h5>
-            </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Parada Cardiáca</h4>
-                <h5>45%</h5>
-            </div>
-        </div>
+            ';
+        }
+        ?>
     </div>
-
+    <br>
     <div class="Box-E2">
         <div class="book">
             <img src="pics/estatisticas.png" id="book" width="55px">
@@ -142,52 +121,82 @@
                 <h3>Por: Tempo de Espera</h3>
             </div>
         </div>
+           
         <div class="grafico">
-            <img src="pics/grafico.png" id="grafico">
-        </div>
+            <canvas id="myChart2" style="width:50%;height:100px;background-color: transparent;padding: 25px 0px 25px 0px;"></canvas>
+            <?php
+            include "conexao.php";
+            $motivos = ["Mudança de Decúbito", "Higiêne Pessoal", "Fortes Dores", "Reclamação","Queda", "Parada Cardiáca"];
+            $quantidade = [];
+            $colors = ["#0e284b","#0085db","#50ceff","#004776","#136da8","#064eae"];
+            for ($i=0; $i < count($motivos); $i++) { 
+                $sqlVerify = "SELECT count(cd_chamado) from tb_chamado where ds_motivo = '".$motivos[$i]."';"; //$sql = SELECT from mysql
+                $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
+    
+                if ($sqlResult->num_rows > 0) {
+                    while($row = $sqlResult->fetch_assoc()) {
+                        if ($row["count(cd_chamado)"]){
+                            array_push($quantidade,$row["count(cd_chamado)"]);
+                        }
+                        else{
+                            array_push($quantidade,0);
+                        }
+                    }
+                }
+            }
+            echo '<script>
+                var xValues = ["'.$motivos[0].'", "'.$motivos[1].'", "'.$motivos[2].'", "'.$motivos[3].'","'.$motivos[4].'", "'.$motivos[5].'"];
+                var yValues =  ['.$quantidade[0].','.$quantidade[1].','.$quantidade[2].','.$quantidade[3].','.$quantidade[4].','.$quantidade[5].'];
+                var barColors = ["'.$colors[0].'","'.$colors[1].'","'.$colors[2].'","'.$colors[3].'","'.$colors[4].'","'.$colors[5].'"];
 
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo" >
-                <h4>Mudança de Decúbito</h4>
-                <h5>45%</h5>
-            </div>
+                new Chart("myChart2", {
+                  type: "pie",
+                  data: {
+                    labels: xValues,
+                    datasets: [{
+                      backgroundColor: barColors,
+                      data: yValues
+                    }]
+                  },
+                  options: {
+                        responsive: true,
+                        legend: {
+                            display: false,
+                        },
+                        elements: {
+                            arc: {
+                                borderWidth: 0
+                            }
+                        }
+                    }
+                });
+            </script>';
+            ?>
         </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo" >
-                <h4>Higiêne Pessoal</h4>
-                <h5>45%</h5>
+        
+        <?php
+        $total = 0;
+        for ($i2=0; $i2 < count($quantidade); $i2++) { 
+            $total += $quantidade[$i2];
+        }
+        for ($i=0; $i < count($motivos); $i++) {
+            if ($total > 0){
+                $porcento = round(($quantidade[$i]/$total)*100);
+            }
+            else{
+                $porcento = "...";
+            }
+            echo '
+            <div class="box2">
+                <div class="book">
+                    <img src="pics/livroA.png" id="ColorInfo" style="box-shadow: '.$colors[$i].' 0px 0px 6px 1px inset;border-radius:20px">
+                    <h4>'.$motivos[$i].'</h4>
+                    <h5>'.$porcento.'%</h5>
+                </div>
             </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Fortes Dores</h4>
-                <h5>45%</h5>
-            </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Reclamação</h4> 
-                <h5>45%</h5>
-            </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Queda</h4>
-                <h5>45%</h5>
-            </div>
-        </div>
-        <div class="box2">
-            <div class="book">
-                <img src="pics/livroA.png" id="ColorInfo">
-                <h4>Parada Cardiáca</h4>
-                <h5>45%</h5>
-            </div>
-        </div>
+            ';
+        }
+        ?>
     </div>
     <div class="container">
     </div>
