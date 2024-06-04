@@ -33,7 +33,6 @@
             <div class="infos">
                 <h2>Histórico</h2>
                 <h3 id="enfermeiro">Thayna Santos | 123.456-SP </h3>
-                <div id="corenIdentifier" hidden></div>
             </div>
         </div>
         <div class="infos2">
@@ -52,6 +51,10 @@
 
         <?php
             include "conexao.php";
+
+            $id_coren = $_POST['coren'];
+            $sg_estado = $_POST['estado'];
+
             $sqlVerify = "SELECT * from tb_chamado as c,
             tb_esp_atividade as e,
             tb_leito as l,
@@ -60,7 +63,9 @@
             where e.cd_esp_atividade = c.fk_cd_esp_atividade
             and l.id_leito = e.fk_id_leito_leito
             and q.cd_quarto = l.fk_cd_quarto_quarto
-            and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro;"; //$sql = SELECT from mysql
+            and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro
+            and c.fk_id_coren_enfermeiro = '$id_coren'
+            and en.sg_estado_enfermeiro = '$sg_estado';"; //$sql = SELECT from mysql
             
             $nr_quartos = [];
             $btnHTML = '';
@@ -70,7 +75,7 @@
                     if ($row["nm_enfermeiro"]){
                         array_push($nr_quartos,$row["nr_quarto"]);
                         echo '
-                        <div class="box" nr="'.$row['nr_quarto'].'" id="'.$row['nr_quarto'].'" style="order:-'.$row['cd_chamado'].'">
+                        <div class="box" lt="'.$row['id_leito'].'" nr="'.$row['nr_quarto'].'" id="'.$row['id_coren_enfermeiro'].'" style="order:-'.$row['cd_chamado'].'">
                             <div class="infos2">
                                 <div class="info-item">
                                     <img src="css/media/cama.png" id="leito">
@@ -95,27 +100,15 @@
         </div>
 
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", ()=>{
-            var quarto = parseInt(document.getElementById("quarto").textContent.substring(7));
-            var coren = document.getElementById("corenIdentifier").textContent;
-            if (quarto && quarto > 0){
-                var botoesAdicionados = document.querySelectorAll(".box");
-                botoesAdicionados.forEach(function (botao) {
-                    if (botao.getAttribute("nr") != quarto && botao.id != coren && botao.id != 0){
-                        botao.remove();
-                    }
-                });
-            }
-        });
-    </script>
     
     <div class="navbar">
         <a href="G-Pesquisa.php"><img src="pics/setablue.png" id="Voltar"></a>
         <div class="MeioBox">
             <img src="pics/filtroA.png" id="F-Icon">
-            <a href="G-Filtro.html">Filtros</a>
+            <form action="G-Filtro.php" method="post">
+                <input type="text" name="corenFake" id="corenFake" hidden>
+                <input type="submit" class="fakeA" value="Filtros">
+            </form>
         </div>
         <a href="G-Perfil.php"><img src="pics/perfilA.png" id="Voltar"></a>
     </div>

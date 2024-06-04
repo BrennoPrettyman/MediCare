@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     var quarto = document.getElementById("quarto");
     quarto.textContent = "Quarto "+localStorage.getItem("nrQuartoPesquisa").padStart(2,"0");
 
-    var quarto = document.getElementById("corenIdentifier");
-    quarto.textContent = localStorage.getItem("corenPesquisa");
+    var qrt = localStorage.getItem("nrQuartoPesquisa");
+    var cn = localStorage.getItem("corenPesquisa");
+    document.getElementById("corenFake").value = cn;
+    var filtro = localStorage.getItem("filtroQuarto");
+    if (qrt && qrt > 0){
+        var botoesAdicionados = document.querySelectorAll(".box");
+        botoesAdicionados.forEach(function (botao) {
+            if ((botao.getAttribute("nr") != qrt && botao.id != cn && botao.id != 0) || (filtro > 0 && botao.getAttribute("lt") != filtro && botao.id != 0)){
+                botao.remove();
+            }
+        });
+    }
 })

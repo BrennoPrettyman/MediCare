@@ -82,6 +82,16 @@ a {
     font-size: 20px;
 }
 
+.fakeA{
+    background-color: transparent;
+    border: none;
+    font-family: "Quicksand", sans-serif;
+    color: rgba(36, 96, 135, 1);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 h8 {
     font-family: "Quicksand", sans-serif;
     color: rgb(255, 255, 255);
