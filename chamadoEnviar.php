@@ -92,7 +92,7 @@
         document.getElementById("overlay").classList.add("show");
         document.getElementById("popup").classList.add("show");
         setTimeout(function () {
-            window.location.href = "home.php";
+            window.location.href = "homeC.php";
         }, 2000);';
         echo "</script>"
         ?>
