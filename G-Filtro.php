@@ -79,7 +79,7 @@
                     }
                     if ($existe == false){
                         array_push($id_leitos,$row["id_leito"]);
-                        $btnHTML = '<button id="'.$row["id_leito"].'" class="btn3 botao-adicional" onclick="selecionado(id)">Leito '.str_pad($row["id_leito"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;        
+                        $btnHTML = '<button id="'.$row["id_leito"].'" class="btn3 botao-adicional1" onclick="selecionado(id)">Leito '.str_pad($row["id_leito"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;        
                     }
 
                     $existe2 = false;
@@ -109,7 +109,7 @@
             localStorage.setItem("filtroData","0000-00-00");
             function quartos() {
                 var botoesContainer = document.querySelector(".bloco1");
-                var botoesAdicionados = document.querySelectorAll(".botao-adicional");
+                var botoesAdicionados = document.querySelectorAll(".botao-adicional1");
             
                 if (botoesAdicionados.length === 0) {
                         var botoesHTML = `
