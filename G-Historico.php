@@ -107,6 +107,7 @@
             <img src="pics/filtroA.png" id="F-Icon">
             <form action="G-Filtro.php" method="post">
                 <input type="text" name="corenFake" id="corenFake" hidden>
+                <input type="text" name="quartoFake" id="quartoFake" hidden>
                 <input type="submit" class="fakeA" value="Filtros">
             </form>
         </div>

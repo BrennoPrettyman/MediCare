@@ -17,6 +17,7 @@
 
     <script src="js/coren.js"></script>
     <script src="js/pesquisaQuarto.js"></script>
+    <script type="text/javascript" src="js/clrfilter.js"></script>
     <title>MediCare - Gestão</title>
 </head>
 

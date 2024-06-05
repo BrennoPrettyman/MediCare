@@ -12,14 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
     var cn = localStorage.getItem("corenPesquisa");
     document.getElementById("corenFake").value = cn;
     var filtro = localStorage.getItem("filtroQuarto");
+    document.getElementById("quartoFake").value = qrt;
     var filtro2 = localStorage.getItem("filtroData");
     if (qrt && qrt > 0){
         var botoesAdicionados = document.querySelectorAll(".box");
         botoesAdicionados.forEach(function (botao) {
-            if ((botao.getAttribute("nr") != qrt && botao.id != cn && botao.id != 0) || (filtro > 0 && botao.getAttribute("lt") != filtro && botao.id != 0)){
-                botao.remove();
-            }
-            if ((botao.getAttribute("nr") != qrt && botao.id != cn && botao.id != 0) || (filtro2 != "0000-00-00" && botao.getAttribute("dt") != filtro2 && botao.id != 0)){
+            if ((botao.id != 0 && botao.getAttribute("nr") != qrt)
+            || (botao.id != 0 && botao.id != cn)
+            || (filtro > 0 && botao.getAttribute("lt") != filtro && botao.id != 0)
+            || (filtro2 != "0000-00-00" && botao.getAttribute("dt") != filtro2 && botao.id != 0)){
                 botao.remove();
             }
         });

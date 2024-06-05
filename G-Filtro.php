@@ -50,6 +50,7 @@
             }
 
             $corenUsing = $_POST["corenFake"];
+            $quartoUsing = $_POST["quartoFake"];
 
             $sqlVerify = "SELECT * from tb_chamado as c,
             tb_esp_atividade as e,
@@ -60,7 +61,8 @@
             and l.id_leito = e.fk_id_leito_leito
             and q.cd_quarto = l.fk_cd_quarto_quarto
             and en.id_coren_enfermeiro = c.fk_id_coren_enfermeiro
-            and c.fk_id_coren_enfermeiro = '$corenUsing';";
+            and c.fk_id_coren_enfermeiro = '$corenUsing'
+            and q.nr_quarto = '$quartoUsing';";
 
             $id_leitos = [];
             $btnHTML = '';
@@ -79,7 +81,7 @@
                     }
                     if ($existe == false){
                         array_push($id_leitos,$row["id_leito"]);
-                        $btnHTML = '<button id="'.$row["id_leito"].'" class="btn3 botao-adicional1" onclick="selecionado(id)">Leito '.str_pad($row["id_leito"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;        
+                        $btnHTML = '<button id="'.$row["id_leito"].'" class="btn3 botao-adicional" onclick="selecionado(id)">Leito '.str_pad($row["id_leito"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;        
                     }
 
                     $existe2 = false;
@@ -90,7 +92,7 @@
                     }
                     if ($existe2 == false){
                         array_push($dt_founds,$row["dt_inicio_chamado"]);
-                        $btnHTML2 = '<button id="'.$row["dt_inicio_chamado"].'" class="btn3 botao-adicional2" onclick="dateSelect(id)">'.substr($row['dt_inicio_chamado'],8).'/'.substr($row['dt_inicio_chamado'],5,2).'/'.substr($row['dt_inicio_chamado'],0,4).'</button>'.$btnHTML2;        
+                        $btnHTML2 = '<button id="'.$row["dt_inicio_chamado"].'" class="btn3 botao-adicional custom2" onclick="dateSelect(id)">'.substr($row['dt_inicio_chamado'],8).'/'.substr($row['dt_inicio_chamado'],5,2).'/'.substr($row['dt_inicio_chamado'],0,4).'</button>'.$btnHTML2;        
                     }
                }
             }
@@ -130,7 +132,7 @@
 
             function dates() {
                 var botoesContainer2 = document.getElementById("block2");
-                var botoesAdicionados2 = document.querySelectorAll(".botao-adicional2");
+                var botoesAdicionados2 = document.querySelectorAll(".custom2");
             
                 if (botoesAdicionados2.length === 0) {
                         var botoesHTML2 = `
