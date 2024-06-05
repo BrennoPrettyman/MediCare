@@ -75,7 +75,7 @@
                     if ($row["nm_enfermeiro"]){
                         array_push($nr_quartos,$row["nr_quarto"]);
                         echo '
-                        <div class="box" lt="'.$row['id_leito'].'" nr="'.$row['nr_quarto'].'" id="'.$row['id_coren_enfermeiro'].'" style="order:-'.$row['cd_chamado'].'">
+                        <div class="box" dt="'.$row['dt_inicio_chamado'].'" lt="'.$row['id_leito'].'" nr="'.$row['nr_quarto'].'" id="'.$row['id_coren_enfermeiro'].'" style="order:-'.$row['cd_chamado'].'">
                             <div class="infos2">
                                 <div class="info-item">
                                     <img src="css/media/cama.png" id="leito">

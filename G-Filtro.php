@@ -31,6 +31,10 @@
     <div class="bloco1">
         <button class="btn" onclick="quartos()">Leitos</button>
     </div>
+    <div id="block2">
+        <button class="btn" onclick="dates()">Datas</button>
+    </div>
+
 
     <div class="navbar">
         <a onclick="history.back()"><img src="pics/setablue.png" id="Voltar"></a>
@@ -60,6 +64,10 @@
 
             $id_leitos = [];
             $btnHTML = '';
+            
+            $dt_founds = [];
+            $btnHTML2 = '';
+
             $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
             if ($sqlResult->num_rows > 0) {
                 while($row = $sqlResult->fetch_assoc()) {
@@ -73,15 +81,32 @@
                         array_push($id_leitos,$row["id_leito"]);
                         $btnHTML = '<button id="'.$row["id_leito"].'" class="btn3 botao-adicional" onclick="selecionado(id)">Leito '.str_pad($row["id_leito"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;        
                     }
+
+                    $existe2 = false;
+                    for ($i2=0; $i2 < count($dt_founds); $i2++) { 
+                        if ($dt_founds[$i2] == $row["dt_inicio_chamado"]){
+                            $existe2 = true;
+                        }
+                    }
+                    if ($existe2 == false){
+                        array_push($dt_founds,$row["dt_inicio_chamado"]);
+                        $btnHTML2 = '<button id="'.$row["dt_inicio_chamado"].'" class="btn3 botao-adicional2" onclick="dateSelect(id)">'.substr($row['dt_inicio_chamado'],8).'/'.substr($row['dt_inicio_chamado'],5,2).'/'.substr($row['dt_inicio_chamado'],0,4).'</button>'.$btnHTML2;        
+                    }
                }
             }
             if (count($id_leitos) < 1){
                 $btnHTML = '<button class="btn3 botao-adicional">Não há leitos</button>';
             }
+
+            if (count($dt_founds) < 1){
+                $btnHTML2 = '<button class="btn3 botao-adicional">Não há Datas</button>';
+            }
+
             echo '
             <script>
             // TELA FILTROS - BOTÃO QUARTOS
             localStorage.setItem("filtroQuarto",0);
+            localStorage.setItem("filtroData","0000-00-00");
             function quartos() {
                 var botoesContainer = document.querySelector(".bloco1");
                 var botoesAdicionados = document.querySelectorAll(".botao-adicional");
@@ -99,7 +124,29 @@
                 }
             }
             function selecionado(id){
+                localStorage.setItem("filtroData","0000-00-00");
                 localStorage.setItem("filtroQuarto",id);
+            }
+
+            function dates() {
+                var botoesContainer2 = document.getElementById("block2");
+                var botoesAdicionados2 = document.querySelectorAll(".botao-adicional2");
+            
+                if (botoesAdicionados2.length === 0) {
+                        var botoesHTML2 = `
+                        '.$btnHTML2.'
+                    `;
+                    botoesContainer2.insertAdjacentHTML("beforeend", botoesHTML2);
+                }
+                else {
+                    botoesAdicionados2.forEach(function (botao) {
+                        botao.remove();
+                    });
+                }
+            }
+            function dateSelect(id){
+                localStorage.setItem("filtroQuarto",0);
+                localStorage.setItem("filtroData",id);
             }
 
             document.getElementById("cmdA").addEventListener("click", function () {
