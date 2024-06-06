@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (botoesAdicionados.length === 0) {
             var botoesHTML = `
                 <div class="mtvo2 botao-adicional">Fortes Dores</div>
-                <div class="mtvo2 botao-adicional">Higiêne Pessoal</div>
+                <div class="mtvo2 botao-adicional">Higiene Pessoal</div>
                 <div class="mtvo2 botao-adicional">Mudança de Decúbito</div>
                 <div class="mtvo2 botao-adicional">Parada Cardíaca</div>
                 <div class="mtvo2 botao-adicional">Queda</div>

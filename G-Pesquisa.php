@@ -103,8 +103,8 @@
         ?>
         <div class="hst" id="hst" hidden>Histórico</div>
         <div id="empty" class="box2">
-            <h2>Aguardando pesquisa... </h2>
-            Isto é template.
+            <img src="pics\pesquisaresutado.png" width="100px">
+            <h2>Os resultados da pesquisa aparecerão aqui! </h2>
         </div>
 
 

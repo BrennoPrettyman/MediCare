@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         numeroSpan.textContent = " ✔ Número";
         numeroSpan.style.color = coloring;
 
-        especialSpan.textContent = "✔ Caracter Especial";
+        especialSpan.textContent = "✔ Caractere Especial";
         especialSpan.style.color = coloring;
 
         if (senhaInput.value.length < 7){
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isContainsSymbol.test(senhaInput.value) || notAllowed.test(senhaInput.value) == true){
                 allowed = false;
                 especialSpan.style.color = wrong;
-                especialSpan.textContent = "✖ Caracter Especial";
+                especialSpan.textContent = "✖ Caractere Especial";
         }
     });
 

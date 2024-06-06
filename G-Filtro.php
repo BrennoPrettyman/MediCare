@@ -104,6 +104,7 @@
                 $btnHTML2 = '<button class="btn3 botao-adicional">Não há Datas</button>';
             }
 
+        
             echo '
             <script>
             // TELA FILTROS - BOTÃO QUARTOS
@@ -111,7 +112,7 @@
             localStorage.setItem("filtroData","0000-00-00");
             function quartos() {
                 var botoesContainer = document.querySelector(".bloco1");
-                var botoesAdicionados = document.querySelectorAll(".botao-adicional1");
+                var botoesAdicionados = document.querySelectorAll(".botao-adicional");
             
                 if (botoesAdicionados.length === 0) {
                         var botoesHTML = `

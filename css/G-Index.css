@@ -71,7 +71,8 @@ p {
 }
 
 /* CAIXA */
-.Box-E1, .Box-E2 {
+.Box-E1,
+.Box-E2 {
     background: var(--gradiente-text, linear-gradient(rgba(36, 96, 135, 1), rgba(14, 40, 75, 1)));
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 25px;
@@ -81,40 +82,44 @@ p {
 
 /* Específico para Box-E2 */
 .Box-E2 {
-    background: var(--gradiente-text, linear-gradient(rgb(167, 24, 24), rgb(75, 14, 14)));
+    background: var(--gradiente-text, linear-gradient(rgba(152, 194, 251, 1),rgba(6, 58, 127, 1)));
 }
 
 .container {
     display: flex;
-    flex-wrap: nowrap; 
-    overflow-x: auto; 
-    gap: 10px; 
-    width: 100%; 
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    width: 100%;
 }
 
 /* Ajustes para telas menores */
 @media (max-width: 1024px) {
-    .Box-E1, .Box-E2 {
-        flex: 0 0 90%; 
-        max-width: 90%; 
+
+    .Box-E1,
+    .Box-E2 {
+        flex: 0 0 90%;
+        max-width: 90%;
     }
 }
 
 /* Ajustes para telas maiores */
 @media (min-width: 1025px) {
-    .Box-E1, .Box-E2 {
-        flex: 0 0 47.8%; 
+
+    .Box-E1,
+    .Box-E2 {
+        flex: 0 0 47.8%;
         max-width: 47.8%;
     }
-        
+
     .container {
         -ms-overflow-style: none;
-        scrollbar-width: none; 
-        overflow-x: auto; 
+        scrollbar-width: none;
+        overflow-x: auto;
     }
 
     .container::-webkit-scrollbar {
-        display: none; 
+        display: none;
     }
 }
 
@@ -126,7 +131,7 @@ p {
     margin: 10px;
 }
 
-.grafico{
+.grafico {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,10 +154,8 @@ p {
     padding: 5px 0px 0px 18px;
 }
 
-.colorCircle{
-    border-radius:20px;
-    height:30px;
-    width: 25px;
-    color:transparent;
-    padding: 5px 1.25px 5px 1.25px;
+.colorCircle {
+    border-radius: 100%;
+    height: 40px;
+    width: 30px;
 }

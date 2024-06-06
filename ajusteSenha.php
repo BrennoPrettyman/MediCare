@@ -42,7 +42,7 @@
             <snaN id="passwordVerify">
                 <char id="char">• 7 Caracteres</char>
                 <num id="num">ﾠ• Número</num>
-                <special id="special">ﾠ• Caracter Especial</special>
+                <special id="special">ﾠ• Caractere Especial</special>
             </snaN>
 
         
