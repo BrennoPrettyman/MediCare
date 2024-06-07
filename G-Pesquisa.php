@@ -101,12 +101,13 @@
                 }
             }
         ?>
+        
         <div class="hst" id="hst" hidden>Histórico</div>
-        <div id="empty" class="box2">
-            <img src="pics\pesquisaresutado.png" width="100px">
-            <h2>Os resultados da pesquisa aparecerão aqui! </h2>
-        </div>
 
+        <div id="empty" class="book">
+            <img src="pics/pesquisaresutado.png" id="book" width="70px">
+            <span>Os resultados da pesquisa aparecerão aqui!</span>
+        </div>
 
         <?php
             include "conexao.php";
@@ -150,10 +151,15 @@
                     }
                }
             }
-            if (count($nr_quartos) < 1){
-                echo '<button class="btn3 botao-adicional">Não há quartos</button>';
-            }
+ 
         ?>
+    <div id="??????" class="botao-adicional" hidden>
+        <div class="box" >
+            <div class="content">
+                <h4>Não há quartos</h4>
+            </div>
+        </div>
+    </div>
     </form>
     <div class="navbar">
         <a href="Gestao.php"><img src="pics/casaA.png" id="Voltar"></a>

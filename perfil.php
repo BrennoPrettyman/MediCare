@@ -77,7 +77,7 @@
             <h4>Ajustes</h4>
         </div>
         <div class="buttons">
-            <a href="https://nibutera.github.io/MediCareQuemSomos"><img src="pics/quem somos.png" id="aicon"></a>
+            <a href="https://www.instagram.com/medicare.awakening?utm_source=qr&igsh=MXgyejZicDhsZzBreg=="><img src="pics/quem somos.png" id="aicon"></a>
             <h4>Quem somos</h4>
         </div>
         <div class="buttons">

@@ -80,7 +80,7 @@
             <h4>Ajustes</h4>
         </div>
         <div class="buttons">
-            <a href="https://nibutera.github.io/MediCareQuemSomos"><img src="pics/quem somos.png" id="aicon"></a>
+            <a href="https://www.instagram.com/medicare.awakening?utm_source=qr&igsh=MXgyejZicDhsZzBreg=="><img src="pics/quem somos.png" id="aicon"></a>
             <h4>Quem somos</h4>
         </div>
         <div class="buttons">
@@ -92,7 +92,7 @@
         <a href="Gestao.php"><img src="pics/casaA.png" id="Voltar"></a>
         <div class="BoxSelec">
             <img src="pics/perfilB.png" id="F-Icon">
-            <a> <h8>Perfil</h8></a>
+            <a><h8>Perfil</h8></a>
         </div>
         <a href="G-Pesquisa.php"><img src="pics/lupaNavA.png" id="Voltar"></a>
     </div>

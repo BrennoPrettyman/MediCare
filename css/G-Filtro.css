@@ -1,8 +1,8 @@
 /* CORPO */
 body {
     background-color: rgba(222, 242, 249, 1);
-    margin-right: 6%;
-    margin-left: 6%;
+    margin-right: 7%;
+    margin-left: 7%;
 }
 
 .bloco1 {
@@ -87,7 +87,6 @@ a {
     border-radius: 20px;
     padding: 15px 0; 
     border: 0px;
-    width: 100%; 
     /* FONTE */
     font-family: "Quicksand", sans-serif;
     color: rgb(0, 0, 0);
@@ -98,7 +97,6 @@ a {
 }
 
 .botao-adicional {
-    margin: 10px;
     justify-content: center;
 }
 

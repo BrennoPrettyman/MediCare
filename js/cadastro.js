@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         numeroSpan.textContent = "✔ Número";
         numeroSpan.style.color = coloring;
 
-        especialSpan.textContent = "✔ Caracter Especial";
+        especialSpan.textContent = "✔ Caractere Especial";
         especialSpan.style.color = coloring;
 
         if (senhaInput.value.length < 7){
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isContainsSymbol.test(senhaInput.value) || notAllowed.test(senhaInput.value) == true){
                 allowed = false;
                 especialSpan.style.color = wrong;
-                especialSpan.textContent = "✖ Caracter Especial";
+                especialSpan.textContent = "✖ Caractere Especial";
         }
     });
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             samePassword = false;
             senhaInput.setAttribute("style", shadowColor);
             confirmar.setAttribute("style", shadowColor);
-            wrongPassword.textContent = "As senhas não são iguais";
+            wrongPassword.textContent = "As senhas são diferentes";
         }
 
         if (allowed == false || samePassword == false){

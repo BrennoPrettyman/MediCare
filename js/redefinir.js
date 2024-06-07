@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             senhaInput.setAttribute("style", shadowColor);
             confirmar.setAttribute("style", shadowColor);
-            wrongPassword.textContent = "As senhas não são iguais";
+            wrongPassword.textContent = "As senhas são diferentes";
         }
 
         

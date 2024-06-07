@@ -8,30 +8,41 @@ function gatinho(andar,nmEnfermeiro,corenEnfermeiro,estadoEnfermeiro,nrQuarto){
 
 document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("quartoSelecionado",0);
-    var block1 = document.getElementById("block1");
     var corenInput = document.getElementById("coren");
     var sgInput = document.getElementById("estado");
     var noFound = document.getElementById("empty");
     var historyFound = document.getElementById("hst");
+    var noQuarto = document.getElementById("??????");
 
+    var resultFounds = 0;
     var finded = false;
+    var showing = false;
     historyFound.addEventListener("click", () => {
         var botoesAdicionados = document.querySelectorAll(".botao-adicional");
     
-        if (finded == false) {
+        if (finded == false && showing == false) {
             botoesAdicionados.forEach(function (roomy) {
                 roomy.setAttribute("hidden","");
                 if ((corenInput.value+sgInput.value) == roomy.id){
                     finded = true;
+                    resultFounds++;
                     roomy.removeAttribute("hidden");
                 }
+
             });
+            if (resultFounds == 0){
+                noQuarto.removeAttribute("hidden");
+            }
+            showing = true;
         }
-        else {
+        else if(showing == true){
+            showing = false;
             finded = false;
+            resultFounds = 0;
             botoesAdicionados.forEach(function (botao) {
                 botao.setAttribute("hidden","");
             });
+            noQuarto.setAttribute("hidden","");
         }
     })
         
@@ -55,6 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
         botoesAdicionados.forEach(function (botao) {
             botao.setAttribute("hidden","");
         });
+        noQuarto.setAttribute("hidden","");
+        showing = false;
+        finded = false;
+        resultFounds = 0;
     }
 
     corenInput.addEventListener("keyup", updt);

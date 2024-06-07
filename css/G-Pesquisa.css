@@ -61,6 +61,14 @@ h5 {
     margin-top: 5px;
 }
 
+span {
+    font-family: "Quicksand", sans-serif;
+    color: rgba(36, 96, 135, 1);
+    font-weight: bold;
+    text-align: start;
+
+}
+
 p {
     font-family: "Quicksand", sans-serif;
     font-weight: normal;
@@ -92,6 +100,14 @@ a {
     padding: 10px;
 }
 
+#empty {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 10px 0px 0px 0px;
+    border-radius: 25px;
+    padding: 10px;
+}
+
 .book {
     display: flex;
     align-items: center;
@@ -108,7 +124,7 @@ a {
     border-radius: 25px;
     padding: 20px 0;
     border: 0px;
-    width: 77.7%;
+    
     /* FONTE */
     font-family: "Quicksand", sans-serif;
     color: rgba(10, 29, 62, 1);
@@ -123,4 +139,5 @@ a {
     background-size: 50px; 
     padding-left: 80px;
 }
+
 

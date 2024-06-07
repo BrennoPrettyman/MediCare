@@ -28,7 +28,7 @@
     <div class="Bloco02">
         <div class="container form">
             <h2>Redefina sua senha</h2>
-            <p>Crie uma nova senha forte de no minímo sete caracteres, contendo números, letras e um caracter especial</p>
+            <p>Crie uma nova senha forte de no minímo sete caracteres, contendo números, letras e um caractere especial</p>
             
             <p>Crie uma senha</p>
             

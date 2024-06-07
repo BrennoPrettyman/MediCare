@@ -5,7 +5,7 @@
             rgba(26, 106, 148, 1),
             rgba(39, 169, 219, 1));
     justify-content: space-evenly;
-    padding: 10px 2% 9px 2%;
+    padding: 10px 2px 9px 2px;
     border-radius: 30px;
     text-align: center;
     position: fixed;
