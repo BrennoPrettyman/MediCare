@@ -18,6 +18,7 @@
         rel="stylesheet">
 
     <title>MediCare - Recuperação</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

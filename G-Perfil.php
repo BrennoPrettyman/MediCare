@@ -16,6 +16,7 @@
         rel="stylesheet">
 
     <title>MediCare - Gestão</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

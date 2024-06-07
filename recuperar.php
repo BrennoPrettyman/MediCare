@@ -13,6 +13,7 @@
     <script src="js/coren.js"></script>
 
     <title>MediCare - Recuperação</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

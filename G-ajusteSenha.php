@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="css/redefinir.css">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/Modo/redefinir.css" id="dark-css">
-
-
    
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +17,9 @@
     <script src="js/Modo.js"></script>
     <script src="js/senha.js"></script>
     <script src="js/redefinir.js"></script>
+
     <title>MediCare - Redefinir Senha</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

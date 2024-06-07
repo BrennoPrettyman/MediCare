@@ -17,7 +17,9 @@
     <script src="js/Modo.js"></script>
     <script src="js/senha.js"></script>
     <script src="js/redefinir.js"></script>
+    
     <title>MediCare - Alterar Senha</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

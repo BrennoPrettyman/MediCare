@@ -18,6 +18,7 @@
         rel="stylesheet">
 
     <title>MediCare - Recuperação</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
@@ -53,9 +54,13 @@
     <?php
     include "conexao.php";
 
-    session_start(); 
-    $coren = $_SESSION['coren_enfermeiro'];
-
+    session_start();
+    if (count($_SESSION) > 0 && in_array($_SESSION["id_coren_enfermeiro"], $_SESSION)){
+        $coren = $_SESSION["id_coren_enfermeiro"];
+    }
+    else{
+        echo "<script>window.location.href = 'index.html';</script>";
+    }
     $novoEmail = $_POST['email'];
 
     $sqlVerify = "SELECT * from tb_enfermeiro
@@ -72,7 +77,6 @@
           }
         }
     }
-
     echo '<script>
         document.getElementById("overlay-ajustar").classList.add("show");
         document.getElementById("popup-ajustar").classList.add("show");
@@ -80,7 +84,6 @@
             window.location.href = "ajustes.html";
         }, 2000);
         </script>';
-
     ?>
 </body>
 

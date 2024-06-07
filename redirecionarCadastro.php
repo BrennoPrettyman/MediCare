@@ -19,6 +19,7 @@
     <script src="js/seta.js"></script>
 
     <title>MediCare - Cadastro</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
@@ -136,7 +137,7 @@
     
         $result2 = mysqli_query($conn, $sqlVerify2); // verifica no banco de dados
      
-        if ($result->num_rows > 0 || $result2->num_rows2) { // para cada coluna
+        if ($result->num_rows > 0 || $result2->num_rows > 0) { // para cada coluna
             while($row = $result->fetch_assoc()) {
               if ($coren && $coren == $row["id_coren_enfermeiro"]){
                 echo '<script>

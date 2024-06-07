@@ -93,6 +93,12 @@ p {
     width: 100%;
 }
 
+
+.flexList{
+    display: flex;
+    flex-direction: column;
+}
+
 /* Ajustes para telas menores */
 @media (max-width: 1024px) {
 

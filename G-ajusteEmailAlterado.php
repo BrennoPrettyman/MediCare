@@ -4,23 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/redefinir.css">
     <link rel="stylesheet" href="css/icons.css">
-    <script src="js/senha.js"></script>
-    <script src="js/redefinir.js"></script>
-   
-
+    <link rel="stylesheet" href="css/Modo/stylerecuperar.css" id="dark-css">
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
+    
+    <script src="js/Modo.js"></script>
+    <script src="js/click.js"></script>
 
-    <title>MediCare - Recuperação</title>
+    <title>MediCare - Alteração Email</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
-    <h1>MediCare</h1>
+    <div class="mode">
+        <h1>MediCare</h1>
+        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
+    </div>
+    <link rel="stylesheet" href="css/Modo/M-stylerecuperar.css" id="light-css" disabled>
 
     <div class="Bloco01">
         <h2>Redefina seu E-mail</h2>

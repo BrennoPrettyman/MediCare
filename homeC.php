@@ -16,9 +16,10 @@
 
     <!-- JAVASCRIPT -->
     <script src="js/atender.js"></script>
-    <script src="js/navBar.js"></script>
     <script src="js/updateHomeC.js"></script>
+
     <title>MediCare - Home</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
@@ -60,6 +61,7 @@
                                 $existe = true;
                             }
                         }
+                        $existe = false; // temporario (desabilita o atendimento já atendido)
                         if ($existe == false){
                             $falta++;
                             echo "<div class='box'>";

@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updt(){
         historyFound.setAttribute("hidden","");
         noFound.removeAttribute("hidden"); // remove mensagem "vazia"
+        noFound.classList.add("book");
 
         var corenFounds = document.querySelectorAll(".box2"); // primeiras caixas (enfermeiro)
         corenFounds.forEach(function (boxing) {
@@ -60,13 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 boxing.removeAttribute("hidden");
                 historyFound.removeAttribute("hidden"); // achoou historico
                 noFound.setAttribute("hidden","");
+                noFound.classList.remove("book");
             }
         });
         var botoesAdicionados = document.querySelectorAll(".botao-adicional");
         botoesAdicionados.forEach(function (botao) {
             botao.setAttribute("hidden","");
         });
-        noQuarto.setAttribute("hidden","");
         showing = false;
         finded = false;
         resultFounds = 0;

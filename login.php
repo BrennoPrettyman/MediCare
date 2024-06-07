@@ -16,7 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-    <title>MediCare - Iniciar Atendimento</title>
+    <title>MediCare - Login</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
         <img src="css/media/setablue.png" id="volta">
         <div class="content">
             <h1>MediCare</h1>
-            <span>Iniciar Atendimento</span>
+            <span>Login</span>
         </div>
         <div style="width: 30px;"></div>
     </div>

@@ -18,6 +18,7 @@
     <script src="js/preencherAtender.js" type="text/javascript"></script>
 
     <title>MediCare - Relatório Medico</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

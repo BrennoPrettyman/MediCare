@@ -14,7 +14,9 @@
     
     <script src="js/Modo.js"></script>
     <script src="js/click.js"></script>
+
     <title>MediCare - Alteração Email</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
@@ -22,8 +24,8 @@
         <h1>MediCare</h1>
         <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
     </div>
-    
     <link rel="stylesheet" href="css/Modo/M-stylerecuperar.css" id="light-css" disabled>
+    
     <div class="Bloco01">
         <h2>Redefina seu E-mail</h2>
         <p>Insira o novo endereço de e-mail desejado para redefinição. Em seguida, enviaremos um link de confirmação.</p>

@@ -17,6 +17,7 @@
         rel="stylesheet">
 
     <title>MediCare - Redefinir Senha</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

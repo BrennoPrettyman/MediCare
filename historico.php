@@ -15,10 +15,9 @@
         rel="stylesheet">
 
     <script src="js/historicoSelect.js"></script>
-    <script src="js/navBar.js"></script>
 
     <title>MediCare - Histórico</title>
-    <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

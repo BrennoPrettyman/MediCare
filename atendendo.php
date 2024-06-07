@@ -18,8 +18,8 @@
     <script src="js/finalizar.js"></script>
     <script src="js/preencherAtender.js"></script>
 
-
     <title>MediCare - Atendendo</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

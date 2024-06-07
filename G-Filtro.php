@@ -14,9 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 
-    <script src="js/navBar.js"></script>
-
     <title>MediCare - Filtro</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
@@ -28,11 +27,14 @@
         Filtra pelos seus atendimentos antigos, mostrando-os primeiro no histórico
         </div></button>
 
-    <div class="bloco1">
+    <div class="bloco" id="block1">
         <button class="btn" onclick="quartos()">Leitos</button>
     </div>
-    <div id="block2">
+    <div class="bloco" id="block2">
         <button class="btn" onclick="dates()">Datas</button>
+    </div>
+    <div class="bloco" id="block3">
+        <button class="btn" onclick="motivo()">Motivos</button>
     </div>
 
 
@@ -70,6 +72,9 @@
             $dt_founds = [];
             $btnHTML2 = '';
 
+            $mtv_founds = [];
+            $btnHTML3 = '';
+
             $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
             if ($sqlResult->num_rows > 0) {
                 while($row = $sqlResult->fetch_assoc()) {
@@ -92,7 +97,18 @@
                     }
                     if ($existe2 == false){
                         array_push($dt_founds,$row["dt_inicio_chamado"]);
-                        $btnHTML2 = '<button id="'.$row["dt_inicio_chamado"].'" class="btn3 botao-adicional custom2" onclick="dateSelect(id)">'.substr($row['dt_inicio_chamado'],8).'/'.substr($row['dt_inicio_chamado'],5,2).'/'.substr($row['dt_inicio_chamado'],0,4).'</button>'.$btnHTML2;        
+                        $btnHTML2 = '<button id="'.$row["dt_inicio_chamado"].'" class="btn3 botao-adicional2" onclick="dateSelect(id)">'.substr($row['dt_inicio_chamado'],8).'/'.substr($row['dt_inicio_chamado'],5,2).'/'.substr($row['dt_inicio_chamado'],0,4).'</button>'.$btnHTML2;        
+                    }
+
+                    $existe3 = false;
+                    for ($i3=0; $i3 < count($mtv_founds); $i3++) { 
+                        if ($mtv_founds[$i3] == $row["ds_motivo"]){
+                            $existe3 = true;
+                        }
+                    }
+                    if ($existe3 == false){
+                        array_push($mtv_founds,$row["ds_motivo"]);
+                        $btnHTML3 = '<button id="'.$row["ds_motivo"].'" class="btn3 botao-adicional3" onclick="motivoSelect(id)">'.$row["ds_motivo"].'</button>'.$btnHTML3;        
                     }
                }
             }
@@ -104,14 +120,18 @@
                 $btnHTML2 = '<button class="btn3 botao-adicional">Não há Datas</button>';
             }
 
+            if (count($mtv_founds) < 1){
+                $btnHTML3 = '<button class="btn3 botao-adicional">Outros Motivos</button>';
+            }
         
             echo '
             <script>
             // TELA FILTROS - BOTÃO QUARTOS
             localStorage.setItem("filtroQuarto",0);
             localStorage.setItem("filtroData","0000-00-00");
+            localStorage.setItem("filtroMotivo","nenhum");
             function quartos() {
-                var botoesContainer = document.querySelector(".bloco1");
+                var botoesContainer = document.getElementById("block1");
                 var botoesAdicionados = document.querySelectorAll(".botao-adicional");
             
                 if (botoesAdicionados.length === 0) {
@@ -128,12 +148,13 @@
             }
             function selecionado(id){
                 localStorage.setItem("filtroData","0000-00-00");
+                localStorage.setItem("filtroMotivo","nenhum");
                 localStorage.setItem("filtroQuarto",id);
             }
 
             function dates() {
                 var botoesContainer2 = document.getElementById("block2");
-                var botoesAdicionados2 = document.querySelectorAll(".custom2");
+                var botoesAdicionados2 = document.querySelectorAll(".botao-adicional2");
             
                 if (botoesAdicionados2.length === 0) {
                         var botoesHTML2 = `
@@ -148,8 +169,31 @@
                 }
             }
             function dateSelect(id){
-                localStorage.setItem("filtroQuarto",0);
                 localStorage.setItem("filtroData",id);
+                localStorage.setItem("filtroQuarto",0);
+                localStorage.setItem("filtroMotivo","nenhum");
+            }
+
+            function motivo() {
+                var botoesContainer3 = document.getElementById("block3");
+                var botoesAdicionados3 = document.querySelectorAll(".botao-adicional3");
+            
+                if (botoesAdicionados3.length === 0) {
+                        var botoesHTML3 = `
+                        '.$btnHTML3.'
+                    `;
+                    botoesContainer3.insertAdjacentHTML("beforeend", botoesHTML3);
+                }
+                else {
+                    botoesAdicionados3.forEach(function (botao) {
+                        botao.remove();
+                    });
+                }
+            }
+            function motivoSelect(id){
+                localStorage.setItem("filtroData","0000-00-00");
+                localStorage.setItem("filtroQuarto",0);
+                localStorage.setItem("filtroMotivo",id);
             }
 
             document.getElementById("cmdA").addEventListener("click", function () {

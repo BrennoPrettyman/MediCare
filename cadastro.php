@@ -19,6 +19,7 @@
     <script src="js/seta.js"></script>
 
     <title>MediCare - Cadastro</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>

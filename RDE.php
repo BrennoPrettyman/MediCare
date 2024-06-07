@@ -15,6 +15,7 @@
         rel="stylesheet">
     
     <title>MediCare - Alteração Email</title>
+    <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>
 
 <body>
