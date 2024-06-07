@@ -41,7 +41,7 @@
             <canvas id="myChart" style="width:50%;height:100px;background-color: transparent;padding: 25px 0px 25px 0px;"></canvas>
             <?php
             include "conexao.php";
-            $motivos = ["Mudança de Decúbito", "Higiêne Pessoal", "Fortes Dores", "Reclamação","Queda", "Parada Cardiáca"];
+            $motivos = ["Mudança de Decúbito", "Higiene Pessoal", "Fortes Dores", "Reclamação","Queda", "Parada Cardiáca"];
             $quantidade = [];
             $colors = ["#0e284b","#0085db","#50ceff","#004776","#136da8","#064eae"];
             for ($i=0; $i < count($motivos); $i++) { 

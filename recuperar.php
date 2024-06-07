@@ -26,7 +26,7 @@
 
     <div class="Bloco01">
         <h2>Recuperação</h2>
-        <p>Insira o coren cadastrado no MediCare, enviaremos um link via email para que você possa redefinir sua senha</p>
+        <p>Insira o coren cadastrado no MediCare, enviaremos um link via e-mail para que você possa redefinir sua senha</p>
 
         <form method="post" action="redefinir.php" class="container form">
             <p>Coren</p>
@@ -71,7 +71,7 @@
 
                 <div id="popup-recuperar" class="pop">
                     <img src="css/media/arroba.png" id="apop">
-                    <h3>Um link de recuperação foi enviado para seu email</h3>
+                    <h3>Um link de recuperação foi enviado para seu e-mail</h3>
                 </div>
             </div>
         </form>

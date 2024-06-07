@@ -39,7 +39,7 @@
     <div class="bloco1">
         <div class="box">
             <h4>Você está prestando um atendimento agora</h4>
-            <button class="btn" id="finalizar1">Finalizar Atendimentos</button>
+            <button class="btn" id="finalizar1">Finalizar Atendimento</button>
         </div>
     </div>
 </body>

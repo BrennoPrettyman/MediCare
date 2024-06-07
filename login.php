@@ -25,7 +25,7 @@
         <img src="css/media/setablue.png" id="volta">
         <div class="content">
             <h1>MediCare</h1>
-            <span>Login</span>
+            <span>Entrar</span>
         </div>
         <div style="width: 30px;"></div>
     </div>

@@ -59,3 +59,8 @@
     margin-right: 5px;
     width: 40px; 
 }
+
+#DOWNarrow, #UParrow {
+    align-items: center;
+    display: flex;
+}

@@ -52,7 +52,7 @@
     ?>
     <div class="Bloco01" id="block1">
         <h2>Recuperação</h2>
-        <p>Insira o coren cadastrado no MediCare, enviaremos um link via email para que você possa redefinir sua senha</p>
+        <p>Insira o coren cadastrado no MediCare, enviaremos um link via e-mail para que você possa redefinir sua senha</p>
 
         <div class="container form">
             <p>Coren</p>
@@ -97,7 +97,7 @@
 
                 <div id="popup-recuperar" class="pop">
                     <img src="css/media/arroba.png" id="apop">
-                    <h3>Um link de recuperação foi enviado para seu email</h3>
+                    <h3>Um link de recuperação foi enviado para seu e-mail</h3>
                 </div>
             </div>
     </div>
@@ -107,7 +107,7 @@
     <div class="Bloco02" id="block2">
         <form method="post" action="senhaAlterada.php" class="container form">
             <h2>Redefina sua senha</h2>
-            <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p>
+            <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caractere especial</p>
             
             <p>Crie uma senha</p>
             
@@ -118,7 +118,7 @@
             <snaN id="passwordVerify">
                 <char id="char">• 7 Caracteres</char>
                 <num id="num">ﾠ• Número</num>
-                <special id="special">ﾠ• Caracter Especial</special>
+                <special id="special">ﾠ• Caractere Especial</special>
             </snaN>
 
         
