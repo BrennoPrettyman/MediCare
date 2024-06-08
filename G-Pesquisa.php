@@ -104,7 +104,7 @@
             }
         ?>
         
-        <div class="hst" id="hst" hidden>Histórico <img src="pics\setabaixo.png" width="10px" id="DOWNarrow"></div>
+        <div class="hst" id="hst" hidden>Histórico <img src="pics\setabaixo.png" width="10px" id="arrow"></div>
 
         <div id="empty" class="book">
             <img src="pics/pesquisaresutado.png" id="book" width="70px">

@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function motivando(txt){
         document.getElementById("valorMotivo").value = txt;
     }
-    var mtvtxt = document.getElementById("mtvTXT")
+    var showMore = document.getElementById("arrow");
+    var mtvtxt = document.getElementById("mtvTXT");
     mtvtxt.addEventListener("keyup", () => {
         if (mtvtxt.value.trim().length > 0){
             if (mtvtxt.attributes.getNamedItem("required")){
@@ -38,7 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="mtvo2 botao-adicional">Reclamação</div>
             `;
             botoesContainer.insertAdjacentHTML('beforeend', botoesHTML);
+            showMore.setAttribute("src","pics\\setacima.png")
         } else {
+            showMore.setAttribute("src","pics\\setabaixo.png")
             botoesAdicionados.forEach(function (botao) {
                 botao.remove();
             });

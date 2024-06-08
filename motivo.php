@@ -28,7 +28,7 @@
         <h2 id="andar">Andar 01</h2>
         <h3 id="quarto">Quarto 01 | Leito 10</h3>       
         <div class="bloco">
-            <div class="mtvo" id="mtvo" >Motivo do Chamado  <img src="pics\setabaixo.png" id="downarrow" width="10px"> </div>
+            <div class="mtvo" id="mtvo" >Motivo do Chamado  <img src="pics\setabaixo.png" id="arrow" width="10px"> </div>
            
         </div>
         <div class="bloco1">

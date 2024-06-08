@@ -34,17 +34,17 @@
             <img src="css/media/relogioH.png" id="book" width="55px">
             <div class="infos">
                 <h2>Histórico</h2>
-                <h3 id="enfermeiro">Thayna Santos | 123.456-SP </h3>
+                <h3 id="enfermeiro">Nome | 000.000-?? </h3>
             </div>
         </div>
         <div class="infos2">
             <div class="info-item">
                 <img src="css/media/predio.png" id="InfoH">
-                <h4 id="andar">Andar 02</h4>
+                <h4 id="andar">Andar ??</h4>
             </div>
             <div class="info-item">
                 <img src="css/media/porta.png" id="InfoH">
-                <h4 id="quarto">Quarto 02</h4>
+                <h4 id="quarto">Quarto ??</h4>
             </div>
         </div>
     </div>

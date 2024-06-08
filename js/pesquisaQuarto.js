@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var noFound = document.getElementById("empty");
     var historyFound = document.getElementById("hst");
     var noQuarto = document.getElementById("??????");
+    var showMore = document.getElementById("arrow");
 
     var resultFounds = 0;
     var finded = false;
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     finded = true;
                     resultFounds++;
                     roomy.removeAttribute("hidden");
+                    showMore.setAttribute("src","pics\\setacima.png")
                 }
 
             });
@@ -39,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showing = false;
             finded = false;
             resultFounds = 0;
+            showMore.setAttribute("src","pics\\setabaixo.png")
             botoesAdicionados.forEach(function (botao) {
                 botao.setAttribute("hidden","");
             });
