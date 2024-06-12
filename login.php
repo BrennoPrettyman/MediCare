@@ -10,6 +10,7 @@
     <script src="js/coren.js"></script>
     <script src="js/senha.js"></script>
     <script src="js/seta.js"></script>
+    <script type="text/javascript" src="js/clrfilter.js"></script>
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,6 +127,7 @@
         let estado = document.getElementById("estado");
         let senha = document.getElementById("senha");
 
+ 
         let shadowColor ="box-shadow: red 0px 0px 6px 0.5px;";
         let noShadow ="transparent 0px 0px 0px 0px;";
 
@@ -183,11 +185,10 @@
         senha.addEventListener("keyup", verify);
 
         senha.addEventListener("keyup", () => {
-            allowed = true;
             const isContainsSymbol = /^(?=.*[~`!@#$%^*--+={}\[\]|\\:<>,.?/_₹]).*$/;
             const notAllowed = /^(?=.*[=)("\';]).*$/;
             if (!isContainsSymbol.test(senha.value) || notAllowed.test(senha.value) == true){
-                    allowed = false;
+                allowed = false;
             }
         })
 

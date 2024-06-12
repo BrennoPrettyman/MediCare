@@ -26,7 +26,7 @@
         <h1>MediCare</h1>
         <P>Relatório Médico | Chamado</P>
         <h2 id="andar">Andar 01</h2>
-        <h3 id="quarto">Quarto 01 | Leito 10</h3>       
+        <h3 id="quarto">Quarto 01 | Leito 01</h3>       
         <div class="bloco">
             <div class="mtvo" id="mtvo">Motivo do Chamado</div>
             <?php
@@ -85,6 +85,9 @@
         $timeFinal = $_SESSION['hora_fim'];
         $coren = $_SESSION['id_coren_enfermeiro'];
         $sql = "INSERT INTO tb_chamado VALUES (null, '$motivo', '$dataBegin', '$timeBegin', '$timeFinal', '$coren', $espAtividade)";
+        mysqli_query($conn, $sql);
+
+        $sql = "UPDATE tb_esp_atividade SET st_esp_atividade = 0 WHERE cd_esp_atividade = $espAtividade;";
         mysqli_query($conn, $sql);
 
         echo "<script>";

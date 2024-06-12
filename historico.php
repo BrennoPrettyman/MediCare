@@ -15,6 +15,8 @@
         rel="stylesheet">
 
     <script src="js/historicoSelect.js"></script>
+    <script src="js/filtroHistorico.js"></script>
+    <script src="js/reloadPage.js"></script>
 
     <title>MediCare - Histórico</title>
     <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
@@ -55,7 +57,7 @@
             $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
             if ($sqlResult->num_rows > 0) {
                 while($row = $sqlResult->fetch_assoc()) {
-                    echo "<div class='box btn' id='".$row['nr_quarto']."' style='order:-".$row['cd_chamado']."'>";
+                    echo "<div class='box btn' mtv='".$row['ds_motivo']."' dt='".$row['dt_inicio_chamado']."' id='".$row['nr_quarto']."' style='order:-".$row['cd_chamado']."'>";
                     echo "<div class='content'>";
                     echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";
                     echo "<h4>Leito ".str_pad($row['id_leito'],2,"0",STR_PAD_LEFT)."</h4>";
@@ -83,19 +85,6 @@
 
             ?>
         </div>
-        <script>
-                document.addEventListener("DOMContentLoaded", ()=>{
-                    var quarto = localStorage.getItem("quartoSelecionado");
-                    if (quarto && quarto > 0){
-                        var botoesAdicionados = document.querySelectorAll(".btn");
-                        botoesAdicionados.forEach(function (botao) {
-                            if (botao.id != quarto && quarto != 0){
-                                botao.remove();
-                            }
-                        });
-                    }
-                });
-        </script>
         <div class="navbar">
             <a href="homeC.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>
             <a href="historico.php"><img src="pics/INhistory.png" class="icon" id="ClockIcon"></a>

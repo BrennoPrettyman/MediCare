@@ -30,9 +30,15 @@
         Filtra pelos seus atendimentos antigos, mostrando-os primeiro no histórico
         </div>
     </button>
+    <button class='btn' onclick="quartos()">Quartos</button>
+    <div class="bloco1" id="block1"></div>
 
-    <div class="bloco1">
-        <button class='btn' onclick="quartos()">Quartos</button>
+    <button class='btn'  onclick="dates()">Datas</button>
+    <div class="bloco1" id="block2"></div>
+
+    <button class='btn' onclick="motivo()">Motivos</button>
+    <div class="bloco1" id="block3"></div>
+
         <?php
             include "conexao.php";
 
@@ -54,6 +60,10 @@
             
             $nr_quartos = [];
             $btnHTML = '';
+            $dt_inicios = [];
+            $btnHTML2 = '';
+            $motivos = [];
+            $btnHTML3 = '';
             $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
             if ($sqlResult->num_rows > 0) {
                 while($row = $sqlResult->fetch_assoc()) {
@@ -65,7 +75,29 @@
                     }
                     if ($existe == false && $coren == $row["fk_id_coren_enfermeiro"]){
                         array_push($nr_quartos,$row["nr_quarto"]);
-                        $btnHTML = '<button id="'.$row["nr_quarto"].'" class="btn3 botao-adicional" onclick="selecionado(id)">Quarto '.str_pad($row["nr_quarto"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;        
+                        $btnHTML = '<button id="'.$row["nr_quarto"].'" class="btn3 botao-adicional" onclick="selecionado(id)">Quarto '.str_pad($row["nr_quarto"],2,"0",STR_PAD_LEFT).'</button>'.$btnHTML;
+                    }
+
+                    $existe2 = false;
+                    for ($i=0; $i < count($dt_inicios); $i++) { 
+                        if ($dt_inicios[$i] == $row["dt_inicio_chamado"]){
+                            $existe2 = true;
+                        }
+                    }
+                    if ($existe2 == false && $coren == $row["fk_id_coren_enfermeiro"]){
+                        array_push($dt_inicios,$row["dt_inicio_chamado"]);
+                        $btnHTML2 = '<button id="'.$row["dt_inicio_chamado"].'" class="btn3 botao-adicional2" onclick="dataSelect(id)">'.substr($row['dt_inicio_chamado'],8).'/'.substr($row['dt_inicio_chamado'],5,2).'/'.substr($row['dt_inicio_chamado'],0,4).'</button>'.$btnHTML2;
+                    }
+
+                    $existe3 = false;
+                    for ($i3=0; $i3 < count($motivos); $i3++) { 
+                        if ($motivos[$i3] == $row["ds_motivo"]){
+                            $existe3 = true;
+                        }
+                    }
+                    if ($existe3 == false){
+                        array_push($motivos,$row["ds_motivo"]);
+                        $btnHTML3 = '<button id="'.$row["ds_motivo"].'" class="btn3 botao-adicional3" onclick="mtvSelect(id)">'.$row["ds_motivo"].'</button>'.$btnHTML3;        
                     }
                }
             }
@@ -75,9 +107,30 @@
             echo '
             <script>
             // TELA FILTROS - BOTÃO QUARTOS
-            localStorage.setItem("quartoSelecionado",0);
+            localStorage.setItem("filtroQuarto",0);
+            localStorage.setItem("filtroData","0000-00-00");
+            localStorage.setItem("filtroMotivo","nenhum");
+
+            function selecionado(id){
+                localStorage.setItem("filtroQuarto",id);
+                localStorage.setItem("filtroData","0000-00-00");
+                localStorage.setItem("filtroMotivo","nenhum");
+            }
+
+            function dataSelect(id){
+                localStorage.setItem("filtroQuarto",0);
+                localStorage.setItem("filtroData",id);
+                localStorage.setItem("filtroMotivo","nenhum");
+            }
+
+            function mtvSelect(id){
+                localStorage.setItem("filtroQuarto",0);
+                localStorage.setItem("filtroData","0000-00-00");
+                localStorage.setItem("filtroMotivo",id);
+            }
+            
             function quartos() {
-                var botoesContainer = document.querySelector(".bloco1");
+                var botoesContainer = document.getElementById("block1");
                 var botoesAdicionados = document.querySelectorAll(".botao-adicional");
             
                 if (botoesAdicionados.length === 0) {
@@ -92,15 +145,56 @@
                     });
                 }
             }
-            function selecionado(id){
-                localStorage.setItem("quartoSelecionado",id);
+
+            function dates() {
+                var botoesContainer2 = document.getElementById("block2");
+                var botoesAdicionados2 = document.querySelectorAll(".botao-adicional2");
+            
+                if (botoesAdicionados2.length === 0) {
+                        var botoesHTML2 = `
+                        '.$btnHTML2.'
+                    `;
+                    botoesContainer2.insertAdjacentHTML("beforeend", botoesHTML2);
+                }
+                else {
+                    botoesAdicionados2.forEach(function (botao) {
+                        botao.remove();
+                    });
+                }
             }
+
+            function motivo() {
+                var botoesContainer3 = document.getElementById("block3");
+                var botoesAdicionados3 = document.querySelectorAll(".botao-adicional3");
+            
+                if (botoesAdicionados3.length === 0) {
+                        var botoesHTML3 = `
+                        '.$btnHTML3.'
+                    `;
+                    botoesContainer3.insertAdjacentHTML("beforeend", botoesHTML3);
+                }
+                else {
+                    botoesAdicionados3.forEach(function (botao) {
+                        botao.remove();
+                    });
+                }
+            }
+            
+            var visible = true;
+            document.getElementById("cmdA").addEventListener("click", function () {
+                var info = document.getElementById("info");
+                if (visible == true) {
+                    visible = false;
+                    info.classList.remove("show");
+                }
+                else if (visible == false){
+                    visible = true;
+                    info.classList.add("show");
+                }
+            });
             </script>
             ';
         ?>
-
-    </div>
-
     <div class="navbar">
         <a href="historico.php"><img src="pics/seta.png" class="icon" id="HomeIcon"></a>
         <a href="home.php"><img src="pics/home.png" class="icon" id="HomeIcon"></a>

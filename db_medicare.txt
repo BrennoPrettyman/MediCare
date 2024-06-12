@@ -62,4 +62,12 @@ foreign key (fk_cd_esp_atividade) references tb_esp_atividade (cd_esp_atividade)
 primary key (cd_chamado)
 );
 
-#Nota: isso é apenas um comando mysql;
+INSERT INTO tb_quarto 
+VALUES (null, 3, 2, 'Santana'), 
+(null, 5, 6, 'Santana'), 
+(null, 7, 4, 'Santana');
+
+INSERT INTO tb_leito 
+VALUES (null, 1), 
+(null, 1), 
+(null, 3);

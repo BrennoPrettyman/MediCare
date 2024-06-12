@@ -15,6 +15,7 @@
         rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script type="text/javascript" src="js/clrfilter.js"></script>
 
     <title>MediCare - Gestão</title>
     <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">

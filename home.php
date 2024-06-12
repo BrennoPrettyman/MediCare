@@ -14,7 +14,8 @@
         rel="stylesheet">
 
     <script src="js/atender.js"></script>
-    
+    <script src="js/reloadPage.js"></script>
+
     <title>MediCare - Home</title>
     <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
 </head>

@@ -16,7 +16,7 @@
 
     <!-- JAVASCRIPT -->
     <script src="js/atender.js"></script>
-    <script src="js/updateHomeC.js"></script>
+    <script src="js/reloadPage.js"></script>
 
     <title>MediCare - Home</title>
     <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
@@ -29,7 +29,6 @@
 
     <div class="bloco1">
         <h2>Andar 01</h2>
-
             <?php
                 include "conexao.php";
 
@@ -43,26 +42,11 @@
                 $sqlCheck = "SELECT * from tb_chamado as c;"; //$sql = SELECT from mysql
                 $resultCheck = mysqli_query($conn, $sqlCheck); // verifica no banco de dados
 
-                $atendido = [];
-                if ($resultCheck->num_rows > 0) {
-                    while($row2 = $resultCheck->fetch_assoc()) {
-                        if ($row2['fk_cd_esp_atividade']){
-                            array_push($atendido,$row2['fk_cd_esp_atividade']);
-                        }
-                    }
-                }
                 if ($result->num_rows > 0) {
                     // output data of each row
                     $falta = 0;
                     while($row = $result->fetch_assoc()) {
-                        $existe = false;
-                        for ($i=0; $i < count($atendido); $i++) {
-                            if ($row['cd_esp_atividade'] == $atendido[$i]){
-                                $existe = true;
-                            }
-                        }
-                        $existe = false; // temporario (desabilita o atendimento já atendido)
-                        if ($existe == false){
+                        if ($row['st_esp_atividade'] == 1){
                             $falta++;
                             echo "<div class='box'>";
                             echo "<h3>Quarto ".str_pad($row['nr_quarto'],2,"0",STR_PAD_LEFT)."</h3>";

@@ -65,18 +65,12 @@
           if ($senha && $senha == $row[$valorSelecionado[2]]
           && $estado && $estado == $row[$valorSelecionado[1]]
           && $coren && $coren == $row[$valorSelecionado[0]]){
-            if ($resultQuarto->num_rows <= 0) {
-                $sql1 = "INSERT INTO tb_quarto VALUES (null, 3, 2, 'Santana'), (null, 5, 6, 'Santana'), (null, 7, 4, 'Santana')";
-                mysqli_query($conn, $sql1);
-            }
-            if ($resultLeito->num_rows <= 0) {
-              $sql2 = "INSERT INTO tb_leito VALUES (null, 1), (null, 2), (null, 3)";
-              mysqli_query($conn, $sql2);
-            }
+            /*
             if ($resultESP->num_rows <= 0) {
-              $sql3 = "INSERT INTO tb_esp_atividade VALUES (null, true, 1), (null, false, 2), (null, false, 3)";
+              $sql3 = "INSERT INTO tb_esp_atividade VALUES (null, true, 1), (null, trur, 2), (null, true, 3)";
               mysqli_query($conn, $sql3);
             }
+            */
             if ($cargo == "TEnf"){
               echo "window.location.href = 'qrcodeex.html';";
             }
