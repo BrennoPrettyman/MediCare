@@ -42,23 +42,39 @@
             <canvas id="myChart" style="width:50%;height:100px;background-color: transparent;padding: 25px 0px 25px 0px;"></canvas>
             <?php
             include "conexao.php";
-            $motivos = ["Mudança de Decúbito", "Higiene Pessoal", "Fortes Dores", "Reclamação","Queda", "Parada Cardiáca"];
+            $motivos = ["Mudança de Decúbito","Higiene Pessoal","Fortes Dores","Reclamação","Queda","Parada Cardíaca","Outros Motivos"];
             $quantidade = [];
-            $colors = ["#0e284b","#0085db","#50ceff","#004776","#136da8","#064eae"];
+            $total = 0;
+            $totalOptions = 0;
+            $quantidadeOutros = 0;
+            $colors = ["#0e284b","#0085db","#50ceff","#004776","#136da8","#064eae","#001199"];
+
             for ($i=0; $i < count($motivos); $i++) { 
                 $sqlVerify = "SELECT count(cd_chamado) from tb_chamado where ds_motivo = '".$motivos[$i]."';"; //$sql = SELECT from mysql
                 $sqlResult = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
-    
+
                 if ($sqlResult->num_rows > 0) {
                     while($row = $sqlResult->fetch_assoc()) {
                         if ($row["count(cd_chamado)"]){
                             array_push($quantidade,$row["count(cd_chamado)"]);
+                            $totalOptions += $row["count(cd_chamado)"];
                         }
                         else{
                             array_push($quantidade,0);
                         }
                     }
                 }
+            }
+
+            $sqlCountTotal = "SELECT count(cd_chamado) from tb_chamado;"; //$sql = SELECT from mysql
+            $sqlResult2 = mysqli_query($conn, $sqlCountTotal); // verifica no banco de dados
+            if ($sqlResult2->num_rows > 0) {
+                while($row = $sqlResult2->fetch_assoc()) {
+                    $quantidadeOutros += $row["count(cd_chamado)"];
+                    $total += $row["count(cd_chamado)"];
+                }
+                $quantidadeOutros = $quantidadeOutros - $totalOptions;
+                array_push($quantidade,$quantidadeOutros);
             }
             echo '<script>
                 var xValues = '.json_encode($motivos).';
@@ -91,13 +107,9 @@
         </div>
         
         <?php
-        $total = 0;
-        for ($i2=0; $i2 < count($quantidade); $i2++) { 
-            $total += $quantidade[$i2];
-        }
         for ($i=0; $i < count($motivos); $i++) {
             if ($total > 0){
-                $porcento = round(($quantidade[$i]/$total)*100);
+                $porcento = round(($quantidade[$i+1]/$total)*100);
             }
             else{
                 $porcento = "...";
@@ -120,7 +132,7 @@
             <img src="pics/estatisticas.png" id="book" width="55px">
             <div class="infos">
                 <h2>Estatisticas</h2>
-                <h3>Por: Chamados por Quarto</h3>
+                <h3>Por: Quarto mais Chamados</h3>
             </div>
         </div>
            

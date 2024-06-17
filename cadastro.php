@@ -89,7 +89,7 @@
         </snaN>
         <p>Repita sua senha</p>
         <div class="formRow">
-            <input id="senhaConfirm" type="password" class="validate" required>
+            <input id="senhaConfirm" type="password" maxlength="45" class="validate" required>
             <div class="eyeVisible aberto" id="visibleEyeConfirm"></div>
         </div>
         <snaF id="wrongPassword"></snaF>

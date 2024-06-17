@@ -68,6 +68,18 @@
                         ';
                     }
                 }
+                else{
+                    echo '
+                    <script>
+                        document.getElementById("indexC").setAttribute("disabled","");
+                        document.getElementById("home").removeAttribute("disabled");
+                    </script>
+                    <div class="box">
+                    <img src="pics/relogio.png" class="ClockIcon">
+                    <h3>Aguardando o chamado do paciente</h3>
+                    </div>
+                    ';
+                }
             ?>
 
     <div class="navbar">

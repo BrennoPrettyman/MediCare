@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
     
-    <script src="js/motivo.js" type="text/javascript"></script>
     <script src="js/preencherAtender.js" type="text/javascript"></script>
 
     <title>MediCare - Relatório Medico</title>
@@ -59,11 +58,10 @@
             <input placeholder="Digite aqui" maxlength="15" id="mtvTXT" type="text" class="text">
             <h5 id="restante">15 Caracteres Restantes</h5>
             <?php
-            $hasMotivo;
             if ($hasMotivo == false){
                 echo '<script>
                 var mtvtxt = document.getElementById("mtvTXT")
-                mtvtxt.value = '.$motivo.';
+                mtvtxt.value = "'.$motivo.'";
                 document.getElementById("restante").textContent = 15-mtvtxt.value.length+" Caracteres Restantes";
                 </script>';                
             }

@@ -32,22 +32,33 @@
         <div style="width: 35px;"></div>
     </div>
 
-    <div class="container form">
-    <p>Nome</p>
-        <input id="nome" type="text" name="nm_enfermeiro" class="validate" maxlength="45" required>
+    <?php
+        $name = $_POST['nm_enfermeiro'];
+        $email = $_POST['email_enfermeiro'];
+        $cargo = $_POST['sg_cargo'];
+        $coren = $_POST['nr_coren_enfermeiro'];
+        $estado = $_POST['sg_estado_enfermeiro'];
+        $senha = $_POST['senha_enfermeiro'];
+        echo '<div class="container form">
+        <p>Nome</p>
+        <input id="nome" type="text" name="nm_enfermeiro" class="validate" maxlength="45" value="'.$name.'" required>
+        
         <p>E-Mail</p>
-        <input id="email" type="email" name="email_enfermeiro" class="validate" maxlength="45" required>
+        <input id="email" type="email" name="email_enfermeiro" class="validate" maxlength="45" value="'.$email.'" required>
+        
         <p>Cargo</p>
-        <select id="cargo" name="sg_cargo" class="validate" required>
+        <select id="cargo" name="sg_cargo" class="validate" value="'.$cargo.'" required>
             <option value="" selected disabled hidden>Selecione um cargo</option>
             <option value="TEnf">Técnico de Enfermagem</option>
             <option value="CEnf">Coordenação de Enfermagem</option>
         </select>
+        
         <p>Coren</p>
-        <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7" required>
+        <input id="coren" type="text" name="nr_coren_enfermeiro" class="validate" placeholder="___.___" maxlength="7" value="'.$coren.'" required>
         <snaF id="corenVerify"></snaF>
+        
         <p>Estado</p>
-        <select id="estado" name="sg_estado_enfermeiro" class="validate" required>
+        <select id="estado" name="sg_estado_enfermeiro" class="validate" value="'.$estado.'" required>
             <option value="" selected disabled hidden>Selecione um estado</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -77,9 +88,10 @@
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
         </select>
+        
         <p>Crie uma senha</p>
         <div class="formRow">
-            <input id="senha" type="password" name="senha_enfermeiro" maxlength="45" class="validate" required>
+            <input id="senha" type="password" name="senha_enfermeiro" maxlength="45" class="validate" value="'.$senha.'" required>
             <div class="eyeVisible aberto" id="visibleEye"></div>
         </div>
         <snaN id="passwordVerify">
@@ -87,12 +99,14 @@
         <num id="num">• Número</num>
         <special id="special">• Caracter Especial</special>
         </snaN>
+        
         <p>Repita sua senha</p>
         <div class="formRow">
-            <input id="senhaConfirm" type="password" class="validate" required>
+            <input id="senhaConfirm" type="password"  maxlength="45" class="validate" value="'.$senha.'" required>
             <div class="eyeVisible aberto" id="visibleEyeConfirm"></div>
         </div>
         <snaF id="wrongPassword"></snaF>
+        
         <div class="button">
             <input type="submit" class="meuBotao" id="cdsrt" value="Cadastre-se">
             <p>Já possui um cadastro? <a href="login.php">Entre!</a></p>
@@ -103,17 +117,9 @@
                 <img src="css/media/arroba.png" id="apop">
                 <h2>Um link de confirmação foi enviado para seu email</h2>
             </div>
-        </div>
-
-<?php
+        </div>';
     include "conexao.php";
 
-    $name = $_POST['nm_enfermeiro'];
-    $email = $_POST['email_enfermeiro'];
-    $cargo = $_POST['sg_cargo'];
-    $coren = $_POST['nr_coren_enfermeiro'];
-    $estado = $_POST['sg_estado_enfermeiro'];
-    $senha = $_POST['senha_enfermeiro'];
     $tbSelecionada = "";
     $valorSelecionado = "";
 
