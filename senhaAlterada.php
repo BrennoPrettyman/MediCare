@@ -32,7 +32,7 @@
     <div class="Bloco02">
         <div class="container form">
             <h2>Redefina sua senha</h2>
-            <!-- <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caracter especial</p> -->
+            <p>Crie uma nova senha forte de no minímo seis caracteres, contendo números, letras e um caractere especial</p>
             
             <p>Crie uma senha</p>
             
@@ -85,7 +85,6 @@
     $sqlVerify = "SELECT * from tb_enfermeiro
     where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';"; //$sql = SELECT from mysql
 
-
     $result = mysqli_query($conn, $sqlVerify); // verifica no banco de dados
 
     if ($result->num_rows > 0) { // para cada coluna
@@ -94,6 +93,21 @@
           && $estado && $estado == $row["sg_estado_enfermeiro"]){
             $sql = "UPDATE tb_enfermeiro SET senha_enfermeiro = '". $novaSenha ."' where id_coren_enfermeiro = '$coren' and sg_estado_enfermeiro = '$estado';";
             mysqli_query($conn, $sql);
+          }
+        }
+    }
+
+    $sqlVerify2 = "SELECT * from tb_coordenador
+    where id_coren_coordenador = '$coren' and sg_estado_coordenador = '$estado';"; //$sql = SELECT from mysql
+
+    $result2 = mysqli_query($conn, $sqlVerify2); // verifica no banco de dados
+
+    if ($result2->num_rows > 0) { // para cada coluna
+        while($row = $result2->fetch_assoc()) {
+          if ($coren && $coren == $row["id_coren_coordenador"]
+          && $estado && $estado == $row["sg_estado_coordenador"]){
+            $sql2 = "UPDATE tb_coordenador SET senha_coordenador = '". $novaSenha ."' where id_coren_coordenador = '$coren' and sg_estado_coordenador = '$estado';";
+            mysqli_query($conn, $sql2);
           }
         }
     }

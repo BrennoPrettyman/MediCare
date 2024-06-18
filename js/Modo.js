@@ -1,17 +1,34 @@
-function switchMode() {
-    const lightCss = document.getElementById('light-css');
-    const darkCss = document.getElementById('dark-css');
-    const icon = document.getElementById('MIcon');
+
+document.addEventListener("DOMContentLoaded", () => {
+    var lightCss = document.getElementById('light-css');
+    var darkCss = document.getElementById('dark-css');
+    var icon = document.getElementById('MIcon');
     
-    if (darkCss.disabled) {
-        // Ativa o CSS do modo escuro e desativa o CSS do modo claro
-        darkCss.disabled = false;
-        lightCss.disabled = true;
-        icon.src = 'css/media/sol.png';
-    } else {
-        // Ativa o CSS do modo claro e desativa o CSS do modo escuro
-        darkCss.disabled = true;
-        lightCss.disabled = false;
-        icon.src = 'css/media/lua.png';
+    var modo = localStorage.getItem("mode");
+
+    function changeMode(){
+        if (modo == "Dark"){
+            darkCss.disabled = false;
+            lightCss.disabled = true;
+            icon.src = 'css/media/sol.png';
+        }
+        else if (modo == "Light"){
+            darkCss.disabled = true;
+            lightCss.disabled = false;
+            icon.src = 'css/media/lua.png';
+        }
     }
-}
+    changeMode()
+
+    document.getElementById("MIcon").addEventListener("click",()=>{
+        if (modo == "Dark"){
+            localStorage.setItem("mode","Light");
+        }
+        else if (modo == "Light"){
+            localStorage.setItem("mode","Dark");
+        }
+        modo = localStorage.getItem("mode");
+        changeMode();
+    });
+
+})

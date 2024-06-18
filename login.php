@@ -211,7 +211,7 @@
                     document.getElementById("wrongPassword").textContent = "Senha Incorreta";
                 }
             }
-            });
+        });
     </script>'; // finaliza o script js
     ?>
 </body>

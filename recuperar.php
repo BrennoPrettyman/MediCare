@@ -3,7 +3,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Modo/recuperar.css" id="dark-css">
     <link rel="stylesheet" href="css/icons.css">
-    <script src="js/Modo.js"></script>
 
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
     <script src="js/coren.js"></script>
+    <script src="js/Modo.js"></script>
 
     <title>MediCare - Recuperação</title>
     <link rel="icon" type="image/png" href="css/media/MediCareIcon.png">
@@ -19,7 +19,7 @@
 <body>
 <div class="mode">
     <h1>MediCare</h1>
-    <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
+    <img src="css/media/sol.png" id="MIcon">
 </div>
 
 <link rel="stylesheet" href="css/Modo/M-recuperar.css" id="light-css" disabled>

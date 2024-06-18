@@ -22,7 +22,7 @@
 <body>
     <div class="mode">
         <h1>MediCare</h1>
-        <img src="css/media/sol.png" id="MIcon" onclick="switchMode()">
+        <img src="css/media/sol.png" id="MIcon">
     </div>
     <link rel="stylesheet" href="css/Modo/M-stylerecuperar.css" id="light-css" disabled>
 

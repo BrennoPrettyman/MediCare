@@ -55,12 +55,14 @@
 
                 if ($sqlResult->num_rows > 0) {
                     while($row = $sqlResult->fetch_assoc()) {
-                        if ($row["count(cd_chamado)"]){
-                            array_push($quantidade,$row["count(cd_chamado)"]);
-                            $totalOptions += $row["count(cd_chamado)"];
-                        }
-                        else{
-                            array_push($quantidade,0);
+                        if ($motivos[$i] != "Outros Motivos"){
+                            if ($row["count(cd_chamado)"]){
+                                array_push($quantidade,$row["count(cd_chamado)"]);
+                                $totalOptions += $row["count(cd_chamado)"];
+                            }
+                            else{
+                                array_push($quantidade,0);
+                            }
                         }
                     }
                 }
@@ -109,7 +111,7 @@
         <?php
         for ($i=0; $i < count($motivos); $i++) {
             if ($total > 0){
-                $porcento = round(($quantidade[$i+1]/$total)*100);
+                $porcento = round(($quantidade[$i]/$total)*100);
             }
             else{
                 $porcento = "...";
